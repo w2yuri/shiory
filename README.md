@@ -1,24 +1,51 @@
-# README
+# shiory
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+### サイトテーマ
+<!--何を『目的』とし、どのような『分類』なのかを簡潔に書く-->
+- 旅行のスケジュール
+SNSサイト​
 
-* Configuration
+### テーマを選んだ理由
+<!--なぜこのようなテーマにしたかを説明する-->
+もともと旅行が好きで、生活の変化やコロナウイルスの流行により、気軽に旅行に行ける機会が減りました。
+そんな中でWEBCAMPを受講し始め、各地に住んでいる同期の方々の出身地や現在の住まいの土地の
+特色や見どころ等の話を聞き、メディアでは得られない生のお話が聞けるのは貴重だと感じました。
+ローカルな情報を得ることで、地域の経済・文化を活発化にも繋がると考え、このテーマにしました。
+​
+### ターゲットユーザ
+<!--誰に使ってもらうかを具体的に記載する-->
+- 旅行が好きで、いろんな場所を巡りたいと考えている人
 
-* Database creation
+- 観光名所よりも、その土地をより体感できる旅行を楽しみたい人
 
-* Database initialization
+​
+### 主な利用シーン
+<!--どのような時に使うのかの状況を記載すること-->
+- 旅行の計画を立てる時
 
-* How to run the test suite
+- 自分が行って良かったと感じた場所をほかの人に共有したい時
 
-* Services (job queues, cache servers, search engines, etc.)
+- ​
 
-* Deployment instructions
 
-* ...
+## 設計書
+<!--テーマを設定・提出する時点では不要です-->
+​
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
+​
+## 使用素材
+- フリー写真素材として以下を使用
+
+  Unsplash（https://unsplash.com/ja）
+- フリーデザイン素材として以下を使用
+  
+  Canva(https://www.canva.com/)
