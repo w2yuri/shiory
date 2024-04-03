@@ -5,7 +5,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
  before_action :authenticate_customer!
 
   def after_sign_up_path_for(resource)
-    public_customers_path
+    root_path
   end
  
   def configure_sign_up_params
