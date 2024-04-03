@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  root to: 'public/homes#top'
+  get '/about', to: 'public/homes#about', as: 'about'
+  get '/admin', to: 'admin/homes#top', as: 'admin_root'
 
   # 顧客用
   # URL /customers/sign_in ...
