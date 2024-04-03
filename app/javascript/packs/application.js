@@ -11,3 +11,8 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+// cocoon使用のため記載
+require("@rails/ujs").start()
+require('jquery')
+require("@nathanvda/cocoon")
