@@ -1,0 +1,9 @@
+.nested-fields
+  .field
+    <%= f.collection_select :user_id, @staffs, :id, :name, {prompt: '選択してください' }, {class: 'form-control js-select-form'} %>
+  .field
+    <%= f.check_box :title %>
+  .field
+    <%= f.check_box :contents %>
+  .field
+    <%= link_to_remove_association 'Delete', f, class: 'js-log-remove-btn' %>

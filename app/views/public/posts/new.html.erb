@@ -1,1 +1,8 @@
-<!--figma p7の投稿編集-->
+<%= form_with model: @post, url: public_posts_path, local: true do |f| %>
+  <%= f.fields_for :travel_tasks do |task| %>
+    <%= render 'traveltask_fields', f: task, staffs: @staffs %>
+  <% end %>
+  <div class="links" data-count="<%= @staffs.count %>">
+    <%= link_to_add_association '対応者の情報を追加', f, :travel_tasks, { class: 'js-add-log-field-btn' } %>
+  </div>
+<% end %>

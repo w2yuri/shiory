@@ -1,6 +1,11 @@
 class Public::PostsController < ApplicationController
   before_action :ensure_customer, only: [:edit, :update, :destroy]
   
+  def new
+    @post = Post.new
+    @staffs = Staff.all
+  end
+  
   def index
     @post = Post.new
     @posts = Post.all
@@ -34,7 +39,7 @@ class Public::PostsController < ApplicationController
   private
   
   def post_params
-    params.require(:post).permit(:title, :contents, :post_images)
+    params.require(:post).permit(:title, :contents, :post_images, travel_task_attributes: [:user_id, :task1, :task2, :_destroy])
   end
   
   def ensure_user
