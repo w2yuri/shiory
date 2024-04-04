@@ -1,2 +1,21 @@
-<h1>Public::Users#show</h1>
-<p>Find me in app/views/public/users/show.html.erb</p>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-5">
+      
+    <h2>マイページ</h2><table class='table'>
+        <tr><%= image_tag user.get_profile_image(100, 100), class: "rounded-circle" %></tr>
+        <tr>
+      	  <th>name</th>
+      	  <th><%= user.name %></th>
+        </tr>
+        <tr>
+      	  <th>introduction</th>
+      	  <th><%= user.introduction %></th>
+        </tr>
+      </table>
+      <div class="form-group">
+        <%= f.submit "編集を保存", class: 'btn btn-secondary' %>
+      </div>
+    <% end %>
+  </div>
+</div>

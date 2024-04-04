@@ -1,8 +1,8 @@
 class Public::UsersController < ApplicationController
-  # ログインしていない場合、ログインページへリダイレクトする
-  before_action :authenticate_customer!
-  # 他のユーザーのプロフィールを編集時、リダイレクトされるフィルター定義
-  before_action :ensure_correct_user, only: [:edit, :update]
+  # # ログインしていない場合、ログインページへリダイレクトする
+  # before_action :authenticate_customer!
+  # # 他のユーザーのプロフィールを編集時、リダイレクトされるフィルター定義
+  # before_action :ensure_correct_user, only: [:edit, :update]
   
   
   def index
@@ -16,10 +16,21 @@ class Public::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
   
+  def update
+    if @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      render "edit"
+    end 
+  end
+  
+  def get_profile_image
+  end
+  
   private
   
   def user_params
-    params.require(:user).permit(:name, :introduction, :profile_image)
+    params.require(:user).permit(:name, :introduction, :profile_image[])
   end 
   
   def ensure_correct_user

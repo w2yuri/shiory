@@ -1,5 +1,5 @@
 <table class='table'>
-  <tr><%= image_tag user.get_profile_image, class: "rounded-circle", size:'100x100' %></tr>
+  <tr><%= image_tag user.get_profile_image(100, 100), class: "rounded-circle" %></tr>
   <tr>
 	  <th>name</th>
 	  <th><%= user.name %></th>
@@ -20,11 +20,12 @@
 　
 <div class='row'>
   <!--ログインしているユーザーが現在表示されているユーザーと等しくない場合-->
-  <% if current_user != user %>
+  <% if current_customer != user %>
     <td><%#= render "relationships/btn", user: user %></td>
   <% else %>
-    <%= link_to edit_user_path(user), class: "btn btn-outline-secondary btn-block edit_user_#{user.id}" do %>
-      Edit User
-    <% end %>
+    <%= link_to edit_public_user_path(user), class: "btn btn-outline-secondary btn-block edit_user_#{user.id}" do %>
+    Edit
+    <%= link_to "Show", public_user_path(user:id), class: "btn btn-outline-secondary btn-block" %>
+  <% end %>
   <% end %>
 </div>
