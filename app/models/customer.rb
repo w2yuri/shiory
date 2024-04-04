@@ -1,12 +1,18 @@
 class Customer < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  
+  # ユーザーの権限つける
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-        
-   has_one_attached :profile_image
+  has_many :post_images, dependent: :destroy
+  has_many :posts
+  has_many :favorites
+  has_many :comments
   
-  # ユーザーの権限
+  has_one_attached :profile_image
+  
   
   def get_profile_image(width, height)
     unless profile_image.attached?
@@ -15,5 +21,4 @@ class Customer < ApplicationRecord
     end
   profile_image.variant(resize_to_limit: [width, height]).processed
   end
-  
 end

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   }
 
   namespace :public do
-    resources :users, only: [:index, :show, :edit, :update, :destroy]
+    resources :customers, only: [:index, :show, :edit, :update, :destroy]
     resources :posts, only: [:new, :index, :show, :create, :edit, :update, :destroy]
     resources :favorites, only: [:create, :destroy]
     resources :coments, only: [:create, :destroy]
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'top' => 'homes#top', as: 'top'
-    resources :users, only: [:index, :show, :edit, :update, :destroy]
+    resources :customers, only: [:index, :show, :edit, :update, :destroy]
     resources :posts, only: [:index, :show, :update, :destroy]
   end
 
