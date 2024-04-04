@@ -1,111 +1,91 @@
 <header>
-  <!-- 上部 -->
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #d7e6d5;">
+  <nav class="navbar navbar-expand-lg" style="background-color: #d7e6d5;">
     <div class="container">
-      <!-- 上部左端に配置 -->
-     <div class="d-lg-flex d-none align-items-center col-lg-4 mr-auto">
-      <!-- Nagano Cake テキスト -->
+      <!-- shiory ロゴ -->
       <% if customer_signed_in? %>
         <%= link_to root_path, class: "navbar-brand", style: "margin-right: auto; margin-left: 0;" do %>
-          <%#= image_tag("nagano_cake1.jpg", alt: "Nagano Cake", size: "100x100") %>
+          <%= image_tag("title.jpg", alt: "shiory", size: "100x50") %>
         <% end %>
       <% elsif admin_admin_signed_in? %>
-        <%= link_to admin_items_path, class: "navbar-brand", style: "margin-right: auto; margin-left: 0;" do %>
-          <%#= image_tag("top.jpg", alt: "Nagano Cake", size: "100x100") %>
+        <%= link_to admin_posts_path, class: "navbar-brand", style: "margin-right: auto; margin-left: 0;" do %>
+          <%= image_tag("title.jpg", alt: "shiory", size: "100x50") %>
         <% end %>
       <% else %>
         <%= link_to root_path, class: "navbar-brand", style: "margin-right: auto; margin-left: 0;" do %>
-          <%#= image_tag("top.jpg", alt: "Nagano Cake", size: "100x100") %>
+          <%= image_tag("title.jpg", alt: "shiory", size: "100x50") %>
         <% end %>
       <% end %>
     </div>
-
-
-      <!-- 上部中央に配置 -->
-      <div class=" d-lg-flex d-none align-items-center col-lg-8">
-        <!-- 検索ボックス -->
-      </div>
-    </div>
-  </nav>
-  <!-- 下部 -->
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #d7e6d5;">
-    <div class="container">
-      <!-- 下部左に配置 -->
-      <div class="col-lg-6">
-        <!-- ログインしている場合の下部メッセージ -->
-        <% if customer_signed_in? %>
-          
-        <% elsif admin_admin_signed_in? %>
-          <span class="text-light mr-12">Administrator</span>
-        <% end %>
-      </div>
-      <!--下部右に配置-->
+    
+     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #d7e6d5;">
+      <div class="container">
       <div class="col-lg-6">
         <!-- ハンバーガー -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ml-auto">
+     
             <!-- ログインしていない場合 -->
             <% unless admin_admin_signed_in? || customer_signed_in? %>
-              <li class="header_text">
-                <%= link_to new_customer_registration_path,class: 'nav-link text-light' do %>
-                  Sign up
-                <% end %>
-              </li>
-              <li class="header_text">
-                <%= link_to new_customer_session_path,class: 'nav-link text-light' do %>
-                  Log in
-                <% end %>
-              </li>
-              <li class="header_text">
-                <%= link_to public_posts_path,class: 'nav-link text-light' do %>
-                Post
-                <% end %>
-              </li>
-              <li class="header_text">
-                <%= link_to about_path,class: 'nav-link text-light' do %>
+            <li style="list-style-type: none;">
+              <%= link_to new_customer_registration_path, class: 'nav-link text-light' do %>
+                Sign up
+              <% end %>
+            </li>
+            <li style="list-style-type: none;">
+              <%= link_to new_customer_session_path, class: 'nav-link text-light' do %>
+                Log in
+              <% end %>
+            </li>
+            <li style="list-style-type: none;">
+              <%= link_to public_posts_path, class: 'nav-link text-light' do %>
+                Posts
+              <% end %>
+            </li>
+            <li style="list-style-type: none;">
+              <%= link_to about_path, class: 'nav-link text-light' do %>
                 About
-                <% end %>
-              </li>
+              <% end %>
+            </li>
             <% end %>
             <!-- 管理者がログインしている場合 -->
             <% if admin_admin_signed_in? %>
-              <li class="header_text">
-                <%= link_to public_posts_path,class: 'nav-link text-light' do %>
-                  Post
+              <li style="list-style-type: none;">
+                <%= link_to public_posts_path, class: 'nav-link text-light' do %>
+                  Posts
                 <% end %>
               </li>
-              <li class="header_text">
-                <%= link_to public_users_path,class: 'nav-link text-light' do %>
-                  User
+              <li style="list-style-type: none;">
+                <%= link_to public_users_path, class: 'nav-link text-light' do %>
+                  Users
                 <% end %>
               </li>
-              <li class="header_text">
-                <%= link_to destroy_adminadmin__session_path, method: :delete,class: 'nav-link text-light' do %>
-                Log out
+              <li style="list-style-type: none;">
+                <%= link_to destroy_adminadmin__session_path, method: :delete, class: 'nav-link text-light' do %>
+                  Log out
                 <% end %>
               </li>
             <% end %>
             <!-- 顧客がログインしている場合 -->
             <% if customer_signed_in? %>
-              <li class="header_text">
-                <%= link_to public_users_path,class: 'nav-link text-light' do %>
-                MyPage
+              <li style="list-style-type: none;">
+                <%= link_to public_users_path, class: 'nav-link text-light' do %>
+                  My Page
                 <% end %>
               </li>
-              <li class="header_text">
-                <%= link_to public_posts_path,class: 'nav-link text-light' do %>
-                Post
+              <li style="list-style-type: none;">
+                <%= link_to public_posts_path, class: 'nav-link text-light' do %>
+                  Post
                 <% end %>
               </li>
-              <li class="header_text">
-                <%= link_to destroy_customer_session_path, method: :delete,class: 'nav-link text-light' do %>
-                Log out
+              <li style="list-style-type: none;">
+                <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-light' do %>
+                  Log out
                 <% end %>
               </li>
             <% end %>
+
           </ul>
         </div>
       </div>
