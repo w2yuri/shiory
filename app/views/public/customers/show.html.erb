@@ -3,14 +3,14 @@
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-5">
       
     <h2>マイページ</h2><table class='table'>
-        <tr><%= image_tag @user.get_profile_image(100, 100), class: "rounded-circle" %></tr>
+        <tr><%= image_tag @customer.get_profile_image(100, 100), class: "rounded-circle" %></tr>
         <tr>
       	  <th>name</th>
-      	  <th><%= @user.name %></th>
+      	  <th><%= @customer.name %></th>
         </tr>
         <tr>
       	  <th>introduction</th>
-      	  <th><%= @user.introduction %></th>
+      	  <th><%= @customer.introduction %></th>
         </tr>
       </table>
       <div class="form-group">

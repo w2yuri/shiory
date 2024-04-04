@@ -57,8 +57,8 @@
                 <% end %>
               </li>
               <li style="list-style-type: none;">
-                <%= link_to public_users_path, class: 'nav-link text-light' do %>
-                  Users
+                <%= link_to public_customers_path, class: 'nav-link text-light' do %>
+                  customers
                 <% end %>
               </li>
               <li style="list-style-type: none;">
@@ -70,7 +70,7 @@
             <!-- 顧客がログインしている場合 -->
             <% if customer_signed_in? %>
               <li style="list-style-type: none;">
-                <%= link_to public_users_path, class: 'nav-link text-light' do %>
+                <%= link_to public_customers_path, class: 'nav-link text-light' do %>
                   My Page
                 <% end %>
               </li>
