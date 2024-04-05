@@ -9,10 +9,33 @@ class Customer < ApplicationRecord
   has_many :post_images, dependent: :destroy
   has_many :posts
   has_many :favorites
-  has_many :comments
+  # has_many :comments
+  
+  # 自分がフォローされる（被フォロー）側の関係性
+  has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
+  # 自分をフォローしている人
+  has_many :followers, through: :reverse_of_relationships, source: :follower
+  
+  # 自分がフォローする側の関係性
+  has_many :relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  # 自分がフォローしている人
+  has_many :followings, through: :relationships, source: :followed
+  
+  # フォローしたときの処理
+  def follow(customer)
+    relationships.create(followed_id: customer.id)
+  end
+  # フォローを外すときの処理
+  def unfollow(customer)
+    relationships.find_by(followed_id: customer.id).destroy
+  end
+  # フォローしているか判定
+  def following?(customer)
+    followings.include?(customer)
+  end
+
   
   has_one_attached :profile_image
-  
   
   def get_profile_image(width, height)
     unless profile_image.attached?

@@ -16,10 +16,16 @@
       	  <th>introduction</th>
       	  <th><%= @customer.introduction %></th>
         </tr>
+        <tr>
+          <% if current_customer != @customer %>
+            <th><%= render "public/relationships/btn", customer: @customer %></th>
+          <% end %>
+        </tr>
       </table>
       
       <div class='mt-5'>
-        ※リンク先変更が必要(自分のみの投稿、)
+        
+        ※リンク先変更が必要(自分のみの投稿、いいね)
         <%= link_to "投稿一覧", public_customer_path(@customer), class: "btn btn-outline-secondary btn-block" %>
       　<%= link_to "いいね一覧", new_public_post_path(@customer), class: "btn btn-outline-secondary btn-block" %>
       </div> 
