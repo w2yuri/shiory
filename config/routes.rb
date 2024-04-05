@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :public do
+    get 'relationships/followings'
+    get 'relationships/followers'
+  end
   root to: 'public/homes#top'
   get '/about', to: 'public/homes#about', as: 'about'
   get '/admin', to: 'admin/homes#top', as: 'admin_root'
@@ -12,10 +16,12 @@ Rails.application.routes.draw do
 
   namespace :public do
     resources :customers, only: [:index, :show, :edit, :update, :destroy]
+    resources :relationships, only: [:create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
     resources :posts, only: [:new, :index, :show, :create, :edit, :update, :destroy]
     resources :favorites, only: [:create, :destroy]
     resources :coments, only: [:create, :destroy]
-    resources :relationships, only: [:create, :destroy]
     # 追加機能
     resources :groups, only: [:index, :show, :edit, :update, :destroy]
     resources :chats, only: [:create, :show]
