@@ -49,6 +49,9 @@
 - フリー写真素材として以下を使用
 
   Unsplash（https://unsplash.com/ja）
+- フリー写真素材として以下を使用
+
+  いらすとや（https://www.irasutoya.com/）
 - フリーデザイン素材として以下を使用
   
   Canva(https://www.canva.com/)
