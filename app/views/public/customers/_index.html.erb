@@ -12,7 +12,7 @@
         <td><%= image_tag customer.get_profile_image(100, 100), class: "rounded-circle" %></td>
         <td><%= customer.name %></td>
         <td><%= render "public/relationships/btn", customer: customer %></td>
-        <td><%= link_to 'Show', public_customer_path(customer) %></td>
+        <td><%= link_to 'Show', customer_path(customer) %></td>
       </tr>
     <% end %>
   </tbody>

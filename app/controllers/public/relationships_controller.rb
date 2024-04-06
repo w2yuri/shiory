@@ -1,24 +1,24 @@
 class Public::RelationshipsController < ApplicationController
-  
+
   def create
-    customer = Customer.find(params[:customer_id])
-    current_customer.follow(customer) unless customer.nil? 
+    customer = Customer.find(params[:id])
+    current_customer.follow(customer)
     redirect_to request.referer
-  end 
-  
+  end
+
   def destroy
-    customer = Customer.find(params[:customer_id])
-    current_customer.unfollow(customer) unless customer.nil? 
+    customer = Customer.find(params[:id])
+    current_customer.unfollow(customer)
     redirect_to request.referer
-  end 
+  end
 
   def followings
-    customer = Customer.find(params[:customer_id])
+    customer = Customer.find(params[:id])
     @customers = customer.followings
   end
 
   def followers
-    customer = Customer.find(params[:customer_id]) 
-    @customers = customer.followers 
+    customer = Customer.find(params[:id])
+    @customers = customer.followers
   end
 end

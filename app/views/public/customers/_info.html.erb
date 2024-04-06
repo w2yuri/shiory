@@ -6,23 +6,23 @@
   </tr>
   <tr>
     <th>follows</th>
-    <th><%= link_to customer.followings.count, public_followings_path(customer) %></th>
+    <th><%= link_to customer.followings.count, followings_path(customer) %></th>
   </tr>
   <tr>
     <th>followers</th>
-    <th><%= link_to customer.followers.count, public_followers_path(customer) %></th>
+    <th><%= link_to customer.followers.count, followers_path(customer) %></th>
   </tr>
 </table>
-　
+
 <div class='row'>
   <!--ログインしているユーザーが現在表示されているユーザーと等しくない場合-->
   <% if current_customer != customer %>
     <td><%= render "public/relationships/btn", customer: customer %></td>
   <% else %>
-    <%= link_to edit_public_customer_path(customer), class: "btn btn-outline-secondary btn-block edit_customer_#{customer.id}" do %>
+    <%= link_to edit_customer_path(customer), class: "btn btn-outline-secondary btn-block edit_customer_#{customer.id}" do %>
     Edit
-    <%= link_to "Show", public_customer_path(customer), class: "btn btn-outline-secondary btn-block" %>
-    <%= link_to "投稿", new_public_post_path(customer), class: "btn btn-outline-secondary btn-block" %>
+    <%= link_to "Show", customer_path(customer), class: "btn btn-outline-secondary btn-block" %>
+    <%= link_to "投稿", new_post_path, class: "btn btn-outline-secondary btn-block" %>
   <% end %>
   <% end %>
 </div>

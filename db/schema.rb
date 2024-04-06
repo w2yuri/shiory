@@ -116,13 +116,6 @@ ActiveRecord::Schema.define(version: 2024_04_05_075815) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "staffs", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "travel_tasks", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "title", null: false

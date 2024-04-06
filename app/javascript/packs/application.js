@@ -11,15 +11,13 @@ import "channels"
 import "jquery";
 import "popper.js";
 import "bootstrap";
-import "../stylesheets/application"; 
+import "../stylesheets/application";
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
 // cocoon使用のため記載
-require("@rails/ujs").start()
-require('jquery')
 require("@nathanvda/cocoon")
 
 

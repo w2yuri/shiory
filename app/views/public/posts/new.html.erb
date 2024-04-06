@@ -1,8 +1,8 @@
-<%= form_with model: @post, url: public_posts_path, local: true do |f| %>
-  <%= f.fields_for :travel_tasks do |task| %>
-    <%= render 'traveltask_fields', f: task, staffs: @staffs %>
-  <% end %>
-  <div class="links" data-count="<%= @staffs.count %>">
+<div class="container">
+  <%= form_with model: @post, url: posts_path, local: true do |f| %>
+    <%= f.fields_for :travel_tasks do |task| %>
+      <%= render 'traveltask_fields', f: task %>
+    <% end %>
     <%= link_to_add_association '対応者の情報を追加', f, :travel_tasks, { class: 'js-add-log-field-btn' } %>
-  </div>
-<% end %>
+  <% end %>
+</div>
