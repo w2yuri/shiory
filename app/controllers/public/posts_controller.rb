@@ -1,16 +1,15 @@
 class Public::PostsController < ApplicationController
   before_action :ensure_customer, only: [:edit, :update, :destroy]
-  
+
   def new
     @post = Post.new
-    @staffs = Staff.all
   end
-  
+
   def index
     @post = Post.new
     @posts = Post.all
   end
-  
+
   def create
     post = Post.new(post_params)
     post.save
@@ -22,26 +21,26 @@ class Public::PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
   end
-  
+
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
        redirect_to public_posts_path
     else
        render :edit
-    end 
+    end
   end
-  
+
   def destroy
     @post.destroy
-  end 
-  
+  end
+
   private
-  
+
   def post_params
     params.require(:post).permit(:title, :contents, :post_images, travel_task_attributes: [:user_id, :task1, :task2, :_destroy])
   end
-  
+
   def ensure_user
     @posts = current_customer.posts
     @post = @posts.find_by(id: params[:id])

@@ -1,24 +1,28 @@
 Rails.application.routes.draw do
-  namespace :public do
-    get 'relationships/followings'
-    get 'relationships/followers'
-  end
+  # scope module: :public do
+  #   get 'relationships/followings'
+  #   get 'relationships/followers'
+  # end
   root to: 'public/homes#top'
   get '/about', to: 'public/homes#about', as: 'about'
   get '/admin', to: 'admin/homes#top', as: 'admin_root'
 
   # 顧客用
-  # URL /customers/sign_in ...
+  # URL /users/sign_in ...
   devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
 
-  namespace :public do
+  # devise_scope :customers do
+  #   resources :customers, only: [:index, :show, :edit, :update, :destroy]
+  # end
+
+  scope module: :public do
     resources :customers, only: [:index, :show, :edit, :update, :destroy]
     resources :relationships, only: [:create, :destroy]
-      get 'followings' => 'relationships#followings', as: 'followings'
-      get 'followers' => 'relationships#followers', as: 'followers'
+      get 'followings/:id' => 'relationships#followings', as: 'followings'
+      get 'followers/:id' => 'relationships#followers', as: 'followers'
     resources :posts, only: [:new, :index, :show, :create, :edit, :update, :destroy]
     resources :favorites, only: [:create, :destroy]
     resources :coments, only: [:create, :destroy]
@@ -36,7 +40,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'top' => 'homes#top', as: 'top'
-    resources :customers, only: [:index, :show, :edit, :update, :destroy]
+    resources :users, only: [:index, :show, :edit, :update, :destroy]
     resources :posts, only: [:index, :show, :update, :destroy]
   end
 
