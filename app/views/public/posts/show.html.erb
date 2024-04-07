@@ -2,10 +2,13 @@
   <ul>
     <li><%= @post.title %></li>
     <li><%= simple_format(@post.contents, sanitize: true, class: 'm-0') %></li>
-      <% @post.travel_tasks.each do |tt| %>
+      <% @post.travel_tasks.each do |travel_task| %>
         <ul>
-          <li><%= tt.title %></li>
-          <li><%= simple_format(tt.contents, sanitize: true, class: 'm-0') %></li>
+          <li><%= travel_task.title %></li>
+          <li><%= simple_format(travel_task.contents, sanitize: true, class: 'm-0') %></li>
+          <% if travel_task.task_image.attached? %>
+            <li><%= image_tag travel_task.task_image, size: "100x100" %></li>
+          <% end %>
         </ul>
       <% end %>
   </ul>
