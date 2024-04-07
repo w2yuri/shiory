@@ -9,10 +9,10 @@
   <tbody>
     <% posts.each do |post| %>
       <tr>
-        <td><%= image_tag post.customer.get_profile_image, class: "rounded-circle", size: '50, 50' %></td>
+        <td><%= image_tag post.customer.get_profile_image(50, 50), class: "rounded-circle" %></td>
         <td><%= post.customer.name %></td>
         <!--<td><#%= render "relationships/btn", user: user %></td>-->
-        <td><%= link_to 'Show', customer_path(post.customer) %></td>
+        <td><%= link_to 'Show', post_path(post) %></td>
       </tr>
     <% end %>
   </tbody>

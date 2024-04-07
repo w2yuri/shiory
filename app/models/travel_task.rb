@@ -5,5 +5,4 @@ class TravelTask < ApplicationRecord
   has_one_attached :task_image
   
   
-
 end

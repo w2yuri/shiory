@@ -1,4 +1,5 @@
 class Public::PostsController < ApplicationController
+  before_action :authenticate_customer!
   before_action :ensure_customer, only: [:edit, :update, :destroy]
 
   def new
@@ -11,11 +12,16 @@ class Public::PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
-    post.save
+    @post = Post.new(post_params)
+    if @post.save!
+      redirect_to posts_path
+    else
+      render :new
+    end
   end
 
   def show
+    @post = Post.find(params[:id])
   end
 
   def edit
@@ -25,7 +31,7 @@ class Public::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-       redirect_to public_posts_path
+       redirect_to posts_path
     else
        render :edit
     end
@@ -38,7 +44,9 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :contents, :post_images, travel_task_attributes: [:customer_id, :title, :contents, :task_image, :destroy])
+    params.require(:post)
+    .permit(:title, :contents, post_images: [], travel_tasks_attributes: [:id, :title, :contents, :task_image, :_destroy])
+    .merge(customer_id: current_customer.id)
   end
 
   def ensure_user

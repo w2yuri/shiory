@@ -1,9 +1,33 @@
 <div class="container">
   <%= form_with model: @post, url: posts_path, local: true do |f| %>
-    <%= f.fields_for :travel_tasks do |task| %>
-      <%= render 'traveltask_fields', f: task %>
-    <% end %>
-    <%= link_to_add_association '投稿を追加', f, :travel_tasks, class: "btn btn-outline-secondary" %>
+    <div class="form-group">
+      <div class="custom-file">
+        <%= f.file_field :task_image, class: 'custom-file-input' %>
+        <%= f.label :task_image, 'Picture', class: 'custom-file-label' %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :title, 'Title' %>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :contents, 'Shiory' %>
+      <%= f.text_area :contents, class: 'form-control' %>
+    </div>
+    <div id="travel_tasks">
+      <%= f.fields_for :travel_tasks do |task| %>
+        <%= render 'traveltask_fields', f: task %>
+      <% end %>
+    </div>
+    <%= link_to_add_association 'しおりを追加',
+        f,
+        :travel_tasks,
+        class: "btn btn-outline-secondary",
+        data: {
+          association_insertion_node: '#travel_tasks',
+          association_insertion_method: 'append'
+        }
+    %>
     <%= f.submit class: 'btn btn-success' %>
   <% end %>
 </div>

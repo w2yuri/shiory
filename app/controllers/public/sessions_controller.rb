@@ -9,7 +9,13 @@ class Public::SessionsController < Devise::SessionsController
   def after_sign_out_path_for(resource)
      root_path
   end
-
+  
+  # ゲストログイン用
+  def guest_sign_in
+    customer = Customer.guest
+    sign_in customer
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
 
   # ログアウト後のリダイレクト先
   private

@@ -1,2 +1,12 @@
-<h1>Public::Posts#show</h1>
-<p>Find me in app/views/public/posts/show.html.erb</p>
+<div class="container">
+  <ul>
+    <li><%= @post.title %></li>
+    <li><%= simple_format(@post.contents, sanitize: true, class: 'm-0') %></li>
+      <% @post.travel_tasks.each do |tt| %>
+        <ul>
+          <li><%= tt.title %></li>
+          <li><%= simple_format(tt.contents, sanitize: true, class: 'm-0') %></li>
+        </ul>
+      <% end %>
+  </ul>
+</div>
