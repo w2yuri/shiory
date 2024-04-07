@@ -38,7 +38,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :contents, :post_images, travel_task_attributes: [:user_id, :task1, :task2, :_destroy])
+    params.require(:post).permit(:title, :contents, :post_images, travel_task_attributes: [:customer_id, :title, :contents, :task_image, :destroy])
   end
 
   def ensure_user

@@ -2,7 +2,7 @@
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-5">
       <h2>customer info</h2>
-      <%= form_with model: @customer, url: public_customer_path(@customer), local: true do |f| %>
+      <%= form_with model: @customer, url: customer_path(@customer), local: true do |f| %>
         <%#= render 'layouts/errors', obj: @customer %>
         <div class="form-group">
           <%= f.label :name %>

@@ -3,6 +3,7 @@
     <%= f.fields_for :travel_tasks do |task| %>
       <%= render 'traveltask_fields', f: task %>
     <% end %>
-    <%= link_to_add_association '対応者の情報を追加', f, :travel_tasks, { class: 'js-add-log-field-btn' } %>
+    <%= link_to_add_association '投稿を追加', f, :travel_tasks, class: "btn btn-outline-secondary" %>
+    <%= f.submit class: 'btn btn-success' %>
   <% end %>
 </div>

@@ -3,5 +3,7 @@ class TravelTask < ApplicationRecord
   belongs_to :post
 
   has_one_attached :task_image
+  
+  
 
 end
