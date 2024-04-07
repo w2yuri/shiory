@@ -1,22 +1,18 @@
 Rails.application.routes.draw do
-  # scope module: :public do
-  #   get 'relationships/followings'
-  #   get 'relationships/followers'
-  # end
+
   root to: 'public/homes#top'
   get '/about', to: 'public/homes#about', as: 'about'
   get '/admin', to: 'admin/homes#top', as: 'admin_root'
 
   # 顧客用
-  # URL /users/sign_in ...
   devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
 
-  # devise_scope :customers do
-  #   resources :customers, only: [:index, :show, :edit, :update, :destroy]
-  # end
+  devise_scope :customer do
+    post 'guest_sign_in', to: 'public/sessions#guest_sign_in'
+  end
 
   scope module: :public do
     resources :customers, only: [:index, :show, :edit, :update, :destroy]
@@ -31,9 +27,7 @@ Rails.application.routes.draw do
     resources :chats, only: [:create, :show]
   end
 
-
   # 管理者用
-  # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] , controllers: {
     sessions: "admin/sessions"
   }, as: :admin

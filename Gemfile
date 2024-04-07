@@ -56,5 +56,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'image_processing', '~> 1.2'
+gem 'dotenv-rails'
 gem 'devise'
 gem 'cocoon'

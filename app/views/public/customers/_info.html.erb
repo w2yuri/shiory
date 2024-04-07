@@ -15,6 +15,12 @@
 </table>
 
 <div class='row'>
+  <!--ゲストユーザーはプロフィール編集画面を表示しないようにする-->
+  <% if customer.email != "guest@example.com" %>
+  <div class="row">
+    <%= link_to "",edit_customer_path(customer),class: "btn btn-outline-secondary btn-block edit_customerr_#{customer.id}" %>
+  </div>
+  <% end %>
   <!--ログインしているユーザーが現在表示されているユーザーと等しくない場合-->
   <% if current_customer != customer %>
     <td><%= render "public/relationships/btn", customer: customer %></td>
