@@ -1,22 +1,30 @@
 <div class='container'>
   <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-5">
       <h3>edit</h3>
-        <%= form_with model:book,local:true do |f| %>
-          <div class="form-group">
-            <%= f.label :title %>
-            <%= f.text_field :title, class: 'form-control book_title' %>
-          </div>
-          <div class="form-group">
-            <%= f.label :opinion %>
-            <%= f.text_area :body, class: 'form-control book_body' %>
-          </div>
-          <div class="form-group">
-            <%= f.submit class: 'btn btn-success' %>
-          </div>
+      <!--<#%= form_with(model: @post.travel_tasks, local: true) do |f| %>-->
+      <!--  <ul>-->
+      <!--    <div class="form-group">-->
+      <!--      <#%= f.label :travel_task_title %>-->
+      <!--      <#%= f.text_field :travel_task_title, class: 'form-control post_title' %>-->
+      <!--    </div>-->
+      <!--    <div class="form-group">-->
+      <!--      <#%= f.label :travel_task_contents %>-->
+      <!--      <#%= f.text_area :contents, class: 'form-control post_body' %>-->
+      <!--    </div>-->
+      <!--    <div class="form-group">-->
+      <!--      <#%= f.label :travel_task_image %>-->
+      <!--      <#%= f.text_area :task_image, class: 'form-control post_body' %>-->
+      <!--    </div>-->
+      <!--    <div class="form-group">-->
+      <!--      <#%= f.submit class: 'btn btn-success' %>-->
+      <!--    </div>-->
+      <!--  </ul>-->
+      <!--<#% end %>-->
+        <% if @post.customer == current_customer %>
+          <%= link_to 'Show', @post, class: "post_#{@post.id}" %> |
+          <%= link_to 'Back', posts_path, class: "back" %>
         <% end %>
-        
-          <%= link_to 'Show', @book, class: "book_#{@book.id}" %> |
-          <%= link_to 'Back', books_path, class: "back" %>
   </div>
 </div>
+

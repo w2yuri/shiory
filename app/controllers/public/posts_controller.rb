@@ -22,6 +22,7 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    # @post.travel_tasks = 
   end
 
   def edit
@@ -39,6 +40,7 @@ class Public::PostsController < ApplicationController
 
   def destroy
     @post.destroy
+    redirect_to posts_path
   end
 
   private
@@ -49,7 +51,7 @@ class Public::PostsController < ApplicationController
     .merge(customer_id: current_customer.id)
   end
 
-  def ensure_user
+  def ensure_customer
     @posts = current_customer.posts
     @post = @posts.find_by(id: params[:id])
     redirect_to public_posts_path unless @post
