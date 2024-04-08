@@ -22,6 +22,7 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @posts = Post.where(customer_id: current_customer.id).includes(:customer).order("created_at DESC")
     # @post.travel_tasks = 
   end
 

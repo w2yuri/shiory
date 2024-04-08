@@ -26,7 +26,9 @@
       
       <div class='mt-5'>
         ※リンク先変更が必要(自分のみの投稿、いいね)
-        <%= link_to "投稿一覧", customer_path(@customer), class: "btn btn-outline-secondary btn-block" %>
+        <% @posts.each do |post| %>
+        <%= link_to "投稿一覧", posts_path(@customer), class: "btn btn-outline-secondary btn-block" %>
+        <% end %>
       　<%= link_to "いいね一覧", new_post_path(@customer), class: "btn btn-outline-secondary btn-block" %>
       </div> 
   </div>
