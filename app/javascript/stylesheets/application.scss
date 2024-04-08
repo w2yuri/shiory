@@ -8,20 +8,24 @@
   height: 100vh;
 }
 
-.home-index{
-  font-weight: bold;
-  font-size: 50px;
-  color: purple;
-  text-shadow:0 0 10px #FF0;
-}
+// .home-index{
+//   font-weight: bold;
+//   font-size: 50px;
+//   color: purple;
+//   text-shadow:0 0 10px #FF0;
+// }
 
-.index-content{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-}
+// .index-content{
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%,-50%);
+// }
 
-.index-btn{
-  margin-top: 20px;
+// .index-btn{
+//   margin-top: 20px;
+// }
+
+ul {
+  list-style: none;
 }
