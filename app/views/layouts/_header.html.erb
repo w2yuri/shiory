@@ -78,6 +78,11 @@
               <% end %>
             </li>
             <li class="nav-item" style="list-style-type: none;">
+            <%= link_to about_path, class: 'nav-link text-light' do %>
+              About
+            <% end %>
+            </li>
+            <li class="nav-item" style="list-style-type: none;">
               <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-light' do %>
                 Log out
               <% end %>
