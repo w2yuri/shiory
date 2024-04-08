@@ -14,8 +14,8 @@
                   <%= simple_format(travel_task.contents, sanitize: true, class: 'm-0') %>
                   <%= image_tag travel_task.task_image, size: "100x100" %>
                   <% if @post.customer == current_customer %>
-                    <div><%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %></div>
-                    <div><%= link_to 'Destroy', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" %></div>
+                    <div><%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %>
+                       　<%= link_to 'Destroy', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" %></div>
                   <% end %>
                 </div>
               </div>
