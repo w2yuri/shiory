@@ -1,28 +1,26 @@
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-5">
-      <ul>
-        <li><%= @post.title %></li>
-        <li><%= simple_format(@post.contents, sanitize: true, class: 'm-0') %></li>
+       <div class="text-center">
+        <li class="mb-3"><%= @post.title %></li>
+        <li class="mb-3"><%= simple_format(@post.contents, sanitize: true, class: 'm-0') %></li>
           <% @post.travel_tasks.each do |travel_task| %>
             <ul>
               <div style="position:relative;border:1px solid #efc4c0;border-radius:4px;padding:1.5em 1em;">
-                <div style="position:absolute;top: -12px;left: 10px;padding: 5px 25px;background-color:#d7e6d5;border-radius:4px;color:#fff;line-height: 1em;"><%= travel_task.title %></div>
+                <div style="position:absolute;top: -12px;left: 10px;padding: 5px 25px;background-color:#d7e6d5;border-radius:4px;color:#fff;line-height: 1em;">
+                  <%= travel_task.title %>
+                </div>
                 <div style="margin: 0; padding: 0;">
-                    <%= simple_format(travel_task.contents, sanitize: true, class: 'm-0') %></li>
-                  <% if travel_task.task_image.attached? %>
-                    <li><%= image_tag travel_task.task_image, size: "100x100" %></li>
-                  <% end %>
-                  
-                  <% if @book.user == current_user %>
-                    <div><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success edit_book_#{@book.id}" %></div>
-                    <div><%= link_to 'Destroy', @po, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_book_#{@book.id}" %></div>
+                  <%= simple_format(travel_task.contents, sanitize: true, class: 'm-0') %>
+                  <%= image_tag travel_task.task_image, size: "100x100" %>
+                  <% if @post.customer == current_customer %>
+                    <div><%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %></div>
+                    <div><%= link_to 'Destroy', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" %></div>
                   <% end %>
                 </div>
               </div>
             </ul>
           <% end %>
-      </ul>
     </div>
   </div>
 </div>
