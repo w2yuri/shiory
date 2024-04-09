@@ -8,7 +8,12 @@ class Public::PostsController < ApplicationController
 
   def index
     @post = Post.new
-    @posts = Post.all
+    # if params[:filter]
+    #   @posts = Post.where(customer_id: params[:filter])
+    # else
+    #   @posts = Post.all
+    # end
+    @posts = params[:filter] ? Post.where(customer_id: params[:filter]) :  Post.all
   end
 
   def create
@@ -23,7 +28,7 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @posts = Post.where(customer_id: current_customer.id).includes(:customer).order("created_at DESC")
-    # @post.travel_tasks = 
+    # @post.travel_tasks =
   end
 
   def edit
@@ -48,7 +53,7 @@ class Public::PostsController < ApplicationController
 
   def post_params
     params.require(:post)
-    .permit(:title, :contents, post_images: [], travel_tasks_attributes: [:id, :title, :contents, :task_image, :_destroy])
+    .permit(:title, :contents, :post_image, travel_tasks_attributes: [:id, :title, :contents, :task_image, :_destroy])
     .merge(customer_id: current_customer.id)
   end
 

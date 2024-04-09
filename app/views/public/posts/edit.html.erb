@@ -2,24 +2,40 @@
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-5">
       <h3>edit</h3>
-      <%= form_with(model: @post.travel_tasks, local: true) do |f| %>
-        <ul>
-          <div class="form-group">
-            <%= f.label :travel_task_title %>
-            <%= f.text_field :travel_task_title, class: 'form-control post_title' %>
+      <%= form_with model: @post, local: true do |f| %>
+        <div class="form-group">
+          <div class="custom-file">
+            <%= f.file_field :post_image, class: 'custom-file-input', onchange: 'fileOnChange(this)' %>
+            <%= f.label :post_image, 'Picture', class: 'custom-file-label' %>
           </div>
-          <div class="form-group">
-            <%= f.label :travel_task_contents %>
-            <%= f.text_area :contents, class: 'form-control post_body' %>
-          </div>
-          <div class="form-group">
-            <%= f.label :travel_task_image %>
-            <%= f.text_area :task_image, class: 'form-control post_body' %>
-          </div>
-          <div class="form-group">
-            <%= f.submit class: 'btn btn-success' %>
-          </div>
-        </ul>
+        </div>
+        <div class="form-group">
+          <%= f.label :title, 'Title' %>
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :contents, 'Shiory' %>
+          <%= f.text_area :contents, class: 'form-control' %>
+        </div>
+        <div id="travel_tasks">
+          <%= f.fields_for :travel_tasks do |task| %>
+            <%= render 'public/posts/travel_task_fields', f: task %>
+          <% end %>
+        </div>
+
+        <%= link_to_add_association 'しおりを追加',
+            f,
+            :travel_tasks,
+            class: "btn btn-outline-secondary",
+            data: {
+              # リンクがクリックされると新しいフィールドがtravel_tasksに挿入
+              association_insertion_node: '#travel_tasks',
+              # フィールドの挿入方法を指定
+              # appendは、新しいフィールドが既存のフィールドの後ろに挿入される
+              association_insertion_method: 'append'
+            }
+        %>
+        <%= f.submit class: 'btn btn-success' %>
       <% end %>
        <div class="mt-3">
         <% if @post.customer == current_customer %>
@@ -30,3 +46,17 @@
   </div>
 </div>
 
+<script>
+  // fileOnChange関数を定義。引数としてelement(ファイルアップロードフィールド（<input type="file">）のDOM要素)受取
+  function fileOnChange(element) {
+      // $(element)を使用しファイルアップロードフィールドの値を取得。
+      // .val()メソッドは、ファイルパスを取得。
+  　　　　　　// 取得したファイルパスをバックスラッシュ（\）で分割し、配列するとファイル名だけを取得。
+      var fileName = $(element).val().split('\\');
+      // $(element)を使用しファイルアップロードフィールドの次の要素を取得。
+      // .next('.custom-file-label')は、指定されたクラスを持つ次の要素を取得。
+      // .html()メソッドを使用し、取得したラベル要素のHTML内容を変更。
+      // fileName.pop()は、ファイルパスから取得したファイル名を取り出しラベルにファイル名が表示される。
+      $(element).next('.custom-file-label').html(fileName.pop());
+  };
+</script>

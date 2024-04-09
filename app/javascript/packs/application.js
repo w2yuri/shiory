@@ -19,5 +19,3 @@ ActiveStorage.start()
 
 // cocoon使用のため記載
 require("@nathanvda/cocoon")
-
-
