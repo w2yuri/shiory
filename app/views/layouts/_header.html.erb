@@ -68,8 +68,13 @@
           <!-- 顧客がログインしている場合 -->
           <% if customer_signed_in? %>
             <li class="nav-item" style="list-style-type: none;">
-              <%= link_to customers_path, class: 'nav-link text-light' do %>
+              <%= link_to customer_path(current_customer), class: 'nav-link text-light' do %>
                 My Page
+              <% end %>
+            </li>
+            <li class="nav-item" style="list-style-type: none;">
+              <%= link_to customers_path, class: 'nav-link text-light' do %>
+                Users
               <% end %>
             </li>
             <li class="nav-item" style="list-style-type: none;">
