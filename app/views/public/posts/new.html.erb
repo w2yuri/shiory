@@ -19,12 +19,16 @@
         <%= render 'traveltask_fields', f: task %>
       <% end %>
     </div>
+    
     <%= link_to_add_association 'しおりを追加',
         f,
         :travel_tasks,
         class: "btn btn-outline-secondary",
         data: {
+          # リンクがクリックされると新しいフィールドがtravel_tasksに挿入
           association_insertion_node: '#travel_tasks',
+          # フィールドの挿入方法を指定
+          # appendは、新しいフィールドが既存のフィールドの後ろに挿入される
           association_insertion_method: 'append'
         }
     %>
