@@ -8,12 +8,16 @@ class Public::PostsController < ApplicationController
 
   def index
     @post = Post.new
-    # if params[:filter]
-    #   @posts = Post.where(customer_id: params[:filter])
-    # else
-    #   @posts = Post.all
-    # end
-    @posts = params[:filter] ? Post.where(customer_id: params[:filter]) :  Post.all
+    # リクエストパラメータにfilterが含まれているかどうかを確認
+     if params[:filter]
+    # 特定の顧客に関連する投稿をフィルタリングし表示
+       @posts = Post.where(customer_id: params[:filter])
+    # filterパラメータが提供されていない場合、すべての投稿を取得
+     else
+       @posts = Post.all
+     end
+    # 12行〜16行までを条件演算子(三項演算子)にした場合
+    # @posts = params[:filter] ? Post.where(customer_id: params[:filter]) :  Post.all
   end
 
   def create
@@ -27,8 +31,6 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @posts = Post.where(customer_id: current_customer.id).includes(:customer).order("created_at DESC")
-    # @post.travel_tasks =
   end
 
   def edit
@@ -54,6 +56,8 @@ class Public::PostsController < ApplicationController
   def post_params
     params.require(:post)
     .permit(:title, :contents, :post_image, travel_tasks_attributes: [:id, :title, :contents, :task_image, :_destroy])
+    # .merge メソッド＝新しいハッシュを作成し、指定されたハッシュとマージ。
+    # post レコードのcustomer_id属性に、現在のユーザーのIDを割り当てるためのもの。これにより、認証されたユーザーが投稿を作成できる。
     .merge(customer_id: current_customer.id)
   end
 

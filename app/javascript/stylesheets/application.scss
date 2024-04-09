@@ -1,12 +1,15 @@
+// カラーの変更必要
 $theme-colors: (
   "primary": #F0B128,
   "secondary": #70583B,
   "info": #C59C42,
   "warning": #F0CB0C,
-  "danger": #EF571E
+  "danger": #EF571E,
+  "success": #463C31,
 );
 
 @import '~bootstrap/scss/bootstrap';
+// googleフォント
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
 html, body {
@@ -48,32 +51,22 @@ ul,li {
   border-top: 1px solid #aaa;
 }
 
-// .home-index{
-//   font-weight: bold;
-//   font-size: 50px;
-//   color: purple;
-//   text-shadow:0 0 10px #FF0;
-// }
-
-// .index-content{
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%,-50%);
-// }
-
-// .index-btn{
-//   margin-top: 20px;
-// }
-
+// indexに表示される最初の投稿画像(指定された幅と高さの要素内で画像をカバーする)
 .post-image__index {
   width: 100%;
   height: 250px;
   object-fit: cover;
 }
 
+// ユーザー画像(指定された幅と高さの要素内で画像をカバーする)
 .profile-image {
   width: 100px; 
   height: 100px; 
+  object-fit: cover;
+}
+
+.profile-image__index {
+  width: 50px; 
+  height: 50px; 
   object-fit: cover;
 }
