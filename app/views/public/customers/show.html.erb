@@ -1,11 +1,11 @@
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-5">
-      
+
     <h2>マイページ</h2><table class='table'>
         <div style="display: flex; justify-content: center;">
             <div>
-                <%= image_tag @customer.get_profile_image(100, 100), class: "rounded-circle" %>
+                <%= image_tag @customer.get_profile_image(100, 100), class: "rounded-circle profile-image d-block mx-auto mb-3" %>
             </div>
         </div>
         <tr>
@@ -17,19 +17,17 @@
       	  <th><%= @customer.introduction %></th>
         </tr>
       </table>
-      
+
       <div style='display: flex; justify-content: center; mt-3'>
         <% if current_customer != @customer %>
               <th><%= render "public/relationships/btn", customer: @customer %></th>
         <% end %>
       </div>
-      
+
       <div class='mt-5'>
         ※リンク先変更が必要(自分のみの投稿、いいね)
-        <% @posts.each do |post| %>
-          <%= link_to "投稿一覧", posts_path(@customer), class: "btn btn-outline-secondary btn-block" %>
-        <% end %>
+        <%= link_to "投稿一覧", posts_path(filter: @customer.id), class: "btn btn-outline-secondary btn-block" %>
       　<%= link_to "いいね一覧", new_post_path(@customer), class: "btn btn-outline-secondary btn-block" %>
-      </div> 
+      </div>
   </div>
 </div>

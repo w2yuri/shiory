@@ -2,8 +2,8 @@
   <%= form_with model: @post, url: posts_path, local: true do |f| %>
     <div class="form-group">
       <div class="custom-file">
-        <%= f.file_field :task_image, class: 'custom-file-input' %>
-        <%= f.label :task_image, 'Picture', class: 'custom-file-label' %>
+        <%= f.file_field :post_image, class: 'custom-file-input', onchange: 'fileOnChange(this)' %>
+        <%= f.label :post_image, 'Picture', class: 'custom-file-label' %>
       </div>
     </div>
     <div class="form-group">
@@ -16,10 +16,10 @@
     </div>
     <div id="travel_tasks">
       <%= f.fields_for :travel_tasks do |task| %>
-        <%= render 'traveltask_fields', f: task %>
+        <%= render 'travel_task_fields', f: task %>
       <% end %>
     </div>
-    
+
     <%= link_to_add_association 'しおりを追加',
         f,
         :travel_tasks,
@@ -35,3 +35,18 @@
     <%= f.submit class: 'btn btn-success' %>
   <% end %>
 </div>
+
+<script>
+  // fileOnChange関数を定義。引数としてelement(ファイルアップロードフィールド（<input type="file">）のDOM要素)受取
+  function fileOnChange(element) {
+      // $(element)を使用しファイルアップロードフィールドの値を取得。
+      // .val()メソッドは、ファイルパスを取得。
+  　　　　　　// 取得したファイルパスをバックスラッシュ（\）で分割し、配列するとファイル名だけを取得。
+      var fileName = $(element).val().split('\\');
+      // $(element)を使用しファイルアップロードフィールドの次の要素を取得。
+      // .next('.custom-file-label')は、指定されたクラスを持つ次の要素を取得。
+      // .html()メソッドを使用し、取得したラベル要素のHTML内容を変更。
+      // fileName.pop()は、ファイルパスから取得したファイル名を取り出しラベルにファイル名が表示される。
+      $(element).next('.custom-file-label').html(fileName.pop());
+  };
+</script>
