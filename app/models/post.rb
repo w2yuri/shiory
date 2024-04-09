@@ -12,7 +12,6 @@ class Post < ApplicationRecord
    # 画像
   has_one_attached :post_image
 
-
   def get_task_image_image(width, height)
     unless profile_image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
@@ -20,13 +19,5 @@ class Post < ApplicationRecord
     end
   profile_image.variant(resize_to_limit: [width, height]).processed
   end
-
-  private
-
-  # def contents_and_task_image_attached
-  #   unless contents.present? && task_image.attached?
-  #     errors.add(:base, "contents and task_image must be attached")
-  #   end
-  # end
 
 end
