@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: 'public/homes#top'
   get '/about', to: 'public/homes#about', as: 'about'
   get '/admin', to: 'admin/homes#top', as: 'admin_root'
+  # 退会処理
+  get '/customers/unsubscribe', to: 'public/customers#unsubscribe', as: 'public_customers_unsubscribe'
+  patch '/customers/withdraw', to: 'public/customers#withdraw'
 
   # 顧客用
   devise_for :customers, skip: [:passwords], controllers: {
@@ -10,6 +13,7 @@ Rails.application.routes.draw do
     sessions: 'public/sessions'
   }
 
+ 
   devise_scope :customer do
     post 'guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
