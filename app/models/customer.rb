@@ -2,14 +2,12 @@ class Customer < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
-  # ユーザーの権限つける
-
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :post_images, dependent: :destroy
   has_many :posts
   has_many :favorites
-  # has_many :comments
+  has_many :comments
 
   # 自分がフォローされる（被フォロー）側の関係性
   has_many :reverse_of_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
@@ -42,8 +40,11 @@ class Customer < ApplicationRecord
       user.name = "guestuser"
     end
   end
-  
-  
+
+  # is_activeがfalseならfalseを返す(退会処理)
+  def active_for_authentication?
+    super && is_active
+  end
 
   # 画像
   has_one_attached :profile_image
@@ -55,4 +56,7 @@ class Customer < ApplicationRecord
     end
   profile_image.variant(resize_to_limit: [width, height]).processed
   end
+
+
+
 end

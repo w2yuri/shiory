@@ -18,9 +18,12 @@
                 <%= image_tag 'no_image.jpg', class: 'post-image__index' unless post.post_image.present? %>
                 <div class="card-body">
                   <h5><%= link_to post.title, post_path(post) %></h5>
-                  <h5><%= image_tag post.customer.get_profile_image(50, 50), class: "rounded-circle profile-image__index" %>
-                      <%= post.customer.name %>
-                  </h5>
+                    <% if post.customer %>
+                      <h5>
+                        <%= image_tag post.customer.get_profile_image(50, 50), class: "rounded-circle profile-image__index" %>
+                        <%= post.customer.name %>
+                      </h5>
+                    <% end %>
                 </div>
               </div>
             </div>

@@ -40,7 +40,7 @@ class Public::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-       redirect_to posts_path
+       redirect_to posts_path, notice: "投稿が更新されました。"
     else
        render :edit
     end
@@ -64,6 +64,6 @@ class Public::PostsController < ApplicationController
   def ensure_customer
     @posts = current_customer.posts
     @post = @posts.find_by(id: params[:id])
-    redirect_to public_posts_path unless @post
+    redirect_to posts_path unless @post
   end
 end
