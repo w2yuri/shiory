@@ -1,10 +1,10 @@
 class Public::CustomersController < ApplicationController
-# ログインしていない場合、ログインページへリダイレクトする
-  # before_action :authenticate_customer!
-  # # 他のユーザーのプロフィールを編集時、リダイレクトされるフィルター定義
-  # before_action :ensure_correct_customer, only: [:edit, :update]
- 
-  # ゲストログイン用 
+  # ログインしていない場合、ログインページへリダイレクトする
+  before_action :authenticate_customer!
+  # 他のユーザーのプロフィールを編集時、リダイレクトされるフィルター定義
+  before_action :ensure_correct_customer, only: [:edit, :update]
+
+  # ゲストログイン用
   before_action :ensure_guest_customer, only: [:edit]
 
 
@@ -40,7 +40,7 @@ class Public::CustomersController < ApplicationController
   def withdraw
     @customer = Customer.find(current_customer.id)
     # 会員ステータスを退会に変更
-    @customer.update(is_deleted: true, is_active: false) 
+    @customer.update!(is_active: false)
     reset_session
     flash[:notice] = "退会処理を実行いたしました"
     redirect_to root_path
@@ -65,8 +65,8 @@ class Public::CustomersController < ApplicationController
     if @customer.email == "guest@example.com"
       redirect_to customer_path(current_customer) , notice: "ゲストユーザーはプロフィール編集画面へ遷移できません。"
     end
-  end  
-  
+  end
+
   def guest_user?
     email == GUEST_USER_EMAIL
   end

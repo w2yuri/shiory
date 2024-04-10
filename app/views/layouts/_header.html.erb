@@ -22,73 +22,73 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <!-- ログインしていない場合 -->
-          <li class="nav-item" style="list-style-type: none;">
+          <li class="nav-item mx-1" style="list-style-type: none;">
             <% unless admin_admin_signed_in? || customer_signed_in? %>
-            <%= link_to 'ゲストログイン（閲覧用）', guest_sign_in_path, method: :post, class: 'nav-link text-light' %>
+            <%= button_to 'ゲストログイン（閲覧用）', guest_sign_in_path, method: :post, class: 'btn btn-primary btn-rounded', style: 'color: #6D7D90;' %>
           </li>
-          <li class="nav-item" style="list-style-type: none;">
-            <%= link_to new_customer_registration_path, class: 'nav-link text-light' do %>
+          <li class="nav-item mx-1" style="list-style-type: none; mx-2">
+            <%= link_to new_customer_registration_path, class: 'btn btn-primary btn-rounded', style: 'color: #6D7D90;'  do %>
               Sign up
             <% end %>
           </li>
-          <li class="nav-item" style="list-style-type: none;">
-            <%= link_to new_customer_session_path, class: 'nav-link text-light' do %>
+          <li class="nav-item mx-1" style="list-style-type: none;">
+            <%= link_to new_customer_session_path, class: 'btn btn-primary btn-rounded', style: 'color: #6D7D90;' do %>
               Log in
             <% end %>
           </li>
-          <li class="nav-item" style="list-style-type: none;">
-            <%= link_to posts_path, class: 'nav-link text-light' do %>
+          <li class="nav-item mx-1" style="list-style-type: none;">
+            <%= link_to posts_path, class: 'btn btn-primary btn-rounded', style: 'color: #6D7D90;' do %>
               Posts
             <% end %>
           </li>
-          <li class="nav-item" style="list-style-type: none;">
-            <%= link_to about_path, class: 'nav-link text-light' do %>
+          <li class="nav-item mx-1" style="list-style-type: none;">
+            <%= link_to about_path, class: 'btn btn-primary btn-rounded', style: 'color: #6D7D90;' do %>
               About
             <% end %>
           </li>
           <% end %>
           <!-- 管理者がログインしている場合 -->
           <% if admin_admin_signed_in? %>
-            <li class="nav-item" style="list-style-type: none;">
-              <%= link_to posts_path, class: 'nav-link text-light' do %>
+            <li class="nav-item mx-1" style="list-style-type: none;">
+              <%= link_to posts_path, class: 'btn btn-primary btn-rounded', style: 'color: #6D7D90;' do %>
                 Posts
               <% end %>
             </li>
-            <li class="nav-item" style="list-style-type: none;">
-              <%= link_to customers_path, class: 'nav-link text-light' do %>
+            <li class="nav-item mx-1" style="list-style-type: none;">
+              <%= link_to customers_path, class: 'btn btn-primary btn-rounded', style: 'color: #6D7D90;' do %>
                 Customers
               <% end %>
             </li>
-            <li class="nav-item" style="list-style-type: none;">
-              <%= link_to destroy_adminadmin__session_path, method: :delete, class: 'nav-link text-light' do %>
+            <li class="nav-item mx-1" style="list-style-type: none;">
+              <%= link_to destroy_adminadmin__session_path, method: :delete, class: 'btn btn-primary btn-rounded', style: 'color: #6D7D90;' do %>
                 Log out
               <% end %>
             </li>
           <% end %>
           <!-- 顧客がログインしている場合 -->
           <% if customer_signed_in? %>
-            <li class="nav-item" style="list-style-type: none;">
-              <%= link_to customer_path(current_customer), class: 'nav-link text-light' do %>
+            <li class="nav-item mx-1" style="list-style-type: none;">
+              <%= link_to customer_path(current_customer), class: 'btn btn-primary btn-rounded', style: 'color: #6D7D90;' do %>
                 My Page
               <% end %>
             </li>
-            <li class="nav-item" style="list-style-type: none;">
-              <%= link_to customers_path, class: 'nav-link text-light' do %>
+            <li class="nav-item mx-1" style="list-style-type: none;">
+              <%= link_to customers_path, class: 'btn btn-primary btn-rounded', style: 'color: #6D7D90;' do %>
                 Users
               <% end %>
             </li>
-            <li class="nav-item" style="list-style-type: none;">
-              <%= link_to posts_path, class: 'nav-link text-light' do %>
+            <li class="nav-item mx-1" style="list-style-type: none;">
+              <%= link_to posts_path, class: 'btn btn-primary btn-rounded', style: 'color: #6D7D90;' do %>
                 Post
               <% end %>
             </li>
-            <li class="nav-item" style="list-style-type: none;">
-            <%= link_to about_path, class: 'nav-link text-light' do %>
+            <li class="nav-item mx-1" style="list-style-type: none;">
+            <%= link_to about_path, class: 'btn btn-primary btn-rounded', style: 'color: #6D7D90;' do %>
               About
             <% end %>
             </li>
-            <li class="nav-item" style="list-style-type: none;">
-              <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-light' do %>
+            <li class="nav-item mx-1" style="list-style-type: none;">
+              <%= link_to destroy_customer_session_path, method: :delete, class: 'btn btn-primary btn-rounded', style: 'color: #6D7D90;' do %>
                 Log out
               <% end %>
             </li>

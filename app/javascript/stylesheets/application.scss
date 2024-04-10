@@ -1,6 +1,6 @@
 // カラーの変更必要
 $theme-colors: (
-  "primary": #F0B128,
+  "primary": #ffe9a5,
   "secondary": #70583B,
   "info": #C59C42,
   "warning": #F0CB0C,
@@ -60,13 +60,19 @@ ul,li {
 
 // ユーザー画像(指定された幅と高さの要素内で画像をカバーする)
 .profile-image {
-  width: 100px; 
-  height: 100px; 
+  width: 100px;
+  height: 100px;
   object-fit: cover;
 }
 
 .profile-image__index {
-  width: 50px; 
-  height: 50px; 
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+.about-img__cover {
+  width: 100%;
+  height: 300px;
   object-fit: cover;
 }
