@@ -39,29 +39,6 @@ ul,li {
   list-style: none;
 }
 
-.images_item03::before,
-.images_item03::after {
-  content: "";
-  position: absolute;
-  transform: rotate(-35deg);
-  width: 70px;
-  height: 25px;
-  background-color: #fff;
-  z-index: 1;
-}
-
-.images_item03::before {
-  top: -10px;
-  left: -25px;
-  border-bottom: 1px solid #aaa;
-}
-
-.images_item03::after {
-  bottom: -10px;
-  right: -25px;
-  border-top: 1px solid #aaa;
-}
-
 // indexに表示される最初の投稿画像(指定された幅と高さの要素内で画像をカバーする)
 .post-image__index {
   width: 100%;
@@ -82,11 +59,68 @@ ul,li {
   object-fit: cover;
 }
 
+// top画面
+@charset "utf-8";
+
+/*========= レイアウトのためのCSS ===============*/
+.top {
+  text-align: center;
+  margin: auto; /* 上下左右のマージンを自動で調整 */
+  width: fit-content; /* 要素の幅を内容に合わせる */
+  height: fit-content; /* 要素の高さを内容に合わせる */
+  font-size: 10rem; /* 3倍のフォントサイズに変更 */
+  color: #d7e6d5;
+}
+
+.top__2 {
+  text-align: center;
+  margin: auto; /* 上下左右のマージンを自動で調整 */
+  width: fit-content; /* 要素の幅を内容に合わせる */
+  height: fit-content; /* 要素の高さを内容に合わせる */
+  font-size: 5rem; /* 3倍のフォントサイズに変更 */
+  color: #d7e6d5;
+}
+
+// .top-container {
+//   height: 800px;
+//   background-size:cover;
+// }
+
+// アプリ名をゆっくり表示させる
+.blur{
+  animation-name:blurAnime;
+  animation-duration:1s;
+  animation-fill-mode:forwards;
+}
+
+@keyframes blurAnime{
+  from {
+  filter: blur(10px);
+  transform: scale(1.02);
+  opacity: 0;
+  }
+
+  to {
+  filter: blur(0);
+  transform: scale(1);
+  opacity: 1;
+  }
+}
+ 
+.blurTrigger{
+    opacity: 0;
+}
+
+
 // アバウトページ
 .about-img__cover {
   width: 100%;
-  height: 100;
+  height: calc(100vh - 60px);
   object-fit: cover;
+}
+
+.marker-border-2{
+    background:linear-gradient(transparent 60%, #d7e6d5 0%);
 }
 
 // submitボタン
