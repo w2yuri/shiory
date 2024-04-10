@@ -24,13 +24,25 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
-      redirect_to customer_path(@customer)
+      redirect_to customer_path(@customer), notice: "登録情報が更新されました。"
     else
       render "edit"
     end
   end
 
   def get_profile_image
+  end
+
+  def unsubscribe
+  end
+
+  def withdraw
+    @customer = Customer.find(current_customer.id)
+    # 会員ステータスを退会に変更
+    @customer.update(is_deleted: true, is_active: false) 
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
   end
 
   private

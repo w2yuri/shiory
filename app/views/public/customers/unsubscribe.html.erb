@@ -1,0 +1,16 @@
+<div class="container mt-4">
+ <div class="mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 d-flex align-items-center flex-column">
+      <p class="text-center">
+        退会すると、会員情報登録や<br>
+        これまでの投稿やいいねが閲覧できなくなります。<br>
+        退会する場合は、「退会する」をクリックしてください。　
+      </p>
+      <div class="d-flex justify-content-center">
+        <%= link_to "退会しない", public_customers_information_edit_path(@customer), class: "btn btn-primary mr-3" %>
+        <%= link_to "退会する", customers_withdraw_path, method: :patch, class: "btn btn-danger", data: { confirm: "本当に退会しますか？"} %>
+      </div>
+    </div>
+  </div>
+</div>

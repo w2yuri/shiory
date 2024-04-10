@@ -42,6 +42,8 @@ class Customer < ApplicationRecord
       user.name = "guestuser"
     end
   end
+  
+  
 
   # 画像
   has_one_attached :profile_image
