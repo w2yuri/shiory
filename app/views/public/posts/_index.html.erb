@@ -1,0 +1,22 @@
+<table class='table'>
+  <thead>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% posts.each do |post| %>
+      <tr>
+        <td><%= image_tag post.customer.get_profile_image(50, 50), class: "rounded-circle" %></td>
+        <td><%= post.customer.name %></td>
+        <!--<td><#%= render "relationships/btn", user: user %></td>-->
+        <td><%= link_to 'Show', post_path(post) %></td>
+        <% if post.customer == current_customer %>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{post.id}" %></td>
+      </tr>
+        <% end %>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,31 @@
+<table class='table'>
+  <tr><%= image_tag customer.get_profile_image(100, 100), class: "rounded-circle profile-image d-block mx-auto mb-3" %></tr>
+  <tr>
+	  <th>name</th>
+	  <th><%= customer.name %></th>
+  </tr>
+  <tr>
+    <th>follows</th>
+    <th><%= link_to customer.followings.count, followings_path(customer) %></th>
+  </tr>
+  <tr>
+    <th>followers</th>
+    <th><%= link_to customer.followers.count, followers_path(customer) %></th>
+  </tr>
+</table>
+
+<div class='row'>
+  <!--ゲストユーザーはプロフィール編集画面を表示しないようにする-->
+  <% if customer.email != "guest@example.com" %>
+  <% end %>
+  <!--ログインしているユーザーが現在表示されているユーザーと等しくない場合-->
+  <% if current_customer != customer %>
+    <td><%= render "public/relationships/btn", customer: customer %></td>
+  <% else %>
+    <%= link_to edit_customer_path(customer), class: "btn btn-outline-secondary btn-block edit_customer_#{customer.id}" do %>
+    Edit
+    <%= link_to "Show", customer_path(customer), class: "btn btn-outline-secondary btn-block" %>
+    <%= link_to "投稿", new_post_path, class: "btn btn-outline-secondary btn-block" %>
+  <% end %>
+  <% end %>
+</div>
