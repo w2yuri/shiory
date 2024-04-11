@@ -24,10 +24,7 @@
             <%= render 'travel_task_fields', f: task %>
           <% end %>
         </div>
-    </div>
-  </div>
-</div>
-    
+        <div class="form-group">
         <%= link_to_add_association 'しおりを追加',
             f,
             :travel_tasks,
@@ -42,7 +39,13 @@
         %>
         <%= f.submit class: 'btn btn-success' %>
       <% end %>
+      </div>
     </div>
+    </div>
+  </div>
+</div>
+    
+        
     
 <script>
   // fileOnChange関数を定義。引数としてelement(ファイルアップロードフィールド（<input type="file">）のDOM要素)受取
