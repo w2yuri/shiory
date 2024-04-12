@@ -12,8 +12,8 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
   }
-
- 
+  
+  # ゲストログイン用
   devise_scope :customer do
     post 'guest_sign_in', to: 'public/sessions#guest_sign_in'
   end

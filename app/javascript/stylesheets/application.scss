@@ -66,9 +66,7 @@ ul,li {
 .top {
   text-align: center;
   margin: auto; /* 上下左右のマージンを自動で調整 */
-  width: fit-content; /* 要素の幅を内容に合わせる */
-  height: fit-content; /* 要素の高さを内容に合わせる */
-  font-size: 10rem; /* 3倍のフォントサイズに変更 */
+  font-size: 3rem; /* 3倍のフォントサイズに変更 */
   color: #d7e6d5;
 }
 
@@ -82,10 +80,6 @@ ul,li {
   text-shadow: 2px 2px #d7e6d5; /* 文字の縁を指定された色に設定 */
 }
 
-// .top-container {
-//   height: 800px;
-//   background-size:cover;
-// }
 
 // アプリ名をゆっくり表示させる
 .blur{
@@ -116,7 +110,7 @@ ul,li {
 // アバウトページ
 .about-img__cover {
   width: 100%;
-  height: calc(100vh - 60px);
+  height: 300px;
   object-fit: cover;
 }
 
