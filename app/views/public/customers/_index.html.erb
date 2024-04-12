@@ -9,7 +9,7 @@
   <tbody>
     <% customers.each do |customer| %>
       <tr>
-        <td><%= image_tag customer.get_profile_image(100, 100), class: "rounded-circle" %></td>
+        <td><%= image_tag customer.get_profile_image(100, 100), class: "rounded-circle profile-image__index"  %></td>
         <td><%= customer.name %></td>
         <td><%= render "public/relationships/btn", customer: customer %></td>
         <td><%= link_to 'Show', customer_path(customer) %></td>
