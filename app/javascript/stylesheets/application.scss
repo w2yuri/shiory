@@ -36,6 +36,10 @@ ul,li {
   list-style: none;
 }
 
+p {
+  color: #6d7d90;
+}
+
 // indexに表示される最初の投稿画像(指定された幅と高さの要素内で画像をカバーする)
 .post-image__index {
   width: 100%;
@@ -63,8 +67,9 @@ ul,li {
 .top {
   text-align: center;
   margin: auto; /* 上下左右のマージンを自動で調整 */
-  font-size: 1rem; /* 3倍のフォントサイズに変更 */
-  color: #d7e6d5;
+  font-size: 3rem; /* 3倍のフォントサイズに変更 */
+  color: #ffe9a5;
+  text-shadow: 2px 2px #6d7d90;
 }
 
 .top__2 {
@@ -72,16 +77,16 @@ ul,li {
   margin: auto;
   width: fit-content;
   height: fit-content;
-  font-size: 1rem;
-  color: white; /* 文字の色を白に設定 */
-  text-shadow: 2px 2px #d7e6d5; /* 文字の縁を指定された色に設定 */
+  font-size: 2rem;
+  color: #d7e6d5; 
+  text-shadow: 2px 2px #6d7d90; /* 文字の縁を指定された色に設定 */
 }
 
 
 // アプリ名をゆっくり表示させる
 .blur{
   animation-name:blurAnime;
-  animation-duration:1s;
+  animation-duration:3s;
   animation-fill-mode:forwards;
 }
 
@@ -107,7 +112,7 @@ ul,li {
 // アバウトページ
 .about-img__cover {
   width: 100%;
-  height: 300px;
+  height: 700px;
   object-fit: cover;
 }
 
