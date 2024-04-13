@@ -25,6 +25,12 @@ body {
   margin: 0;
 }
 
+footer {
+  position: sticky;
+  top: 100vh;
+  width: 100%;
+  background: #d7e6d5;
+}
 
 ul,li {
   list-style: none;

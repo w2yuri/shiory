@@ -59,6 +59,10 @@ gem 'image_processing', '~> 1.2'
 gem 'devise'
 gem 'cocoon'
 
+# 日本語化
+gem 'rails-i18n'
+gem 'devise-i18n'
+
 # 以下デプロイの記述
 gem 'dotenv-rails'
 group :production do
