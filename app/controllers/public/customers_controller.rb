@@ -18,7 +18,7 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    @post = Customer.find_by(id: @post.customer_id)
+    @post = Customer.find(id: @post.customer_id)
     # 投稿主に関連する投稿を取得し、作成日時の降順で並べ替え
     @posts = Post.where(customer_id: current_customer.id).includes(:customer).order("created_at DESC")
   end
