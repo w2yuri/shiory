@@ -28,7 +28,7 @@ class Public::CustomersController < ApplicationController
     if @customer.update(customer_params)
       redirect_to customer_path(@customer), notice: "登録情報が更新されました。"
     else
-      render "edit"
+      render "edit", alert: "登録情報が更新されませんでした。"
     end
   end
 

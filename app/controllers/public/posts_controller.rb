@@ -23,9 +23,9 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save!
-      redirect_to posts_path
+      redirect_to posts_path, notice: "投稿されました。"
     else
-      render :new
+      render :new, alert: "投稿されませんでした。"
     end
   end
 
@@ -48,7 +48,7 @@ class Public::PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_path
+    redirect_to posts_path, alert: "投稿が削除されました。"
   end
 
   private
