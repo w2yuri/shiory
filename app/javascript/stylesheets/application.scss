@@ -66,7 +66,7 @@ ul,li {
 .top {
   text-align: center;
   margin: auto; /* 上下左右のマージンを自動で調整 */
-  font-size: 3rem; /* 3倍のフォントサイズに変更 */
+  font-size: 1rem; /* 3倍のフォントサイズに変更 */
   color: #d7e6d5;
 }
 
@@ -75,7 +75,7 @@ ul,li {
   margin: auto;
   width: fit-content;
   height: fit-content;
-  font-size: 5rem;
+  font-size: 1rem;
   color: white; /* 文字の色を白に設定 */
   text-shadow: 2px 2px #d7e6d5; /* 文字の縁を指定された色に設定 */
 }

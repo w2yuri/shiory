@@ -25,9 +25,15 @@
       </div>
 
       <div class='mt-5'>
+        <% if current_customer != @customer %>
+          <% else %>
+        <%= link_to edit_customer_path(@customer), class: "btn btn-outline-secondary btn-block edit_customer_#{@customer.id}" do %>
+        Edit
         <%= link_to "投稿一覧", posts_path(filter: @customer.id), class: "btn btn-outline-secondary btn-block" %>
       　<%= link_to "いいね一覧", new_post_path(@customer), class: "btn btn-outline-secondary btn-block" %>
       　<%= link_to "退会する", public_customers_unsubscribe_path, class: "btn btn-danger" %>
+        <% end %>
+        <% end %>
       </div>
   </div>
 </div>

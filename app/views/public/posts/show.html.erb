@@ -1,19 +1,12 @@
-※ユーザーを表示させる
-<!--<div class="container">-->
-<!--  <div class="row">-->
-<!--       <div class="text-center">-->
-<!--         <div class='col-md-3'>-->
-<!--            <h2>customer info</h2>-->
-<!--            <%#= render 'public/customers/info', customer: current_customer %>-->
-<!--         </div>-->
-         
-<!--        <div class='col-md-8 mb-3 offset-md-1'>-->
-
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-5">
+<div class='container px-5 px-sm-0 mt-5'>
+  <%#= render 'layouts/errors', obj: @book %>
+  <div class='row'>
+    <div class='col-md-3'>
+      <h2>customer info</h2>
+        <%= render 'public/customers/info', customer: @post.customer %>
+    </div>
+    
+    <div class='col-md-8 offset-md-1'>
        <div class="text-center">
         <div class="mb-3">
            <div style="position:relative;border:1px solid #efc4c0;border-radius:4px;padding:1.5em 1em;">
@@ -52,6 +45,5 @@
                 <%= link_to 'Destroy', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" %>
               </div>
           <% end %>
-    </div>
   </div>
 </div>
