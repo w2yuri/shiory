@@ -4,15 +4,9 @@
     <div class='col-md-3'>
       <h2>customer info</h2>
         <%= render 'public/customers/info', customer: @customer %>
-        <% if @post.favorite?(current_customer) %>
-          <%= link_to post_favorite_path(@post.id), method: :delete do %>
-            <span style="color:red;">❤︎</span>
-          <% end %>
-        <% else %>
-          <%= link_to post_favorites_path(@post.id), method: :post do %>
-            <span>❤︎</span>
-          <% end %>
-        <% end %>
+        <div class=<%= "favorite-" + @post.id.to_s %> >
+          <%= render "public/favorites/btn", post: @post %>
+        </div>
     </div>
     
     <div class='col-md-8 offset-md-1'>

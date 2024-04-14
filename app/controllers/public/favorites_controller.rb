@@ -1,16 +1,18 @@
 class Public::FavoritesController < ApplicationController
-  def btn
-  end
   
   def create
-    @post_favorite = Favorite.new(customer_id: current_customer.id, post_id: params[:post_id])
-    @post_favorite.save
-    redirect_to post_path(params[:post_id])
+    post = Post.find(params[:post_id])
+    # カスタマーが特定の投稿をお気に入りに追加するためのFavoriteオブジェクトを作成
+    @favorite = current_customer.favorites.new(post_id: post.id)
+    @favorite.save
+    render 'replace_btn'
   end
 
   def destroy
-    @post_favorite = Favorite.find_by(customer_id: current_customer.id, post_id: params[:post_id])
-    @post_favorite.destroy
-    redirect_to post_path(params[:post_id])
+    post = Post.find(params[:post_id])
+    # カスタマーが特定の投稿をお気に入りに追加したかどうかを確認し、その結果を変数に代入
+    @favorite = current_customer.favorites.find_by(post_id: post.id)
+    @favorite.destroy
+    render 'replace_btn'
   end
 end
