@@ -22,5 +22,12 @@ class Post < ApplicationRecord
     end
   profile_image.variant(resize_to_limit: [width, height]).processed
   end
+  
+  # いいね機能
+  # 一致するレコードが存在しない＝createアクションへ
+  # 一致するレコードが存在する＝destroyアクションへ
+  def favorited?(customer)
+    favorites.where(customer_id: customer.id).exists?
+  end 
 
 end
