@@ -41,11 +41,6 @@
               Posts
             <% end %>
           </li>
-          <li class="nav-item mx-1 my-1" style="list-style-type: none;">
-            <%= link_to about_path, class: 'btn btn-primary btn-rounded', style: 'color: #6D7D90;' do %>
-              About
-            <% end %>
-          </li>
           <% end %>
           <!-- 管理者がログインしている場合 -->
           <% if admin_admin_signed_in? %>
@@ -81,11 +76,6 @@
               <%= link_to posts_path, class: 'btn btn-primary btn-rounded', style: 'color: #6D7D90;' do %>
                 Post
               <% end %>
-            </li>
-            <li class="nav-item mx-1 my-1" style="list-style-type: none;">
-            <%= link_to about_path, class: 'btn btn-primary btn-rounded', style: 'color: #6D7D90;' do %>
-              About
-            <% end %>
             </li>
             <li class="nav-item mx-1 my-1" style="list-style-type: none;">
               <%= link_to destroy_customer_session_path, method: :delete, class: 'btn btn-primary btn-rounded', style: 'color: #6D7D90;' do %>
