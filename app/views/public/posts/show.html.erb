@@ -4,11 +4,11 @@
     <div class='col-md-3'>
       <h2>customer info</h2>
         <%= render 'public/customers/info', customer: @customer %>
-        <div class=<%= "favorite-" + @post.id.to_s %> >
+        <div id="favorite-<%= @post.id %>">
           <%= render "public/favorites/btn", post: @post %>
         </div>
     </div>
-    
+
     <div class='col-md-8 offset-md-1'>
        <div class="text-center">
         <div class="mb-3">
@@ -28,7 +28,7 @@
               <% end %>
            </div>
            </div>
-           
+
           <% @post.travel_tasks.each do |travel_task| %>
             <div class="mb-5">
               <div style="position:relative;border:1px solid #efc4c0;border-radius:4px;padding:1.5em 1em;">

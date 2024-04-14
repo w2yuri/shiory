@@ -12,36 +12,32 @@
 #   email: 'admin@admin',
 #   password: 'adminadmin'
 
+Customer.find_or_create_by!(email: "admin@example.com") do |a|
+  a.password = ENV['ADMIN_PASSWORD']
+end
+
 # ユーザー
-栞 = Customer.find_or_create_by!(email: "shiori@example.com") do |customer|
-  customer.name = "栞"
-  customer.password = "password"
-  customer.profile_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-customer1.jpg"), filename:"sample-customer1.jpg")
+shiori = Customer.find_or_create_by!(email: "shiori@example.com") do |c|
+  c.name = "栞"
+  c.password = ENV['CUSTOMER_PASSWORD']
+  c.profile_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-customer1.jpg"), filename:"sample-customer1.jpg")
 end
 
 # 投稿
-Post.find_or_create_by!(post.title: "X県旅行") do |post|
-  post.post_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post1.jpg"), filename:"sample-post1.jpg")
-  post.contents = "2泊3日のX県旅行に行ってきました！1日目は〇〇市へ、2日目と3日目は◎◎町へ行きました。"
-  post.customer = 栞
+post = Post.find_or_create_by!(title: "X県旅行") do |p|
+  p.post_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post1.jpg"), filename:"sample-post1.jpg")
+  p.contents = "2泊3日のX県旅行に行ってきました！1日目は〇〇市へ、2日目と3日目は◎◎町へ行きました。"
+  p.customer_id = shiori.id
 end
 
-TravelTask.find_or_create_by!(travel_task.title: "和食屋△△") do |travel_task|
-  travel_task.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post2.jpg"), filename:"sample-post2.jpg")
-  travel_task.contents = "蕎麦が有名なお店です。ランチの時間に訪問しましたが、夜は居酒屋になりメニューが変わるそうなので次は夜に訪問したいです！"
-  travel_task..customer = 栞
+TravelTask.find_or_create_by!(title: "和食屋△△") do |tt|
+  tt.task_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post2.jpg"), filename:"sample-post2.jpg")
+  tt.contents = "蕎麦が有名なお店です。ランチの時間に訪問しましたが、夜は居酒屋になりメニューが変わるそうなので次は夜に訪問したいです！"
+  tt.post_id = post.id
 end
 
-TravelTask.find_or_create_by!(travel_task.title: "きつね") do |travel_task|
-  travel_task.image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post3.jpg"), filename:"sample-post3.jpg")
-  travel_task.contents = "和食屋△△の近くを散策していたら野生の狐に出会いました。冬の時期は運が良ければ見る事ができるそうです！"
-  travel_task..customer = 栞
+TravelTask.find_or_create_by!(title: "きつね") do |tt|
+  tt.task_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post3.jpg"), filename:"sample-post3.jpg")
+  tt.contents = "和食屋△△の近くを散策していたら野生の狐に出会いました。冬の時期は運が良ければ見る事ができるそうです！"
+  tt.post_id = post.id
 end
-
-# @post.title
-# @post.contents
-# @post.post_image
-
-# travel_task.title
-# travel_task.contents
-# travel_task.task_image
