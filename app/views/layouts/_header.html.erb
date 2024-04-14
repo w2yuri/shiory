@@ -2,15 +2,15 @@
    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #d7e6d5;">
     <div class="container">
       <% if customer_signed_in? %>
-        <%= link_to root_path, class: "navbar-brand", style: "margin-right: auto; margin-left: 0;" do %>
+        <%= link_to root_path, data: {"turbolinks" => false}, class: "navbar-brand", style: "margin-right: auto; margin-left: 0;" do %>
           <%= image_tag("title.jpg", alt: "shiory", size: "100x50") %>
         <% end %>
       <% elsif admin_admin_signed_in? %>
-        <%= link_to admin_posts_path, class: "navbar-brand", style: "margin-right: auto; margin-left: 0;" do %>
+        <%= link_to admin_posts_path, data: {"turbolinks" => false}, class: "navbar-brand", style: "margin-right: auto; margin-left: 0;" do %>
           <%= image_tag("title.jpg", alt: "shiory", size: "100x50") %>
         <% end %>
       <% else %>
-        <%= link_to root_path, class: "navbar-brand", style: "margin-right: auto; margin-left: 0;" do %>
+        <%= link_to root_path, data: {"turbolinks" => false}, class: "navbar-brand", style: "margin-right: auto; margin-left: 0;" do %>
           <%= image_tag("title.jpg", alt: "shiory", size: "100x50") %>
         <% end %>
       <% end %>

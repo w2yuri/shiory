@@ -18,11 +18,13 @@ html, body {
 
 html {
   height: 100%;
+  color: #6d7d90;
 }
 
 body {
   height: 100%;
   margin: 0;
+  color: #6d7d90;
 }
 
 footer {
@@ -36,7 +38,7 @@ ul,li {
   list-style: none;
 }
 
-p {
+p,td,th {
   color: #6d7d90;
 }
 
@@ -78,7 +80,7 @@ p {
   width: fit-content;
   height: fit-content;
   font-size: 2rem;
-  color: #d7e6d5; 
+  color: #d7e6d5;
   text-shadow: 2px 2px #6d7d90; /* 文字の縁を指定された色に設定 */
 }
 

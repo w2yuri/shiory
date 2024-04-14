@@ -9,7 +9,7 @@ class Public::SessionsController < Devise::SessionsController
   # ログアウト後のリダイレクト先
   def after_sign_out_path_for(resource)
      flash[:alert] = "ログアウトしました。"
-     roo_path
+     root_path
   end
 
   # ゲストログイン用
