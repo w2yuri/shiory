@@ -145,3 +145,12 @@ p,td,th {
 .alert, .notice {
   text-align: center;
 }
+
+.error-message {
+  text-align: center;
+  color:  #dbac9e;
+  display: inline-block;
+  height: 1em;
+  width: 100%; 
+  background-color: #ffe9a5;
+}

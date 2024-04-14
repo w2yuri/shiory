@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   has_many_attached :post_images
 
   validates :title, :contents, presence: { message: "を入力してください" }
-  validates :title, :contents,    length: { minimum: 1 }
+
 
   # cocoon用の記述
   has_many :travel_tasks, inverse_of: :post, dependent: :destroy

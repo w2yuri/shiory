@@ -23,9 +23,9 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to posts_path, notice: "投稿されました。"
+      redirect_to post_path(@post), notice: "投稿されました。"
     else
-      render :new, alert: "投稿されませんでした。"
+      render :new, alert: "投稿されませんでした。空欄がないか確認して下さい。"
     end
   end
 
