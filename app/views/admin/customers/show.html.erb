@@ -1,36 +1,26 @@
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-5">
-
-    <h2>マイページ</h2><table class='table'>
+      <h2>マイページ</h2>
+      <table class='table'>
         <div style="display: flex; justify-content: center;">
-            <div>
-              <%= image_tag @customer.get_profile_image(100, 100), class: "rounded-circle profile-image d-block mx-auto mb-3" %>
-            </div>
+          <%= image_tag @customer.get_profile_image(100, 100), class: "rounded-circle profile-image d-block mx-auto mb-3" %>
         </div>
         <tr>
-      	  <th>name</th>
-      	  <th><%= @customer.name %></th>
+          <th>name</th>
+          <td><%= @customer.name %></td>
         </tr>
         <tr>
-      	  <th>introduction</th>
-      	  <th><%= @customer.introduction %></th>
+          <th>introduction</th>
+          <td><%= @customer.introduction %></td>
         </tr>
       </table>
 
-      <div style='display: flex; justify-content: center; mt-3'>
-        <% if current_customer != @customer %>
-        <% end %>
-      </div>
-
       <div class='mt-5'>
-        <% if current_customer != @customer %>
-          <% else %>
         <%= link_to edit_customer_path(@customer), class: "btn btn-outline-secondary btn-block edit_customer_#{@customer.id}" do %>
-        Edit
+          Edit
+        <% end %>
         <%= link_to "投稿一覧", posts_path(filter: @customer.id), class: "btn btn-outline-secondary btn-block" %>
-        <% end %>
-        <% end %>
       </div>
     </div>
   </div>
