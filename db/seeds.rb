@@ -7,12 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-# 【管理者】
-# Admin.create!(
-#   email: 'admin@admin',
-#   password: 'adminadmin'
-
-Customer.find_or_create_by!(email: "admin@example.com") do |a|
+Ad.find_or_create_by!(email: "admin@example.com") do |a|
   a.password = ENV['ADMIN_PASSWORD']
 end
 
