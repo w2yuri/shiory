@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   # 退会処理
   get '/customers/unsubscribe', to: 'public/customers#unsubscribe', as: 'public_customers_unsubscribe'
   patch '/customers/withdraw', to: 'public/customers#withdraw'
+  # 検索機能
+  get "search" => "searches#search"
 
   # 顧客用
   devise_for :customers, skip: [:passwords], controllers: {

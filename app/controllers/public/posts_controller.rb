@@ -51,6 +51,21 @@ class Public::PostsController < ApplicationController
     @post.destroy
     redirect_to posts_path, alert: "投稿が削除されました。"
   end
+  
+  # 検索機能
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @post = Post.where("title LIKE?","#{word}")
+    elsif search == "forward_match"
+      @post = Post.where("title LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @post = Post.where("title LIKE?","%#{word}")
+    elsif search == "partial_match"
+      @post = Post.where("title LIKE?","%#{word}%")
+    else
+      @post = Post.all
+    end
+  end
 
   private
 
