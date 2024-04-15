@@ -4,6 +4,13 @@
       <h3>edit</h3>
       <!--posts/newと同様の記述-->
       <%= form_with model: @post, local: true do |f| %>
+      <% if @post.errors.any? %>
+          <ul>
+            <% @post.errors.full_messages.each do |message| %>
+              <li class="error-message"><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
         <div class="form-group">
           <div class="custom-file">
             <%= f.file_field :post_image, class: 'custom-file-input', onchange: 'fileOnChange(this)' %>
@@ -15,7 +22,7 @@
           <%= f.text_field :title, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label :contents, 'Shiory' %>
+          <%= f.label :contents, 'Contents' %>
           <%= f.text_area :contents, class: 'form-control' %>
         </div>
         <div id="travel_tasks">
@@ -43,7 +50,8 @@
           <%= link_to 'Show', @post, class: "post_#{@post.id}" %> |
           <%= link_to 'Back', posts_path, class: "back" %>
         <% end %>
-       </div>
+       </div> 
+    </div>
   </div>
 </div>
 

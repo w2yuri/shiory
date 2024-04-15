@@ -3,7 +3,13 @@
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-5">
       <h2>customer info</h2>
       <%= form_with model: @customer, url: customer_path(@customer), local: true do |f| %>
-        <%#= render 'layouts/errors', obj: @customer %>
+        <% if @customer.errors.any? %>
+          <ul>
+            <% @customer.errors.full_messages.each do |message| %>
+              <li class="error-message"><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
         <div class="form-group">
           <%= f.label :name %>
           <%= f.text_field :name, class: "form-control name" %>
