@@ -3,7 +3,6 @@ class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!
   # 他のユーザーのプロフィールを編集時、リダイレクトされるフィルター定義
   before_action :ensure_correct_customer, only: [:edit, :update]
-
   # ゲストログイン用
   before_action :ensure_guest_customer, only: [:edit]
 
@@ -68,7 +67,7 @@ class Public::CustomersController < ApplicationController
   private
 
   def customer_params
-    params.require(:customer).permit(:name, :introduction, :profile_image)
+    params.require(:customer).permit(:name, :introduction, :profile_image, :is_active)
   end
 
   def ensure_correct_customer

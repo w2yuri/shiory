@@ -4,6 +4,7 @@ class Admin::PostsController < ApplicationController
   
   def index
     @posts = Post.all
+    @customer = Customer.find(params[:id])
   end
 
   def show

@@ -14,13 +14,21 @@
           <th>introduction</th>
           <td><%= @customer.introduction %></td>
         </tr>
+         <tr>
+          <th class="nowrap" style="font-size: 18px;">会員ステータス</th>
+          <td style="font-size: 18px;">
+            <% if @customer.is_active %>
+            <span class='text-success'>有効</span>
+            <% else %>
+            <span class='text-secondary'>退会</span>
+            <% end %>
+          </td>
+        </tr>
       </table>
 
       <div class='mt-5'>
-        <%= link_to edit_customer_path(@customer), class: "btn btn-outline-secondary btn-block edit_customer_#{@customer.id}" do %>
-          Edit
-        <% end %>
-        <%= link_to "投稿一覧", posts_path(filter: @customer.id), class: "btn btn-outline-secondary btn-block" %>
+        <%= link_to '編集する', edit_admin_customer_path(@customer.id), class: "btn btn-success btn-block" %>
+        <%= link_to "投稿一覧", admin_posts_path(filter: @customer.id), class: "btn btn-outline-secondary btn-block" %>
       </div>
     </div>
   </div>

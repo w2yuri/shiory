@@ -48,17 +48,17 @@
               <%= render 'layouts/search' %>
             </li>
             <li class="nav-item mx-1 my-1" style="list-style-type: none;">
-              <%= link_to posts_path, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
+              <%= link_to admin_posts_path, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
                 Posts
               <% end %>
             </li>
             <li class="nav-item mx-1 my-1" style="list-style-type: none;">
-              <%= link_to customers_path, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
+              <%= link_to admin_customers_path, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
                 Customers
               <% end %>
             </li>
             <li class="nav-item mx-1 my-1" style="list-style-type: none;">
-              <%= link_to destroy_adminadmin__session_path, method: :delete, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
+              <%= link_to destroy_admin_admin_session_path, method: :delete, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
                 Log out
               <% end %>
             </li>

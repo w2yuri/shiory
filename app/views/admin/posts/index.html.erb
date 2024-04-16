@@ -2,7 +2,8 @@
   <div class='row'>
     <div class='col-md-3'>
       <h2>user info</h2>
-      <%= render 'public/customers/info', customer: params[:filter] ? Customer.find(params[:filter]) : current_customer %>
+      <!--条件に応じて、指定された ID のカスタマーを取得するか、現在のログインしているカスタマーを取得し、info テンプレートに渡す-->
+      <%= render 'admin/customers/info', customer: params[:filter] ? Customer.find(params[:filter]) : current_customer %>
     </div>
 
     <div class='col-md-8 offset-md-1'>

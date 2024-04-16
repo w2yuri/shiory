@@ -23,9 +23,12 @@ class Admin::CustomersController < ApplicationController
     end
   end
   
+  def get_profile_image
+  end
+  
   private
   
   def customer_params
-    params.require(:customer).permit(:name, :introduction, :email, :is_active)
+    params.require(:customer).permit(:name, :introduction, :email, :is_active, :profile_image)
   end
 end
