@@ -1,10 +1,8 @@
 class Admin::PostsController < ApplicationController
-# ログインできたらコメントアウト解除
-# before_action :authenticate_admin!
+ before_action :authenticate_admin_admin!
   
   def index
     @posts = Post.all
-    # @customer = Customer.find(params[:id])
   end
 
   def show

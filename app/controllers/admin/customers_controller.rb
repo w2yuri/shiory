@@ -1,6 +1,5 @@
 class Admin::CustomersController < ApplicationController
-  # seedが読み込まれログインできるようになったらコメントアウト解除
-  # before_action :authenticate_admin!
+  before_action :authenticate_admin_admin!
   
   def index
     @customers = Customer.all
