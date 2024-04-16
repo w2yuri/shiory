@@ -3,7 +3,7 @@
     <div class='col-md-3'>
       <h2>user info</h2>
       <!--条件に応じて、指定された ID のカスタマーを取得するか、現在のログインしているカスタマーを取得し、info テンプレートに渡す-->
-      <%= render 'admin/customers/info', customer: params[:filter] ? Customer.find(params[:filter]) : current_customer %>
+      <%#= render 'admin/customers/info', customer: params[:filter] ? Customer.find(params[:filter]) : current_customer %>
     </div>
 
     <div class='col-md-8 offset-md-1'>
@@ -17,7 +17,7 @@
                 <!--投稿画像を持っていない場合は代替の画像を表示-->
                 <%= image_tag 'no_image.jpg', class: 'post-image__index' unless post.post_image.present? %>
                 <div class="card-body">
-                  <h5><%= link_to post.title, post_path(post) %></h5>
+                  <h5><%= link_to post.title, admin_post_path(post) %></h5>
                     <% if post.customer %>
                       <h5>
                         <%= image_tag post.customer.get_profile_image(50, 50), class: "rounded-circle profile-image__index" %>
