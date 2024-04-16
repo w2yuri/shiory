@@ -2,7 +2,7 @@
   <div class='row'>
     <div class='col-md-3'>
       <h2>customer info</h2>
-        <%= render 'public/customers/info', customer: @customer %>
+        <%= render 'ad/customers/info', customer: @customer %>
     </div>
 
     <div class='col-md-8 offset-md-1'>
@@ -39,7 +39,7 @@
             </div>
           <% end %>
             <div class="mt-3">
-              <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %>
+              <%= link_to 'Edit', admin_edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %>
               <%= link_to 'Destroy', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" %>
             </div>
      </div>
