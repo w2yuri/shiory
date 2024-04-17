@@ -30,7 +30,7 @@ class Post < ApplicationRecord
     favorites.where(customer_id: customer.id).exists?
   end
 
-  # 検索用
+  # 検索機能
   def self.search_for(content, method)
     if method == 'perfect'
       Post.where(title: content)

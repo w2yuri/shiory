@@ -25,6 +25,10 @@
               <%= image_tag @post.post_image, class: 'img-fluid' %>
             </div>
               <% end %>
+            <div class="comments-index mt-2">
+              <%= render "public/comments/index", post: @post %>
+            </div>
+            <%= render "public/comments/form", post: @post, comment: @comment %>
            </div>
            </div>
 
@@ -38,6 +42,11 @@
                   <%= simple_format(travel_task.contents, sanitize: true, class: 'm-0') %>
                   <%= image_tag travel_task.task_image, class: 'img-fluid' if travel_task.task_image.present? %>
                 </div>
+                <div class="comments-index mt-2">
+                  <%= render "public/comments/index", post: @post %>
+                </div>
+                
+                <%= render "public/comments/form", post: @post, comment: @comment %>
               </div>
             </div>
           <% end %>
@@ -47,11 +56,6 @@
                 <%= link_to 'Destroy', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" %>
               </div>
           <% end %>
-          <div class="comments-index">
-            <%= render "public/comments/index", post: @post %>
-          </div>
-          
-          <%= render "public/comments/form", post: @post, comment: @comment %>
      </div>
     </div>
   </div>

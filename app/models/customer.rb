@@ -34,7 +34,7 @@ class Customer < ApplicationRecord
     followings.include?(customer)
   end
   
-  # 検索用
+  # 検索機能
   def self.search_for(content, method)
     if method == 'perfect'
       Customer.where(name: content)
