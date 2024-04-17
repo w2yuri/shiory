@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       get 'followers/:id' => 'relationships#followers', as: 'followers'
     resources :posts, only: [:new, :index, :show, :create, :edit, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]
-      resources :coments, only: [:create, :destroy]
+      resources :comments, only: [:create, :destroy]
     end
     # 追加機能
     resources :groups, only: [:index, :show, :edit, :update, :destroy]

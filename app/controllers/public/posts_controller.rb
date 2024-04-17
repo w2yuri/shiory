@@ -32,8 +32,8 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @customer = @post.customer
+    @comment = Comment.new
     @comments = @post.comments
-    @comment = current_customer.comments.new
   end
 
   def edit

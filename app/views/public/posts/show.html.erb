@@ -47,6 +47,11 @@
                 <%= link_to 'Destroy', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" %>
               </div>
           <% end %>
+          <div class="comments-index">
+            <%= render "public/comments/index", post: @post %>
+          </div>
+          
+          <%= render "public/comments/form", post: @post, comment: @comment %>
      </div>
     </div>
   </div>
