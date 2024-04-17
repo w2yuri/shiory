@@ -37,7 +37,7 @@ class Post < ApplicationRecord
     posts = Post.where('title LIKE ?', word).or(Post.where('contents LIKE ?', word))
     # pluck=ヒットしたトラベルタスクのpost_idの値を配列に入れて返す
     post_ids = TravelTask.where('title LIKE ?', word).or(TravelTask.where('contents LIKE ?', word)).pluck(:post_id)
-    # ids変数に37行目と39行目のidを足して、最後に重複削除した値を入れて返す
+    # ids変数に37行目と39行目のidを足して、最後にpostとtravel_taskの重複分を削除した値を入れて返す
     ids = [posts.ids + post_ids].uniq
     Post.where(id: ids)
   end

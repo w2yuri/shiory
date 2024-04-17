@@ -11,7 +11,7 @@
       <tr>
         <td><%= image_tag post.customer.get_profile_image(50, 50), class: "rounded-circle" %></td>
         <td><%= post.customer.name %></td>
-        <!--<td><#%= render "relationships/btn", user: user %></td>-->
+        
         <td><%= link_to 'Show', post_path(post) %></td>
         <% if post.customer == current_customer %>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{post.id}" %></td>
