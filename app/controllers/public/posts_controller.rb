@@ -10,8 +10,13 @@ class Public::PostsController < ApplicationController
     @post = Post.new
     # リクエストパラメータにfilterが含まれているかどうかを確認
      if params[:filter]
-    # 特定の顧客に関連する投稿をフィルタリングし表示
-       @posts = Post.where(customer_id: params[:filter])
+       if params[:is_favorite]
+         customer = Customer.find(params[:filter])
+         favorite_post_ids = customer.favorites.pluck(:post_id)
+         @posts = Post.where(id: favorite_post_ids)
+       else
+          @posts = Post.where(customer_id: params[:filter])
+       end  
     # filterパラメータが提供されていない場合、すべての投稿を取得
      else
        @posts = Post.all

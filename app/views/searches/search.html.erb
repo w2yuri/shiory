@@ -1,16 +1,21 @@
-<% if @model == 'customer' %>
-  <h3>Customers search for "<%= @content %>"</h3>
+<% if @model == 'Customer' %>
+  <h3>Customers search for "<%= @contents %>"</h3>
   <% if @records.present? %>
     <% @records.each do |customer| %>
       <!-- カスタマーの表示 -->
-      <%= customer.name %>
+       <tr>
+        <td><%= image_tag customer.get_profile_image(100, 100), class: "rounded-circle profile-image__index"  %></td>
+        <td><%= customer.name %></td>
+        <td><%= render "public/relationships/btn", customer: customer %></td>
+        <td><%= link_to 'Show', customer_path(customer) %></td>
+      </tr>
     <% end %>
   <% else %>
     <!-- レコードが見つからない場合の処理 -->
     <p>No customers found.</p>
   <% end %>
-<% elsif @model == 'post' %>
-  <h3>Posts search for "<%= @content %>"</h3>
+<% elsif @model == 'Post' %>
+  <h3>Posts search for "<%= @contents %>"</h3>
   <% if @records.present? %>
     <% @records.each do |post| %>
       <!-- ポストの表示 -->

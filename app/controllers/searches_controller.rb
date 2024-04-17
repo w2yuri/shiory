@@ -3,13 +3,12 @@ class SearchesController < ApplicationController
 
   def search
     @model = params[:model]
-    @contents = params[:content]
-    @method = params[:method]
+    @contents = params[:contents]
     
-   if @model == "customer"
-      @records = Customer.search_for(@contents, @method)
+   if @model == "Customer"
+      @records = Customer.search_for(@contents)
    else
-      @records = Post.search_for(@contents, @method) 
+      @records = Post.search_for(@contents) 
    end
   end
 end

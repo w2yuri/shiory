@@ -30,7 +30,7 @@
         <%= link_to edit_customer_path(@customer), class: "btn btn-outline-secondary btn-block edit_customer_#{@customer.id}" do %>
         Edit
         <%= link_to "投稿一覧", posts_path(filter: @customer.id), class: "btn btn-outline-secondary btn-block" %>
-      　<%= link_to "いいね一覧", post_favorites_path(post_id: @customer.id), class: "btn btn-outline-secondary btn-block" %>
+      　<%= link_to "いいね一覧", posts_path(filter: @customer.id, is_favorite: true), class: "btn btn-outline-secondary btn-block" %>
       　<%= link_to "退会する", public_customers_unsubscribe_path, class: "btn btn-danger btn-block" %>
         <% end %>
         <% end %>

@@ -31,16 +31,14 @@ class Post < ApplicationRecord
   end
 
   # 検索機能
-  def self.search_for(content, method)
-    if method == 'perfect'
-      Post.where(title: content)
-    elsif method == 'forward'
-      Post.where('name LIKE ?', content + '%')
-    elsif method == 'backward'
-      Post.where('name LIKE ?', '%' + content)
-    else
-      Post.where('name LIKE ?', '%' + (content || '') + '%')
-    end
+  def self.search_for(content)
+    word = "%#{content}%"
+    # ポストタイトルかコンテンツに一致しているか確認
+    posts = Post.where('title LIKE ?', word).or(Post.where('contents LIKE ?', word))
+    # pluck=ヒットしたトラベルタスクのpost_idの値を配列に入れて返す
+    post_ids = TravelTask.where('title LIKE ?', word).or(TravelTask.where('contents LIKE ?', word)).pluck(:post_id)
+    # ids変数に37行目と39行目のidを足して、最後に重複削除した値を入れて返す
+    ids = [posts.ids + post_ids].uniq
+    Post.where(id: ids)
   end
-
 end
