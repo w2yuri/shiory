@@ -32,8 +32,8 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @customer = @post.customer
-    # @comments = @post.comments
-    # @comment = current_user.comments.new
+    @comments = @post.comments
+    @comment = current_customer.comments.new
   end
 
   def edit
@@ -55,19 +55,19 @@ class Public::PostsController < ApplicationController
   end
   
   # 検索機能
-  # def self.looks(search, word)
-  #   if search == "perfect_match"
-  #     @post = Post.where("title LIKE?","#{word}")
-  #   elsif search == "forward_match"
-  #     @post = Post.where("title LIKE?","#{word}%")
-  #   elsif search == "backward_match"
-  #     @post = Post.where("title LIKE?","%#{word}")
-  #   elsif search == "partial_match"
-  #     @post = Post.where("title LIKE?","%#{word}%")
-  #   else
-  #     @post = Post.all
-  #   end
-  # end
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @post = Post.where("title LIKE?","#{word}")
+    elsif search == "forward_match"
+      @post = Post.where("title LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @post = Post.where("title LIKE?","%#{word}")
+    elsif search == "partial_match"
+      @post = Post.where("title LIKE?","%#{word}%")
+    else
+      @post = Post.all
+    end
+  end
 
   private
 
