@@ -21,8 +21,6 @@ class Public::PostsController < ApplicationController
      else
        @posts = Post.all
      end
-    # 12行〜16行までを条件演算子(三項演算子)にした場合
-    # @posts = params[:filter] ? Post.where(customer_id: params[:filter]) :  Post.all
   end
 
   def create
