@@ -1,0 +1,23 @@
+<% if @model == 'customer' %>
+  <h3>Customers search for "<%= @content %>"</h3>
+  <% if @records.present? %>
+    <% @records.each do |customer| %>
+      <!-- カスタマーの表示 -->
+      <%= customer.name %>
+    <% end %>
+  <% else %>
+    <!-- レコードが見つからない場合の処理 -->
+    <p>No customers found.</p>
+  <% end %>
+<% elsif @model == 'post' %>
+  <h3>Posts search for "<%= @content %>"</h3>
+  <% if @records.present? %>
+    <% @records.each do |post| %>
+      <!-- ポストの表示 -->
+      <%= post.title %>
+    <% end %>
+  <% else %>
+    <!-- レコードが見つからない場合の処理 -->
+    <p>No posts found.</p>
+  <% end %>
+<% end %>

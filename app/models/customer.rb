@@ -33,13 +33,26 @@ class Customer < ApplicationRecord
   def following?(customer)
     followings.include?(customer)
   end
+  
+  # 検索用
+  def self.search_for(content, method)
+    if method == 'perfect'
+      Customer.where(name: content)
+    elsif method == 'forward'
+      Customer.where('name LIKE ?', content + '%')
+    elsif method == 'backward'
+      Customer.where('name LIKE ?', '%' + content)
+    else
+      Customer.where('name LIKE ?', '%' + (content || '') + '%')
+    end
+  end
 
   # ゲストログイン用
-  GUEST_USER_EMAIL = "guest@example.com"
+  GUEST_CUSTomer_EMAIL = "guest@example.com"
   def self.guest
-    find_or_create_by!(email: GUEST_USER_EMAIL) do |user|
-      user.password = SecureRandom.urlsafe_base64
-      user.name = "guestuser"
+    find_or_create_by!(email: GUEST_CUSTomer_EMAIL) do |customer|
+      customer.password = SecureRandom.urlsafe_base64
+      customer.name = "guestcustomer"
     end
   end
 

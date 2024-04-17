@@ -9,7 +9,7 @@
         <h2>Posts</h2>
         <div class="row">
           <% @posts.each do |post| %>
-            <div class="col-md-6 mb-3">
+            <div class="col-md-6 mb-5">
               <div class="card">
                 <!--投稿に添付された画像を表示-->
                 <%= image_tag post.post_image, class: 'post-image__index' if post.post_image.present? %>

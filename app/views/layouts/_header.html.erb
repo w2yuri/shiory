@@ -45,7 +45,7 @@
           <!-- 管理者がログインしている場合 -->
           <% if admin_admin_signed_in? %>
             <li class="nav-item mx-1 my-1" style="list-style-type: none; mx-2">
-              <%= render 'layouts/search' %>
+              <%= render 'searches/search' %>
             </li>
             <li class="nav-item mx-1 my-1" style="list-style-type: none;">
               <%= link_to admin_posts_path, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
@@ -66,7 +66,7 @@
           <!-- 顧客がログインしている場合 -->
           <% if customer_signed_in? %>
             <li class="nav-item mx-1 my-1" style="list-style-type: none; mx-2">
-              <%= render 'layouts/search' %>
+              <%= render 'searches/search' %>
             </li>
             <li class="nav-item mx-1 my-1" style="list-style-type: none;">
               <%= link_to customer_path(current_customer), class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
