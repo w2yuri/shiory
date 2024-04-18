@@ -2,7 +2,7 @@
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-5">
       <h2>customer info</h2>
-      <%= form_with model: @customer, url: customer_path(@customer), local: true do |f| %>
+      <%= form_with model: @customer, url: admin_customer_path(@customer), local: true do |f| %>
         <% if @customer.errors.any? %>
           <ul>
             <% @customer.errors.full_messages.each do |message| %>
@@ -25,20 +25,17 @@
           <%= f.label :introduction %>
           <%= f.text_area :introduction, class: "form-control introduction" %>
         </div>
-         <div class="nowrap col-md-4">会員ステータス</div>
-            <%= form_for @customer do |form| %>
-              <div class="row g-3">
-                <div class="col">
-                  <%= form.radio_button :is_active, true, id: "customer_is_active_true" %>
-                  <%= form.label :is_active, "有効", value: true, for: "customer_is_active_true" %>
-              
-                  <%= form.radio_button :is_active, false, id: "customer_is_active_false" %>
-                  <%= form.label :is_active, "無効", value: false, for: "customer_is_active_false" %>
-                </div>
-              </div>
-            <% end %>
-           <input type="submit" name="commit" value="変更を保存" class="btn btn-success" data-disable-with="Update Book">
-
+        <div class="nowrap col-md-4">会員ステータス</div>
+        <div class="row g-3">
+          <div class="col">
+            <%= f.radio_button :is_active, true, id: "customer_is_active_true" %>
+            <%= f.label :is_active, "有効", value: true, for: "customer_is_active_true" %>
+            <%= f.radio_button :is_active, false, id: "customer_is_active_false" %>
+            <%= f.label :is_active, "無効", value: false, for: "customer_is_active_false" %>
+          </div>
+        </div>
+        <%= f.hidden_field :is_active %>
+        <input type="submit" name="commit" value="変更を保存" class="btn btn-success" data-disable-with="変更を保存">
       <% end %>
     </div>
   </div>
