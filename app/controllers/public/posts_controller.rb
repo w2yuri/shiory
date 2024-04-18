@@ -36,6 +36,7 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @customer = @post.customer
     @comment = Comment.new
+    @travel_task_comment = TravelTaskComment.new
     @comments = @post.comments
   end
 

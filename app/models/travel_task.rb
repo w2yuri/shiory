@@ -1,6 +1,7 @@
 class TravelTask < ApplicationRecord
   # coccon用の記述
   belongs_to :post
+  has_many :travel_task_comments, dependent: :destroy
 
   has_one_attached :task_image
   

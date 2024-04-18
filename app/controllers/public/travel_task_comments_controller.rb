@@ -1,8 +1,8 @@
 class Public::TravelTaskCommentsController < ApplicationController
   
   def create
-    @travel_task = Travel_Task.find(params[:post_id])
-    @comment = Comment.new(comment_params)
+    @travel_task = TravelTask.find(comment_params[:travel_task_id])
+    @comment = TravelTaskComment.new(comment_params)
     @comment.customer_id = current_customer.id
     @comment.travel_task_id = @travel_task.id
     @comment.save
@@ -16,6 +16,6 @@ class Public::TravelTaskCommentsController < ApplicationController
   private
   
   def comment_params
-    params.require(:comment).permit(:content) 
+    params.require(:travel_task_comment).permit(:content, :travel_task_id) 
   end 
 end

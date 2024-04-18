@@ -1,4 +1,5 @@
-<%= form_with(model:[travel_task, comment], local: false) do |f| %>
+<%= form_with(model:[travel_task, comment], url: post_travel_task_comments_path(travel_task.post.id), local: false) do |f| %>
+  <%= f.hidden_field :travel_task_id, value: travel_task.id %>
   <%= f.text_area :content, rows:'3',placeholder: "コメントを入力して下さい", class: "w-100 comment-textarea" %>
   <%= f.submit "送信する", class: "btn btn-primary", style: "color: #ffe9a5;" %>
 <% end %>
