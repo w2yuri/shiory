@@ -2,6 +2,7 @@ class Post < ApplicationRecord
   belongs_to :customer
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :travel_task_comments, dependent: :destroy
   has_many_attached :post_images
 
   validates :title, :contents, presence: { message: "を入力してください" }

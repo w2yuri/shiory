@@ -1,0 +1,4 @@
+<%= form_with(model:[travel_task, comment], local: false) do |f| %>
+  <%= f.text_area :content, rows:'3',placeholder: "コメントを入力して下さい", class: "w-100 comment-textarea" %>
+  <%= f.submit "送信する", class: "btn btn-primary", style: "color: #ffe9a5;" %>
+<% end %>
