@@ -9,7 +9,8 @@ class Public::TravelTaskCommentsController < ApplicationController
   end 
   
   def destroy
-    @comment = Comment.find(params[:id])
+    @travel_task = TravelTask.find(params[:post_id])
+    @comment = @travel_task.travel_task_comments.find(params[:id])
     @comment.destroy
   end 
   

@@ -13,6 +13,8 @@ class SearchesController < ApplicationController
   end
   
   private
+  
+  # 顧客もしくは管理者がログインしている時のみ検索ボックスを表示。それ以外はログイン認証。
   def login_check
     if customer_signed_in?
       return true
