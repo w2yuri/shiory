@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Admin::SessionsController < Devise::SessionsController
+  before_action :prohibit_multiple_login, if: :customer_signed_in?
   
   
   def after_sign_in_path_for(resource)
@@ -9,6 +10,11 @@ class Admin::SessionsController < Devise::SessionsController
 
   def after_sign_out_path_for(resource)
     admin_admin_session_path
+  end
+  
+  #二重ログイン防止
+  def prohibit_multiple_login
+    redirect_to admin_admin_session_path
   end
   
   # before_action :configure_sign_in_params, only: [:create]

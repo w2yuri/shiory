@@ -7,7 +7,7 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @post = Post.new
+     @post = Post.new
     # リクエストパラメータにfilterが含まれているかどうかを確認
      if params[:filter]
        if params[:is_favorite]
@@ -37,8 +37,6 @@ class Public::PostsController < ApplicationController
     @customer = @post.customer
     @comment = Comment.new
     @comments = @post.comments
-    @travel_task = @post.travel_task
-    @travel_tasks = @post.travel_tasks
   end
 
   def edit
@@ -58,7 +56,7 @@ class Public::PostsController < ApplicationController
     @post.destroy
     redirect_to posts_path, alert: "投稿が削除されました。"
   end
-  
+
   # 検索機能
   def self.looks(search, word)
     if search == "perfect_match"

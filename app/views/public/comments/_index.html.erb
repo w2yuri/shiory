@@ -6,7 +6,7 @@
 
         <td>
           <%= link_to customer_path(comment.customer) do %>
-            <%= image_tag comment.customer.get_profile_image(100, 100) %><br>
+            <%= image_tag comment.customer.get_profile_image(50, 50), class: "rounded-circle profile-image d-block" %><br>
             <%= comment.customer.name %>
           <% end %>
         </td>

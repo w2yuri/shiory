@@ -3,6 +3,15 @@ class Admin::PostsController < ApplicationController
   
   def index
     @posts = Post.all
+    @post = Post.new
+    # リクエストパラメータにfilterが含まれているかどうかを確認
+     if params[:filter]
+    # 特定の顧客に関連する投稿をフィルタリングし表示
+       @posts = Post.where(customer_id: params[:filter])
+    # filterパラメータが提供されていない場合、すべての投稿を取得
+     else
+       @posts = Post.all
+     end
   end
 
   def show
@@ -24,6 +33,21 @@ class Admin::PostsController < ApplicationController
   def destroy
     @post.destroy
     redirect_to posts_path
+  end
+  
+  # 検索機能
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @post = Post.where("title LIKE?","#{word}")
+    elsif search == "forward_match"
+      @post = Post.where("title LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @post = Post.where("title LIKE?","%#{word}")
+    elsif search == "partial_match"
+      @post = Post.where("title LIKE?","%#{word}%")
+    else
+      @post = Post.all
+    end
   end
   
   private

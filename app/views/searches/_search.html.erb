@@ -1,5 +1,4 @@
-
-  <div class="search_form">
+　<div class="search_form">
     <%= form_with url: search_path, local: true, method: :get do |f| %>
       <%= f.text_field :contents %>
       <%= f.select :model, options_for_select([['Customer'], ['Post']]) %>

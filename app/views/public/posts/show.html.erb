@@ -3,8 +3,11 @@
     <div class='col-md-3'>
       <h2>customer info</h2>
         <%= render 'public/customers/info', customer: @customer %>
-        <div id="favorite-<%= @post.id %>">
-          <%= render "public/favorites/btn", post: @post %>
+        <div class="mt-3">
+          <div>この投稿にいいねする</div>
+          <div id="favorite-<%= @post.id %>">
+            <%= render "public/favorites/btn", post: @post %>
+          </div>
         </div>
     </div>
 
@@ -43,9 +46,9 @@
                   <%= image_tag travel_task.task_image, class: 'img-fluid' if travel_task.task_image.present? %>
                 </div>
                 <div id="comments-index" class="comments-index mt-2">
-                  <%= render "public/travel_task_comments/index", travel_task: @travel_task %>
+                  <%#= render "public/travel_task_comments/index", travel_task: @travel_task %>
                 </div>
-                <%= render "public/travel_task_comments/form", travel_task: @travel_task, comment: @comment %>
+                <%#= render "public/travel_task_comments/form", travel_task: @travel_task, comment: @comment %>
               </div>
             </div>
           <% end %>

@@ -10,6 +10,11 @@ class Public::SessionsController < Devise::SessionsController
   def after_sign_out_path_for(resource)
      root_path
   end
+  
+  #二重ログイン防止
+  def prohibit_multiple_login
+    redirect_to root_path
+  end
 
   # ゲストログイン用
   def guest_sign_in
