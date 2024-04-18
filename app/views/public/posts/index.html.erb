@@ -22,9 +22,9 @@
                         <%= image_tag post.customer.get_profile_image(50, 50), class: "rounded-circle profile-image__index" %>
                         <%= post.customer.name %>
                       </h5>
-                      <!--<div id="favorite-<%= @post.id %>">-->
-                      <!--  <%#= render "public/favorites/btn", post: @post %>-->
-                      <!--</div>-->
+                      <% @posts.each do |post| %>
+                        <%= render 'public/favorites/btn', post: post %>
+                      <% end %>
                     <% end %>
                 </div>
               </div>
