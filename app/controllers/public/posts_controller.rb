@@ -37,6 +37,8 @@ class Public::PostsController < ApplicationController
     @customer = @post.customer
     @comment = Comment.new
     @comments = @post.comments
+    @travel_task = @post.travel_task
+    @travel_tasks = @post.travel_tasks
   end
 
   def edit

@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:new, :index, :show, :create, :edit, :update, :destroy] do
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
+      resources :travel_task_comments, only: [:create, :destroy]
     end
     # 追加機能
     resources :groups, only: [:index, :show, :edit, :update, :destroy]
