@@ -5,10 +5,13 @@ class Post < ApplicationRecord
   has_many_attached :post_images
 
   # 下書き機能
-　with_options presence: true, on: :publicize do
-    validates :title
-    validates :contents
-  end
+# 　with_options presence: true, on: :publicize do
+#     validates :title
+#     validates :contents
+#   end
+  
+  # 下書き機能(0:公開中1:下書き2:非公開)
+  enum status: { published: 0, draft: 1,  unpublished: 2 }
 
   validates :title, :contents, presence: { message: "を入力してください" }
 
