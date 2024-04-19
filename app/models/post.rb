@@ -4,6 +4,12 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many_attached :post_images
 
+  # 下書き機能
+　with_options presence: true, on: :publicize do
+    validates :title
+    validates :contents
+  end
+
   validates :title, :contents, presence: { message: "を入力してください" }
 
 
