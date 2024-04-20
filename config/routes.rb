@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   scope module: :public do
     resources :customers, only: [:index, :show, :edit, :update, :destroy]
+      get :confirm
     resources :relationships, only: [:create, :destroy]
       get 'followings/:id' => 'relationships#followings', as: 'followings'
       get 'followers/:id' => 'relationships#followers', as: 'followers'

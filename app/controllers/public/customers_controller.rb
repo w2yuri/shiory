@@ -20,6 +20,11 @@ class Public::CustomersController < ApplicationController
     # 投稿主に関連する投稿を取得し、作成日時の降順で並べ替え
     @posts = Post.where(customer_id: current_customer.id).includes(:customer).order("created_at DESC")
   end
+  
+  def confirm
+    @customer = Customer.find(params[:id])
+    @posts = @customer.posts.where(status: false).order('created_at DESC')
+  end
 
   def update
     @customer = Customer.find(params[:id])

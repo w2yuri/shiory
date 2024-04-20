@@ -4,8 +4,7 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.integer :customer_id, null: false
       t.string :title, null: false
       t.text :contents, null: false
-      t.boolean :is_draft
-      t.integer :status, default: 0, null: false
+      t.boolean :status,default: true
       t.timestamps
     end
   end

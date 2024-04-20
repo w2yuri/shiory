@@ -99,8 +99,7 @@ ActiveRecord::Schema.define(version: 2024_04_18_052109) do
     t.integer "customer_id", null: false
     t.string "title", null: false
     t.text "contents", null: false
-    t.boolean "is_draft"
-    t.integer "status", default: 0, null: false
+    t.boolean "status", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
