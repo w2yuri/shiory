@@ -22,7 +22,7 @@ class Public::CustomersController < ApplicationController
   end
   
   def confirm
-    @customer = Customer.find(params[:id])
+    @customer = Customer.find(params[:customer_id])
     @posts = @customer.posts.where(status: false).order('created_at DESC')
   end
 

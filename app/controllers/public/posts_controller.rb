@@ -8,20 +8,17 @@ class Public::PostsController < ApplicationController
 
   def index
      @post = Post.new
-     @posts = Post.where(status: :published).order(params[:sort])
+     @posts = Post.where(status: true).order(params[:sort])
     # リクエストパラメータにfilterが含まれているかどうかを確認
      if params[:filter]
        if params[:is_favorite]
          customer = Customer.find(params[:filter])
          favorite_post_ids = customer.favorites.pluck(:post_id)
-         @posts = Post.where(id: favorite_post_ids)
+         @posts = @posts.where(id: favorite_post_ids)
        else
-          @posts = Post.where(customer_id: params[:filter])
+          @posts = @posts.where(customer_id: params[:filter])
        end  
-    # filterパラメータが提供されていない場合、すべての投稿を取得
-     else
-       @posts = Post.all
-     end
+     end 
   end
 
   def create
@@ -35,6 +32,10 @@ class Public::PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    if @post.status == false && @post.customer != current_customer
+      # 下書きで自分の投稿したものじゃない
+      redirect posts_path
+    end
     @customer = @post.customer
     @comment = Comment.new
     @travel_task_comment = TravelTaskComment.new

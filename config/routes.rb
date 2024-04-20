@@ -20,8 +20,9 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    resources :customers, only: [:index, :show, :edit, :update, :destroy]
+    resources :customers, only: [:index, :show, :edit, :update, :destroy] do
       get :confirm
+    end 
     resources :relationships, only: [:create, :destroy]
       get 'followings/:id' => 'relationships#followings', as: 'followings'
       get 'followers/:id' => 'relationships#followers', as: 'followers'

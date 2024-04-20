@@ -1,4 +1,5 @@
  <% @posts.each do |post| %>
-        <%=link_to post_path(post.id) do %><%= post.title.truncate(25) %>
+  <%=link_to post_path(post.id) do %><%= post.title.truncate(25) %>
 
   <% end %>
+ <% end %>
