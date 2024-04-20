@@ -43,6 +43,15 @@
               association_insertion_method: 'append'
             }
         %>
+        
+         <div class="form-group row">
+            <%=f.label:"公開範囲",class:"col-sm-4"%>
+            <div style="padding-right:20px;">
+            <%= f.radio_button :status, true %>
+            <%= f.label :status, "投稿する", {value: :true, style: "display: inline-block;"} %></div>
+          </div>
+          <input type="submit" name="commit" value="変更を保存" class="btn btn-success" data-disable-with="変更を保存">
+        
         <%= f.submit class: 'btn btn-success' %>
       <% end %>
        <div class="mt-3">

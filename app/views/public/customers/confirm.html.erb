@@ -1,5 +1,27 @@
- <% @posts.each do |post| %>
-  <%=link_to post_path(post.id) do %><%= post.title.truncate(25) %>
-
-  <% end %>
- <% end %>
+ <div class='container px-5 px-sm-0 mt-5'>
+   <h2>下書き一覧</h2>
+     <div class='row'>
+          <% @posts.each do |post| %>
+            <div class="col-md-4 mb-5">
+              <div class="card">
+                <!--投稿に添付された画像を表示-->
+                <%= image_tag post.post_image, class: 'post-image__index' if post.post_image.present? %>
+                <!--投稿画像を持っていない場合は代替の画像を表示-->
+                <%= image_tag 'no_image.jpg', class: 'post-image__index' unless post.post_image.present? %>
+                <div class="card-body">
+                  <h5><%= link_to post.title, edit_post_path(post) %></h5>
+                    <% if post.customer %>
+                      <h5>
+                        <%= image_tag post.customer.get_profile_image(50, 50), class: "rounded-circle profile-image__index" %>
+                        <%= post.customer.name %>
+                      </h5>
+                      <div id="favorite-<%= post.id %>">
+                        <%= render "public/favorites/btn", post: post %>
+                      </div>
+                    <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+　</div>

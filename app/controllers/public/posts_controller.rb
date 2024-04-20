@@ -33,7 +33,7 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     if @post.status == false && @post.customer != current_customer
-      # 下書きで自分の投稿したものじゃない
+      # 下書きで自分の投稿したもの以外
       redirect posts_path
     end
     @customer = @post.customer

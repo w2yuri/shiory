@@ -9,14 +9,14 @@ class Public::TravelTaskCommentsController < ApplicationController
   end 
   
   def destroy
-    @travel_task = TravelTask.find(params[:post_id])
+    @travel_task = TravelTask.find(params[:travel_task_id])
     @comment = @travel_task.travel_task_comments.find(params[:id])
     @comment.destroy
-  end 
+  end
   
   private
   
   def comment_params
     params.require(:travel_task_comment).permit(:content, :travel_task_id) 
   end 
-end
+end 
