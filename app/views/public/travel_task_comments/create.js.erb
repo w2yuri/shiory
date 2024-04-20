@@ -1,2 +1,4 @@
-$('#travel-task-comments-index-<%= @comment.travel_task.id %>').html("<%= j(render 'public/travel_task_comments/index', travel_task: @comment.travel_task) %>");
-$('.comment-textarea').val("");
+$('#travel-task-comments-index-<%= @travel_task.id %>').html("<%= j(render 'public/travel_task_comments/index', travel_task: @travel_task) %>");
+<% if action_name == 'create' %>
+  $('.comment-textarea').val("");
+<% end %>

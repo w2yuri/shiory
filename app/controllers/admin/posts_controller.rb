@@ -1,6 +1,6 @@
 class Admin::PostsController < ApplicationController
  before_action :authenticate_admin_admin!
-  
+
   def index
     @posts = Post.all
     @post = Post.new
@@ -18,25 +18,15 @@ class Admin::PostsController < ApplicationController
     @post = Post.find(params[:id])
     @customer = @post.customer
   end
-  
-  
-  # 管理者機能によって修正の可能性：有
-  def update
-     @post = Post.find(params[:id])
-    if @post.update(post_params)
-       redirect_to posts_path, notice: "投稿が更新されました。"
-    else
-       render :edit
-    end
-  end
 
   def destroy
+    @post = Post.find(params[:id])
     @post.destroy
     redirect_to posts_path
   end
-  
+
   private
-  
+
   def post_params
     params.require(:post)
     .permit(:title, :contents, :post_image, travel_tasks_attributes: [:id, :title, :contents, :task_image, :_destroy])
