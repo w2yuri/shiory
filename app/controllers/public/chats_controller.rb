@@ -6,9 +6,9 @@ class Public::ChatsController < ApplicationController
      #チャットする相手を特定
     @customer = Customer.find(params[:id])
     #ログイン中のユーザーの部屋情報を全て取得
-    rooms = current_customer.customer_chat_rooms.pluck(:room_id) 
+    rooms = current_customer.customer_chat_rooms.pluck(:chat_room_id) 
     #その中にチャットする相手とのルームがあるか確認
-    customer_chat_rooms = CustomerChatRoom.find_by(customer_id: @customer.id, room_id: rooms)
+    customer_chat_rooms = CustomerChatRoom.find_by(customer_id: @customer.id, chat_room_id: rooms)
 
     #ユーザールームがある場合
     unless customer_chat_rooms.nil?
@@ -35,6 +35,7 @@ class Public::ChatsController < ApplicationController
     @chats = @room.chats if @room
     render :validate, formats: :js unless @chat.save
   end
+
 
 
   private
