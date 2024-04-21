@@ -2,7 +2,7 @@ class Admin::PostsController < ApplicationController
  before_action :authenticate_admin_admin!
 
   def index
-    @posts = Post.all
+    # @posts = Post.all
     @post = Post.new
     # リクエストパラメータにfilterが含まれているかどうかを確認
      if params[:filter]
@@ -10,7 +10,7 @@ class Admin::PostsController < ApplicationController
        @posts = Post.where(customer_id: params[:filter])
     # filterパラメータが提供されていない場合、すべての投稿を取得
      else
-       @posts = Post.all
+       @posts = Post.where(status: true)
      end
   end
 
@@ -26,7 +26,7 @@ class Admin::PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to posts_path
+    redirect_to admin_posts_path
   end
 
   private

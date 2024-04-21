@@ -18,22 +18,27 @@
         </tr>
       </table>
 
-      <div style='display: flex; justify-content: center; mt-3'>
+      <div class="mt-3 text-center">
         <% if current_customer != @customer %>
-          <th><%= render "public/relationships/btn", customer: @customer %></th>
+          <div>
+            <%= render "public/relationships/btn", customer: @customer %>
+          </div>
+          <div class="mt-3">
+            <% if current_customer.following?(@customer) && @customer.following?(current_customer) %>
+              <%= link_to 'チャットを始める', chat_path(@customer.id), class: "btn btn-outline-secondary btn-block" %>
+            <% end %>
+          </div>
         <% end %>
       </div>
 
       <div class='mt-5'>
         <% if current_customer != @customer %>
           <% else %>
-        <%= link_to edit_customer_path(@customer), class: "btn btn-outline-secondary btn-block edit_customer_#{@customer.id}" do %>
-        Edit
+        <%= link_to 'Edit', edit_customer_path(@customer), class: "btn btn-outline-secondary btn-block edit_customer_#{@customer.id}" %>
         <%= link_to "投稿一覧", posts_path(filter: @customer.id), class: "btn btn-outline-secondary btn-block" %>
-        <%=link_to "下書き一覧", customer_confirm_path(current_customer), class: "btn btn-outline-secondary btn-block" %>
+        <%= link_to "下書き一覧", customer_confirm_path(current_customer), class: "btn btn-outline-secondary btn-block" %>
         <%= link_to "いいね一覧", posts_path(filter: @customer.id, is_favorite: true), class: "btn btn-outline-secondary btn-block" %>
         <%= link_to "退会する", public_customers_unsubscribe_path, class: "btn btn-danger btn-block" %>
-        <% end %>
         <% end %>
       </div>
     </div>

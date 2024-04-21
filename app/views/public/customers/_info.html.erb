@@ -27,8 +27,11 @@
     <%= link_to "Show", customer_path(customer), class: "btn btn-outline-secondary btn-block" %>
     <%= link_to "投稿", new_post_path, class: "btn btn-outline-secondary btn-block" %>
     <!--ログインユーザーとチャットするユーザーが、相互フォロー関係にあること-->
-    <% current_customer != customer && current_customer.following?(customer) && customer.following?(current_customer) %>
-    <%= link_to 'チャットを始める', chat_path(customer.id), class: "btn btn-outline-secondary btn-block" %>
+    <%# current_customer != customer && current_customer.following?(customer) && customer.following?(current_customer) %>
+      <%#= link_to 'チャットを始める', chat_path(customer.id), class: "btn btn-outline-secondary btn-block" %>
+    <% if current_customer != customer && current_customer.following?(customer) && customer.following?(current_customer) %>
+      <%= link_to 'チャットを始める', chat_path(customer.id), class: "btn btn-outline-secondary btn-block" %>
+    <% end %>
   <% end %>
   <% end %>
 </div>
