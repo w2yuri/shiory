@@ -31,15 +31,16 @@ class Public::ChatsController < ApplicationController
 
   def create
     @chat = current_customer.chats.new(chat_params)
-    @room = @chat.room
-    @chats = @room.chats
-    render :validater unless @chat.save
+    @room = ChatRoom.find_by(id: params[:chat][:chat_room_id])
+    @chats = @room.chats if @room
+    render :validate, formats: :js unless @chat.save
   end
+
 
   private
   
   def chat_params
-    params.require(:chat).permit(:message, :room_id)
+    params.require(:chat).permit(:message, :chat_room_id)
   end
   
   # フォロー関係がない場合に、投稿一覧ページにリダイレクト
