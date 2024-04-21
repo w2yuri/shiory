@@ -17,6 +17,10 @@ class Admin::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @customer = @post.customer
+    @comment = Comment.new
+    @travel_task_comment = TravelTaskComment.new
+    @comments = @post.comments
+    @post.status == false && @post.customer != current_customer
   end
 
   def destroy

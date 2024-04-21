@@ -44,20 +44,18 @@
           <% end %>
           <!-- 管理者がログインしている場合 -->
           <% if admin_admin_signed_in? %>
-            <li class="nav-item mx-1 my-1" style="list-style-type: none;">
               <%= render 'searches/search' %>
-            </li>
-            <li class="nav-item mx-1 my-1" style="list-style-type: none;">
+            <li class="nav-item mx-1" style="list-style-type: none;">
               <%= link_to admin_posts_path, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
                 Posts
               <% end %>
             </li>
-            <li class="nav-item mx-1 my-1" style="list-style-type: none;">
+            <li class="nav-item mr-1" style="list-style-type: none;">
               <%= link_to admin_customers_path, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
                 Customers
               <% end %>
             </li>
-            <li class="nav-item mx-1 my-1" style="list-style-type: none;">
+            <li class="nav-item" style="list-style-type: none;">
               <%= link_to destroy_admin_admin_session_path, method: :delete, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
                 Log out
               <% end %>
