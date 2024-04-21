@@ -12,7 +12,7 @@ class Customer < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :travel_task_comments, dependent: :destroy
   # DM機能
-  has_many :customer_rooms
+  has_many :customer_chat_rooms
   has_many :chats
   # 多対多の関係を持つモデル間でのデータのやり取りできるようにする
   has_many :rooms, through: :customer_rooms
