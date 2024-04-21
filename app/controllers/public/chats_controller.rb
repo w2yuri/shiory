@@ -2,20 +2,30 @@ class Public::ChatsController < ApplicationController
   before_action :reject_non_related, only: [:show]
   
   def show
-    @customer = Customer.find(params[:id]) #チャットする相手は誰？
-    rooms = current_customer.customer_rooms.pluck(:room_id) #ログイン中のユーザーの部屋情報を全て取得
-    customer_rooms = customerRoom.find_by(customer_id: @customer.id, room_id: rooms)#その中にチャットする相手とのルームがあるか確認
+     #チャットする相手を特定
+    @customer = Customer.find(params[:id])
+    #ログイン中のユーザーの部屋情報を全て取得
+    rooms = current_customer.customer_rooms.pluck(:room_id) 
+    #その中にチャットする相手とのルームがあるか確認
+    customer_rooms = customerRoom.find_by(customer_id: @customer.id, room_id: rooms)
 
-    unless customer_rooms.nil?#ユーザールームがある場合
-      @room = customer_rooms.room#変数@roomにユーザー（自分と相手）と紐づいているroomを代入
-    else#ユーザールームが無かった場合
-      @room = Room.new#新しくRoomを作る
-      @room.save#そして保存
-      customerRoom.create(customer_id: current_customer.id, room_id: @room.id)#自分の中間テーブルを作成
-      customerRoom.create(customer_id: @customer.id, room_id: @room.id)#相手の中間テーブルを作成
+    #ユーザールームがある場合
+    unless customer_rooms.nil?
+      #変数@roomにユーザー（自分と相手）と紐づいているroomを代入
+      @room = customer_rooms.room
+    else
+      #ユーザールームが無かった場合、新しくRoomを作成
+      @room = Room.new
+      @room.save
+      #自分の中間テーブルを作成
+      customerRoom.create(customer_id: current_customer.id, room_id: @room.id)
+      #相手の中間テーブルを作成
+      customerRoom.create(customer_id: @customer.id, room_id: @room.id)
     end
-    @chats = @room.chats#チャットの一覧
-    @chat = Chat.new(room_id: @room.id)#チャットの投稿
+    #チャットの一覧
+    @chats = @room.chats
+    #チャットの投稿
+    @chat = Chat.new(room_id: @room.id)
   end
 
   def create
@@ -26,14 +36,16 @@ class Public::ChatsController < ApplicationController
   end
 
   private
+  
   def chat_params
     params.require(:chat).permit(:message, :room_id)
   end
   
+  # フォロー関係がない場合に、投稿一覧ページにリダイレクト
   def reject_non_related
-    user = User.find(params[:id])
-    unless current_user.following?(user) && user.following?(current_user)
-      redirect_to books_path
+    customer = Customer.find(params[:id])
+    unless current_customer.following?(customer) && customer.following?(current_customer)
+      redirect_to posts_path
     end
   end
 end

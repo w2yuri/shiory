@@ -6,7 +6,7 @@ class Public::TravelTaskCommentsController < ApplicationController
     # 新しいコメントを作成するため、特定された@travel_taskに対して、travel_task_comments.new(comment_params)を呼び出す。
     @travel_task = Post.find(params[:post_id]).travel_tasks.find(comment_params[:travel_task_id])
     @travel_task.travel_task_comments.new(comment_params).save
-    render 'action'
+    render 'action', notice: "コメントが投稿されました。"
   end
 
   def destroy
@@ -16,7 +16,7 @@ class Public::TravelTaskCommentsController < ApplicationController
     # 特定されたコメントをデータベースから削除。
     @travel_task = Post.find(params[:post_id]).travel_tasks.find(params[:travel_task_id])
     @travel_task.travel_task_comments.find(params[:id]).destroy
-    render 'action'
+    render 'action', notice: "コメントが削除されました。"
   end
 
   private
