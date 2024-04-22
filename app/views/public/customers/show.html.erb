@@ -38,6 +38,7 @@
         <%= link_to "投稿一覧", posts_path(filter: @customer.id), class: "btn btn-outline-secondary btn-block" %>
         <%= link_to "下書き一覧", customer_confirm_path(current_customer), class: "btn btn-outline-secondary btn-block" %>
         <%= link_to "いいね一覧", posts_path(filter: @customer.id, is_favorite: true), class: "btn btn-outline-secondary btn-block" %>
+        <%= link_to 'チャットを始める', chat_path(customer.id), class: "btn btn-outline-secondary btn-block" %>
         <%= link_to "退会する", public_customers_unsubscribe_path, class: "btn btn-danger btn-block" %>
         <% end %>
       </div>

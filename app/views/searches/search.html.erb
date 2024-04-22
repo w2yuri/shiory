@@ -1,13 +1,13 @@
 <div class='container px-5 px-sm-0 mt-5'>
   <div class='row'>
+    <% if customer_signed_in? %>
     <div class='col-md-3'>
-      <% if customer_signed_in? %>
         <h2>customer info</h2>
         <%= render 'public/customers/info', customer: current_customer %>
-      <% end %>
     </div>
 
     <div class='col-md-8 offset-md-1'>
+      <% end %>
       <% if @model == 'Customer' %>
         <h3>Customers search for "<%= @contents %>"</h3>
         <% if @records.present? %>
@@ -50,7 +50,11 @@
                   <!--投稿画像を持っていない場合は代替の画像を表示-->
                   <%= image_tag 'no_image.jpg', class: 'post-image__index' unless post.post_image.present? %>
                   <div class="card-body">
-                    <h5><%= link_to post.title, post_path(post) %></h5>
+                    <% if customer_signed_in? %>
+                      <h5><%= link_to post.title, post_path(post) %></h5>
+                    <% else %>
+                      <h5><%= link_to post.title, admin_post_path(post) %></h5>
+                    <% end %>
                     <% if post.customer %>
                       <h5>
                         <%= image_tag post.customer.get_profile_image(50, 50), class: "rounded-circle profile-image__index" %>
