@@ -5,11 +5,23 @@
       <h1>チャットを始める</h1>
       ・フォローしているユーザのみ表示するため、コントローラで定義が必要
       ・showページにDMのリンクをつける
-      <%= link_to @customer.followings.count, followings_path(@customer) %>
+      <%#= link_to @customer.followings.count, followings_path(@customer) %>
 
       <div class="chat-group">
       　<h1>チャットグループ一覧</h1>
-      　　すでにやり取りしている人を表示
+        <% @my_customer_chat_rooms.each do |customer_chat_room| %>
+          <div>
+        　   <p>
+        　      <%= customer_chat_room.customer.name %> 
+        　 </p>
+        　 <p>
+        　　<%= customer_chat_room.chat_room.chats.last.message %>
+        　 </p>
+        　 <p>
+        　   <%= link_to "チャットする", chat_path(customer_chat_room.customer.id) %>
+        　 </p>
+          </div>
+        <% end %>
       
       </div>
     </div>

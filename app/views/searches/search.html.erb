@@ -1,13 +1,13 @@
 <div class='container px-5 px-sm-0 mt-5'>
   <div class='row'>
     <% if customer_signed_in? %>
-    <div class='col-md-3'>
-        <h2>customer info</h2>
-        <%= render 'public/customers/info', customer: current_customer %>
-    </div>
-
+      <div class='col-md-3'>
+          <h2>customer info</h2>
+          <%= render 'public/customers/info', customer: current_customer %>
+      </div>
+    <% end %>
+  
     <div class='col-md-8 offset-md-1'>
-      <% end %>
       <% if @model == 'Customer' %>
         <h3>Customers search for "<%= @contents %>"</h3>
         <% if @records.present? %>

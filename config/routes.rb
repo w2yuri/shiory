@@ -30,9 +30,9 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
       resources :travel_task_comments, only: [:create, :destroy]
+    end
     resources :chats, only: [:show, :create]
     resources :chat_groups
-    end
     # 追加機能
     resources :groups, only: [:index, :show, :edit, :update, :destroy]
     resources :chats, only: [:create, :show]
