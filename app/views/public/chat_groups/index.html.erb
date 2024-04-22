@@ -1,29 +1,29 @@
 <div class='container'>
   <div class='row'>
     <div class="mt-5">
-      
-      <h1>チャットを始める</h1>
-      ・フォローしているユーザのみ表示するため、コントローラで定義が必要
-      ・showページにDMのリンクをつける
-      <%#= link_to @customer.followings.count, followings_path(@customer) %>
 
       <div class="chat-group">
       　<h1>チャットグループ一覧</h1>
         <% @my_customer_chat_rooms.each do |customer_chat_room| %>
-          <div>
-        　   <p>
-        　      <%= customer_chat_room.customer.name %> 
-        　 </p>
-        　 <p>
-        　　<%= customer_chat_room.chat_room.chats.last.message %>
-        　 </p>
-        　 <p>
-        　   <%= link_to "チャットする", chat_path(customer_chat_room.customer.id) %>
-        　 </p>
+         <div class="grid-container">
+          <div class="grid-item">
+            <% customer = customer_chat_room.customer %>
+              <% if customer.present? %>
+                <%= image_tag customer.get_profile_image(70, 70), class: "rounded-circle profile-image d-block mx-auto mb-3" %>
+              <% end %>
+            <%= link_to customer_chat_room.customer.name, customer_path(customer_chat_room.customer) %> 
           </div>
+          <div class="grid-item">
+            <%= customer_chat_room.chat_room.chats.last.message %>
+          </div>
+          <div class="grid-item">
+             <%= link_to "チャットする", chat_path(customer_chat_room.customer.id) %>
+          </div>
+        </div>
         <% end %>
       
       </div>
     </div>
   </div>
 </div>
+

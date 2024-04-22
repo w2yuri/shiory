@@ -21,15 +21,6 @@ class Admin::ChatsController < ApplicationController
       @chat = Chat.new(chat_room_id: @room.id)
   　end
 
-  # def create
-  #   @chat = current_customer.chats.new(chat_params)
-  #   # idが一致するチャットルーム取得
-  #   @room = ChatRoom.find_by(id: params[:chat][:chat_room_id])
-  #   # @roomが存在する場合のみ、チャット一覧を取得
-  #   @chats = @room.chats if @room
-  #   # チャットの保存に失敗した場合、jsのエラーメッセージを表示し、チャットの保存にしたら続行
-  #   render :validate, formats: :js unless @chat.save
-  # end
 
   private
 
