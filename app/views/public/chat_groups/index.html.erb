@@ -3,8 +3,9 @@
     <div class="mt-5">
       
       <h1>チャットを始める</h1>
-      フォローしているユーザのみ表示し、
-      showページにDMのリンクをつける
+      ・フォローしているユーザのみ表示するため、コントローラで定義が必要
+      ・showページにDMのリンクをつける
+      <%= link_to @customer.followings.count, followings_path(@customer) %>
 
       <div class="chat-group">
       　<h1>チャットグループ一覧</h1>
