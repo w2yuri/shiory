@@ -1,7 +1,6 @@
 class Public::ChatsController < ApplicationController
-  # # フォロー関係がない場合に、投稿一覧ページにリダイレクト
-  # before_action :reject_non_related, only: [:show]
 
+  def show
     # データベースから対象のカスタマーを検索
     @target_customer = Customer.find(params[:id])
     # ログインしているカスタマーのチャットルームのIDを取得
@@ -21,7 +20,7 @@ class Public::ChatsController < ApplicationController
     end
       @chats = @room.chats
       @chat = Chat.new(chat_room_id: @room.id)
-  　end
+  end 
 
   def create
     @chat = current_customer.chats.new(chat_params)
