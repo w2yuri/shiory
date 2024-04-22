@@ -1,6 +1,4 @@
-class Public::ChatsController < ApplicationController
-  # # フォロー関係がない場合に、投稿一覧ページにリダイレクト
-  # before_action :reject_non_related, only: [:show]
+class Admin::ChatsController < ApplicationController
 
     # データベースから対象のカスタマーを検索
     @target_customer = Customer.find(params[:id])
@@ -39,4 +37,11 @@ class Public::ChatsController < ApplicationController
     params.require(:chat).permit(:message, :chat_room_id)
   end
 
+  # フォロー関係がない場合に、投稿一覧ページにリダイレクト
+  def reject_non_related
+    customer = Customer.find(params[:id])
+    unless current_customer.following?(customer) && customer.following?(current_customer)
+      redirect_to posts_path
+    end
+  end
 end

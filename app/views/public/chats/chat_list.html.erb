@@ -1,0 +1,14 @@
+<div class='container'>
+  <div class='row'>
+    <% if current_customer.id == @customer.id %>
+      <h3>チャット一覧</h3>
+      <% @rooms.each do |room| %>
+        <% room.customers.each do |customer| %>
+         <% if customer.id == current_customer.id %>
+         <% else %>
+            <p><a href="/rooms/<%= room.id %>"><%= customer.name %>さんとのチャット</a></p>
+         <% end %>
+        <% end %> 
+      <% end %>
+  </div>
+</div>
