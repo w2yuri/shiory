@@ -1,0 +1,5 @@
+メッセージ系はいらない。
+メッセージ表示と削除のみ
+
+$('.message').html("<%= j(render 'public/chats/messages', chats: @chats) %>");
+$('input[type=text]').val("")

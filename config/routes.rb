@@ -31,6 +31,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy]
       resources :travel_task_comments, only: [:create, :destroy]
     resources :chats, only: [:show, :create]
+    resources :chat_groups
     end
     # 追加機能
     resources :groups, only: [:index, :show, :edit, :update, :destroy]
