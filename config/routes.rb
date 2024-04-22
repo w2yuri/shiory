@@ -32,10 +32,7 @@ Rails.application.routes.draw do
       resources :travel_task_comments, only: [:create, :destroy]
     end
     resources :chats, only: [:show, :create]
-    resources :chat_groups
-    # 追加機能
-    resources :groups, only: [:index, :show, :edit, :update, :destroy]
-    resources :chats, only: [:create, :show]
+    resources :chat_groups, only: [:index, :destroy]
   end
 
   # 管理者用
@@ -50,6 +47,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy]
       resources :travel_task_comments, only: [:create, :destroy]
     end 
+    resources :chat_groups, only: [:index, :destroy]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

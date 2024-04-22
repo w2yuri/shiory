@@ -1,0 +1,15 @@
+<div class='container'>
+  <div class='row'>
+    <div class="mt-5">
+       <% @messages.each do |message| %>
+        <div>
+          <p><strong>送信者:</strong> <%= message.customer.name %></p>
+          <p><strong>メッセージ:</strong> <%= message.message %></p>
+          <%= link_to "管理者削除", admin_chat_groups_path, method: :delete, class: "btn btn-danger pull-right btn-sm ml-2", remote: true %>
+        </div>
+       <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

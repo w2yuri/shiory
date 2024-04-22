@@ -1,0 +1,5 @@
+<script>
+  $(document).ready(function() {
+    $('#comments-index').html("<%= j(render partial: 'admin/chats/index', locals: { chats: @chats }) %>");
+  });
+</script>
