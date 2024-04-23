@@ -1,27 +1,28 @@
 <div class='container'>
-  <div class='row'>
     <div class="mt-5">
 
       <div class="chat-group">
       　<h1>チャットグループ一覧</h1>
         <% @my_customer_chat_rooms.each do |customer_chat_room| %>
-         <div class="grid-container">
-          <div class="grid-item">
+        <div class="container text-center">
+         <div class="row row-cols-4">
+          <div class="col">
             <% customer = customer_chat_room.customer %>
               <% if customer.present? %>
                 <%= image_tag customer.get_profile_image(70, 70), class: "rounded-circle profile-image d-block mx-auto mb-3" %>
               <% end %>
-            <%= link_to customer_chat_room.customer.name, customer_path(customer_chat_room.customer) %> 
+            <%= link_to customer_chat_room.customer.name, customer_path(customer_chat_room.customer) %>
           </div>
-          <div class="grid-item">
+          <div class="col">
             <%= customer_chat_room.chat_room.chats.last.message %>
           </div>
-          <div class="grid-item">
+          <div class="col">
              <%= link_to "チャットする", chat_path(customer_chat_room.customer.id) %>
           </div>
         </div>
         <% end %>
-      
+       </div>
+       </div>
       </div>
     </div>
   </div>

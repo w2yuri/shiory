@@ -5,7 +5,7 @@ class Admin::ChatGroupsController < ApplicationController
   end
   
   def destroy
-    @messages = Messages.find(params[:id])
+    @messages = Chat.find(params[:id])
     @messages.destroy
   end
 

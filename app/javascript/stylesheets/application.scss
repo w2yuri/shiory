@@ -175,9 +175,10 @@ p,td,th {
 }
 
 .chat-messages {
-  flex: 1;
-  overflow-y: scroll;
+  flex: 1; /* コンテンツが残りのスペースを占めるようにする */
+  overflow-y: auto; /* コンテンツがコンテナからはみ出た場合にスクロールバーを表示する */
   padding: 20px;
+  max-height: calc(100vh - 100px); /* 画面の高さからチャットトップバーの高さを引いた分の高さを設定 */
 }
 
 .message {
@@ -244,13 +245,13 @@ p,td,th {
 }
 
 // チャットグループ一覧
-.grid-container {
-  display: grid;
-  gap: 4px;
-  grid-template-columns: repeat(3, auto);
-}
+// .grid-container {
+//   display: grid;
+//   gap: 4px;
+//   // grid-template-columns: repeat(3, auto);
+// }
 
-.grid-item {
-  background: #eee;
-  padding: 4px;
-}
+// .grid-item {
+//   background: #eee;
+//   padding: 4px;
+// }
