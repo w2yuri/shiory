@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :customers, only: [:index, :show, :edit, :update, :destroy] do
       get :confirm
-    end 
+    end
     resources :relationships, only: [:create, :destroy]
       get 'followings/:id' => 'relationships#followings', as: 'followings'
       get 'followers/:id' => 'relationships#followers', as: 'followers'
@@ -46,7 +46,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show, :edit, :update, :destroy]do
       resources :comments, only: [:create, :destroy]
       resources :travel_task_comments, only: [:create, :destroy]
-    end 
+    end
     resources :chat_groups, only: [:index, :destroy]
   end
 
