@@ -2,6 +2,8 @@
     <%= form_with url: search_path, local: true, method: :get do |f| %>
       <%= f.text_field :contents %>
       <%= f.select :model, options_for_select([['Customer'], ['Post']]) %>
-      <%= f.submit "検索", class: "btn btn-primary", style: "color: #ffe9a5;" %>
+      <%= button_tag type: "submit", class: "btn btn-primary", style: "color: #ffe9a5; border-color: transparent;" do %>
+        <i class="fa-brands fa-searchengin" style="color: #ffe9a5;"></i>
+      <% end %>
     <% end %>
   </div>
