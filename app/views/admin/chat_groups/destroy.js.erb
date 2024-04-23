@@ -1,3 +1,1 @@
-$(document).ready(function() {
-    $('#chat_groups-index').html("<%= j(render partial: 'admin/chats/index', locals: { chats: @chats }) %>");
-  });
+$('#admin-chat-index').html("<%= j(render partial: 'admin/chat_groups/chats', locals: { messages: @messages }) %>");

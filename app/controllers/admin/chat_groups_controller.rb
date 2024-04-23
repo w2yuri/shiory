@@ -1,18 +1,18 @@
 class Admin::ChatGroupsController < ApplicationController
-  
+
   def index
-    @messages = Chat.all 
+    @messages = Chat.all
   end
-  
+
   def destroy
-    @messages = Chat.find(params[:id])
-    @messages.destroy
+    @messages = Chat.all
+    Chat.find(params[:id]).destroy
   end
 
   private
 
   def chat_params
-    params.require(:chat).permit(:message, :chat_room_id)
+    params.require(:chat).permit(:message)
   end
 
 end

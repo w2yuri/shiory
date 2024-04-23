@@ -1,17 +1,8 @@
 <div class='container'>
   <div class="mt-5">
     <div class="container text-center">
-      <div class="row">
-       <% @messages.each do |message| %>
-          <div class="col-sm-3 mb-2">
-            <strong>送信者:</strong> <%= message.customer.name %>
-          </div>
-            <div class="col-sm-5 mb-2"><strong>メッセージ:</strong> <%= message.message %>
-          </div>
-          <div class="col-sm-4 mb-2" >
-            <%= link_to "管理者削除", admin_chat_groups_path, method: :delete, class: "btn btn-danger pull-right btn-sm ml-2", remote: true %>
-          </div>
-        <% end %>
+      <div id="admin-chat-index" class="row">
+       <%= render partial: 'admin/chat_groups/chats', locals: { messages: @messages } %>
       </div>
     </div>
   </div>
