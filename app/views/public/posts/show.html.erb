@@ -26,6 +26,7 @@
               <% if @post.post_image.present? %>
             <div class="mb-3">
               <%= image_tag @post.post_image, class: 'img-fluid' %>
+              <div class ="time">投稿日時：<%= l @post.created_at %></div>
             </div>
               <% end %>
             <div id="comments-index"  class="comments-index mt-2">
