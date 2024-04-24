@@ -11,7 +11,7 @@ class Admin::PostsController < ApplicationController
     # filterパラメータが提供されていない場合、すべての投稿を取得
      else　
        @posts = Post.where(status: true)
-     end
+     end　
   end
 
   def show
