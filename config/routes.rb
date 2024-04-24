@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # 検索機能
   get "search" => "searches#search"
   # カレンダー機能
-  get 'events', to: 'events#index'
+  get 'events', to: 'events#index', defaults: { format: 'json' }
 
   # 顧客用
   devise_for :customers, skip: [:passwords], controllers: {
