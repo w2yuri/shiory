@@ -14,7 +14,7 @@ ja:
       # カラム名
         Message: メッセージ
       order:
-        name: 宛名
+        name: 宛名　
         address: 住所
         postal_code: 郵便番号
     errors:

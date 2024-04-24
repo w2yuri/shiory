@@ -13,6 +13,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <!--ページ全体が縦方向に伸び、スクロールバーが表示されないようになり、コンテンツが画面いっぱいに表示されるようになる-->
   <body class="d-flex flex-column min-vh-100">
     <%= render 'layouts/header' %>
     <% if notice %>
@@ -29,6 +30,8 @@
         </div>
       </div>
     <% end %>
+    <!--ページのメインコンテンツが残りのスペースを最大限に利用して表示-->
+    <!--(<main> 要素は残りのスペースを埋めるため、その高さが自動的に調整される)-->
     <main class="flex-grow-1">
     <%= yield %>
     </main>

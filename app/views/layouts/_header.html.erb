@@ -45,7 +45,7 @@
           <!-- 管理者がログインしている場合 -->
           <% if admin_admin_signed_in? %>
               <%= render 'searches/search' %>
-            <li class="nav-item mx-1" style="list-style-type: none;">
+            <li class="nav-item mr-1" style="list-style-type: none;">
               <%= link_to admin_posts_path, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
                 Posts
               <% end %>
@@ -69,17 +69,17 @@
           <!-- 顧客がログインしている場合 -->
           <% if customer_signed_in? %>
               <%= render 'searches/search' %>
-            <li class="nav-item ml-1 mr-1" style="list-style-type: none;">
+            <li class="nav-item mr-1 mb-1" style="list-style-type: none;">
               <%= link_to customer_path(current_customer), class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
                 My Page
               <% end %>
             </li>
-            <li class="nav-item mr-1 my-3 my-md-0" style="list-style-type: none;">
+            <li class="nav-item mr-1 mb-1" style="list-style-type: none;">
               <%= link_to customers_path, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
                 Users
               <% end %>
             </li>
-            <li class="nav-item mr-1" style="list-style-type: none;">
+            <li class="nav-item mr-1 mb-1" style="list-style-type: none;">
               <%= link_to posts_path, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
                 Post
               <% end %>
