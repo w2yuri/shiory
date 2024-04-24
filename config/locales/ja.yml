@@ -10,9 +10,9 @@ ja:
         email: メールアドレス
         encrypted_password: 確認用パスワード
       # テーブル名
-      address:
+      chats:
       # カラム名
-        postal_code: 郵便番号
+        Message: メッセージ
       order:
         name: 宛名
         address: 住所

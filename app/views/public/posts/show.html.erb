@@ -30,6 +30,7 @@
             </div>
               <% end %>
             <div id="comments-index"  class="comments-index mt-2">
+              <%#= render 'layouts/errors', obj: @obj %>
               <%= render "public/comments/index", post: @post %>
             </div>
             <%= render "public/comments/form", post: @post, comment: @comment %>
