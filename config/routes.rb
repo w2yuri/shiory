@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'events/index'
   root to: 'public/homes#top'
   get '/admin', to: 'admin/homes#top', as: 'admin_root'
   # 退会処理
