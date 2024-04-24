@@ -30,9 +30,9 @@
             </div>
               <% end %>
             <div id="comments-index"  class="comments-index mt-2">
-              <%#= render 'layouts/errors', obj: @obj %>
               <%= render "public/comments/index", post: @post %>
             </div>
+            <div class="errors"></div>
             <%= render "public/comments/form", post: @post, comment: @comment %>
            </div>
            </div>
@@ -47,13 +47,7 @@
                   <%= simple_format(travel_task.contents, sanitize: true, class: 'm-0') %>
                   <%= image_tag travel_task.task_image, class: 'img-fluid' if travel_task.task_image.present? %>
                 </div>
-                <!--<%# if @travel_task.errors.any? %>-->
-                <!--  <ul>-->
-                <!--    <%# @travel_task.errors.full_messages.each do |message| %>-->
-                <!--      <li class="error-message"><%#= message %></li>-->
-                <!--    <%# end %>-->
-                <!--  </ul>-->
-                <!--<%# end %>-->
+                  <div class="errors"></div>
                 <!--該当の投稿にコメントできるように、travel_taskにidを割り当てる-->
                 <div id="travel-task-comments-index-<%= travel_task.id %>" class="comments-index mt-2">
                   <%= render "public/travel_task_comments/index", travel_task: travel_task %>

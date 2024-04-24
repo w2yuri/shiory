@@ -6,6 +6,8 @@ class Public::CommentsController < ApplicationController
     @comment.customer_id = current_customer.id
     @comment.post_id = @post.id
     @comment.save
+    # チャットの保存に失敗した場合、jsのエラーメッセージを表示し、チャットの保存にしたら続行
+    render :validate, formats: :js unless @comment.save
   end
 
   def destroy

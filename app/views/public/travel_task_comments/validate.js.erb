@@ -1,0 +1,5 @@
+$('.errors').html("<%= j(render 'layouts/errors', obj: @travel_task) %>").show();
+
+setTimeout(function() {
+  $('.errors').hide();
+}, 5000);

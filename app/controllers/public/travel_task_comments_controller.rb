@@ -6,7 +6,8 @@ class Public::TravelTaskCommentsController < ApplicationController
     # 新しいコメントを作成するため、特定された@travel_taskに対して、travel_task_comments.new(comment_params)を呼び出す。
     @travel_task = Post.find(params[:post_id]).travel_tasks.find(comment_params[:travel_task_id])
     @travel_task.travel_task_comments.new(comment_params).save
-    render 'action', notice: "コメントが投稿されました。"
+     # チャットの保存に失敗した場合、jsのエラーメッセージを表示し、チャットの保存にしたら続行
+    render :validate, formats: :js unless @travel_task.save
   end
 
   def destroy

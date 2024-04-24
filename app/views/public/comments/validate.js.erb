@@ -1,0 +1,5 @@
+$('.errors').html("<%= j(render 'layouts/errors', obj: @comment) %>").show();
+
+setTimeout(function() {
+  $('.errors').hide();
+}, 2000);
