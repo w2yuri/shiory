@@ -3,7 +3,7 @@ class Customer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-         
+
   validates :name, presence: { message: "を入力してください" }
 
   has_many :post_images, dependent: :destroy
@@ -39,7 +39,7 @@ class Customer < ApplicationRecord
   def following?(customer)
     followings.include?(customer)
   end
-  
+
   # 検索機能
   def self.search_for(content)
       Customer.where('name LIKE ?', '%' + (content || '') + '%')
@@ -56,7 +56,11 @@ class Customer < ApplicationRecord
 
   # is_activeがfalseならfalseを返す(退会処理)
   def active_for_authentication?
-    super && is_active
+    super && is_active?
+  end
+
+  def inactive_message
+    is_active? ? super : :status_disabled
   end
 
   # 画像

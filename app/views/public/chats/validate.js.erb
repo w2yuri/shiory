@@ -1,1 +1,5 @@
-$('.errors').html("<%= j(render 'layouts/errors', obj: @chat) %>");
+$('.errors').html("<%= j(render 'layouts/errors', obj: @chat) %>").show();
+
+setTimeout(function() {
+  $('.errors').hide();
+}, 2000);

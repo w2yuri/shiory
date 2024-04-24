@@ -1,22 +1,9 @@
 ja:
   enums:
-    order:
-      payment_method:
-        credit_card: "クレジットカード"
-        transfer: "銀行振込"
   activerecord:
     attributes:
-      customer:
-        email: メールアドレス
-        encrypted_password: 確認用パスワード
-      # テーブル名
-      chats:
-      # カラム名
-        Message: メッセージ
-      order:
-        name: 宛名　
-        address: 住所
-        postal_code: 郵便番号
+      chat:
+        message: メッセージ
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

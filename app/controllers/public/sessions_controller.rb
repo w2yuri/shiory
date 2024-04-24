@@ -1,5 +1,5 @@
 class Public::SessionsController < Devise::SessionsController
-  before_action :reject_customer, only: [:create]
+  # before_action :reject_customer, only: [:create]
 
   def after_sign_in_path_for(resource)
      flash[:notice] = "ログインしました。"
@@ -10,7 +10,7 @@ class Public::SessionsController < Devise::SessionsController
   def after_sign_out_path_for(resource)
      root_path
   end
-  
+
   #二重ログイン防止
   def prohibit_multiple_login
     redirect_to root_path
@@ -31,17 +31,17 @@ class Public::SessionsController < Devise::SessionsController
 
   protected
 
-  def reject_customer
-    @customer = Customer.find_by(email: params[:customer][:email].downcase)
-    if @customer
-      if (@customer.valid_password?(params[:customer][:password]) && (@customer.active_for_authentication? == false))
-        flash[:error] = "退会済みです。"
-        redirect_to new_customer_session_path
-      end
-    else
-      flash[:error] = "必須項目を入力してください。"
-    end
-  end
+  # def reject_customer
+  #   @customer = Customer.find_by(email: params[:customer][:email].downcase)
+  #   if @customer
+  #     if (@customer.valid_password?(params[:customer][:password]) && (@customer.active_for_authentication? == false))
+  #       flash[:error] = "退会済みです。"
+  #       redirect_to new_customer_session_path
+  #     end
+  #   else
+  #     flash[:error] = "必須項目を入力してください。"
+  #   end
+  # end
 
   # before_action :configure_sign_in_params, only: [:create]
 
