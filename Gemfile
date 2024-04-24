@@ -59,6 +59,7 @@ gem 'image_processing', '~> 1.2'
 gem 'devise'
 gem 'cocoon'
 gem "enum_help"
+gem 'activerecord-import'
 
 # 日本語化
 gem 'rails-i18n'
