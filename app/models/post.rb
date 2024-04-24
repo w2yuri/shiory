@@ -3,7 +3,13 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many_attached :post_images
-
+  # 通知機能
+  has_many :notifications, as: :notifiable, dependent: :destroy
+  after_create do
+    customer.followers.each do |follower|
+      notifications.create(customer_id: follower.id)
+    end
+  end  
 
   validates :title, :contents, presence: { message: "を入力してください" }
 

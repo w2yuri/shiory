@@ -14,6 +14,8 @@ class Customer < ApplicationRecord
   # DM機能
   has_many :customer_chat_rooms
   has_many :chats
+  # 通知機能
+  has_many :notifications, dependent: :destroy
   # 多対多の関係を持つモデル間でのデータのやり取りできるようにする
   has_many :rooms, through: :customer_rooms
 
@@ -59,6 +61,7 @@ class Customer < ApplicationRecord
     super && is_active?
   end
 
+  # 退会、管理人で会員ステータス退会したときにログイン時のエラー文表示
   def inactive_message
     is_active? ? super : :status_disabled
   end
