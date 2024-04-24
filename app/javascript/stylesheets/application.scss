@@ -245,7 +245,49 @@ p,td,th {
   font-size: 1em;
   border: none;
   border-radius: 5px;
-  background-color: #29b6f6;
-  color: #fff;
+  background-color: #b3a9c8;
+  color: #ffe9a5;;
   cursor: pointer;
+}
+
+// ページトップ
+// #page-top a{
+//   background:#942D2F;
+//   color:#fff;
+//   text-align: center;
+//   display: block;
+//   text-decoration: none;
+//   padding:20px;
+//   text-transform: uppercase;
+//   letter-spacing: 0.05em;
+//   font-size: 0.8rem;
+//   transition: all 0.3s;
+// }
+
+// #page-top a:hover{
+//   background: #777;
+// }
+
+#page-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px; /* 右側に配置 */
+  border-radius: 50%; /* 丸い枠 */
+  background: #b3a9c8;
+  transition: all 0.3s;
+}
+
+#page-top a {
+  color: #fff;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  padding: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+}
+
+#page-top:hover {
+  background: #ffe9a5;
 }

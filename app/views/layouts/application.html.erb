@@ -30,11 +30,25 @@
         </div>
       </div>
     <% end %>
+    
     <!--ページのメインコンテンツが残りのスペースを最大限に利用して表示-->
     <!--(<main> 要素は残りのスペースを埋めるため、その高さが自動的に調整される)-->
     <main class="flex-grow-1">
     <%= yield %>
     </main>
+    <p id="page-top"><a href="#">Page Top</a></p> 
     <%= render 'layouts/footer' %>
   </body>
 </html>
+
+
+<!-- #page-topをクリックした際の設定-->
+$('#page-top').click(function () {
+    $('body,html').animate({
+        <!--ページトップまでスクロール-->
+        scrollTop: 0
+    <!--ページトップスクロールの速さ。数字が大きいほど遅くなる    -->
+    }, 500);
+    <!--リンク自体の無効化-->
+    return false;
+});
