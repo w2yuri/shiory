@@ -45,17 +45,17 @@
           <!-- 管理者がログインしている場合 -->
           <% if admin_admin_signed_in? %>
               <%= render 'searches/search' %>
-            <li class="nav-item mr-1" style="list-style-type: none;">
+            <li class="nav-item mr-1 mb-1" style="list-style-type: none;">
               <%= link_to admin_posts_path, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
                 Posts
               <% end %>
             </li>
-            <li class="nav-item mr-1" style="list-style-type: none;">
+            <li class="nav-item mr-1 mb-1" style="list-style-type: none;">
               <%= link_to admin_customers_path, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
                 Customers
               <% end %>
             </li>
-            <li class="nav-item mr-1" style="list-style-type: none;">
+            <li class="nav-item mr-1 mb-1" style="list-style-type: none;">
               <%= link_to admin_chat_groups_path, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
                 Chats
               <% end %>
