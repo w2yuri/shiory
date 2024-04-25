@@ -4,22 +4,22 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many_attached :post_images
   # 通知機能
-  include Notifiable
-  has_many :notifications, as: :notifiable, dependent: :destroy
-  after_create do
-    records = user.followers.map do |follower|
-      notifications.new(user_id: follower.id)
-    end 
-    Notification.import records 
-  end
+  # include Notifiable
+  # has_many :notifications, as: :notifiable, dependent: :destroy
+  # after_create do
+  #   records = customer.followers.map do |follower|
+  #     notifications.new(user_id: follower.id)
+  #   end 
+  #   Notification.import records 
+  # end
   
-  def notification_message
-    "フォローしている#{customer.name}さんが#{title}を投稿しました"
-  end
+  # def notification_message
+  #   "フォローしている#{customer.name}さんが#{title}を投稿しました"
+  # end
 
-  def notification_path
-    post_path(self)
-  end
+  # def notification_path
+  #   post_path(self)
+  # end
   
 
   validates :title, :contents, presence: { message: "を入力してください" }

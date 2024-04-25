@@ -4,6 +4,10 @@ ja:
     attributes:
       chat:
         message: メッセージ
+      comment:
+        content: コメント
+      travel_task_comment:
+        content: コメント
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
