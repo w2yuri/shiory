@@ -5,7 +5,7 @@
         <%= link_to root_path, data: {"turbolinks" => false}, class: "navbar-brand", style: "margin-right: auto; margin-left: 0;" do %>
           <%= image_tag("title.jpg", alt: "shiory", size: "100x50") %>
         <% end %>
-      <% elsif admin_admin_signed_in? %>
+      <% elsif admin_signed_in? %>
         <%= link_to admin_posts_path, data: {"turbolinks" => false}, class: "navbar-brand", style: "margin-right: auto; margin-left: 0;" do %>
           <%= image_tag("title.jpg", alt: "shiory", size: "100x50") %>
         <% end %>
@@ -22,7 +22,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <!-- ログインしていない場合 -->
-          <% unless admin_admin_signed_in? || customer_signed_in? %>
+          <% unless admin_signed_in? || customer_signed_in? %>
           <li class="nav-item mx-1 my-1" style="list-style-type: none;">
             <%= button_to 'ゲストログイン（閲覧用）', guest_sign_in_path, method: :post, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' %>
           </li>
@@ -43,7 +43,7 @@
           </li>
           <% end %>
           <!-- 管理者がログインしている場合 -->
-          <% if admin_admin_signed_in? %>
+          <% if admin_signed_in? %>
               <%= render 'searches/search' %>
             <li class="nav-item mr-1 mb-1" style="list-style-type: none;">
               <%= link_to admin_posts_path, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
@@ -61,7 +61,7 @@
               <% end %>
             </li>
             <li class="nav-item" style="list-style-type: none;">
-              <%= link_to destroy_admin_admin_session_path, method: :delete, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
+              <%= link_to destroy_admin_session_path, method: :delete, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
                 Log out
               <% end %>
             </li>

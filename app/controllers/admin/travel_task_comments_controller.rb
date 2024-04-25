@@ -1,4 +1,5 @@
 class Admin::TravelTaskCommentsController < ApplicationController
+before_action :authenticate_admin!
 
   def destroy
     # params[:post_id]を使用し、コメントが属する投稿（Post）を特定。

@@ -18,7 +18,7 @@ class SearchesController < ApplicationController
   def login_check
     if customer_signed_in?
       return true
-    elsif admin_admin_signed_in?
+    elsif admin_signed_in?
       return true
     else
       return authenticate_customer!

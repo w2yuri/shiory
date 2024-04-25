@@ -1,4 +1,5 @@
 class Admin::ChatGroupsController < ApplicationController
+  before_action :authenticate_admin!
 
   def index
     @messages = Chat.all
