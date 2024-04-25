@@ -1,4 +1,5 @@
 class Public::TravelTaskCommentsController < ApplicationController
+  before_action :authenticate_customer!
 
   def create
     # params[:post_id]を使用し、コメントを追加する対象の投稿（Post）を特定。

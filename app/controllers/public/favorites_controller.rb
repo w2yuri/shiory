@@ -1,4 +1,5 @@
 class Public::FavoritesController < ApplicationController
+  before_action :authenticate_customer!
 
   def create
     # カスタマーが特定の投稿をお気に入りに追加するためのFavoriteオブジェクトを作成
