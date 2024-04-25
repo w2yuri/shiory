@@ -17,7 +17,6 @@ class Public::TravelTaskCommentsController < ApplicationController
     # 特定されたコメントをデータベースから削除。
     @travel_task = Post.find(params[:post_id]).travel_tasks.find(params[:travel_task_id])
     @travel_task.travel_task_comments.find(params[:id]).destroy
-    render 'action', notice: "コメントが削除されました。"
   end
 
   private

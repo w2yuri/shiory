@@ -1,7 +1,7 @@
 <div class='container'>
   <div class='row'>
-    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-5">
-      <h2>customer info</h2>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto my-5">
+      <h2 style="text-align: center;">編集</h2>
       <%= form_with model: @customer, url: customer_path(@customer), local: true do |f| %>
         <% if @customer.errors.any? %>
           <ul>
@@ -11,7 +11,7 @@
           </ul>
         <% end %>
         <div class="form-group">
-          <%= f.label :name %>
+          <%= f.label :Name %>
           <%= f.text_field :name, class: "form-control name" %>
         </div>
         <div class="form-group">
@@ -25,8 +25,8 @@
           <%= f.label :introduction %>
           <%= f.text_area :introduction, class: "form-control introduction" %>
         </div>
-        <div class="form-group">
-          <%= f.submit "編集を保存", class: 'btn btn-secondary' %>
+        <div style="text-align: center;">
+          <%= f.submit "編集を保存", class: 'btn btn-primary' %>
         </div>
       <% end %>
     </div>

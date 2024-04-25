@@ -9,9 +9,9 @@ class Admin::PostsController < ApplicationController
     # 特定の顧客に関連する投稿をフィルタリングし表示
        @posts = Post.where(customer_id: params[:filter])
     # filterパラメータが提供されていない場合、すべての投稿を取得
-     else　
+     else
        @posts = Post.where(status: true)
-     end　
+     end
   end
 
   def show

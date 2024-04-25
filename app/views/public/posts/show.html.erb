@@ -3,8 +3,8 @@
     <div class='col-md-3'>
       <h2>customer info</h2>
         <%= render 'public/customers/info', customer: @customer %>
-        <div class="mt-3">
-          <div>この投稿にいいねする</div>
+        <div class="mt-4" style="text-align: center;">
+          <div><strong>この投稿にいいねする</strong></div>
           <div id="favorite-<%= @post.id %>">
             <%= render "public/favorites/btn", post: @post %>
           </div>
