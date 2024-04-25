@@ -249,29 +249,12 @@ p,td,th {
   cursor: pointer;
 }
 
-// ページトップ
-// #page-top a{
-//   background:#942D2F;
-//   color:#fff;
-//   text-align: center;
-//   display: block;
-//   text-decoration: none;
-//   padding:20px;
-//   text-transform: uppercase;
-//   letter-spacing: 0.05em;
-//   font-size: 0.8rem;
-//   transition: all 0.3s;
-// }
-
-// #page-top a:hover{
-//   background: #777;
-// }
-
+// ページトップボタン
 #page-top {
   position: fixed;
-  bottom: 20px;
+  bottom: 50px;
   right: 20px; /* 右側に配置 */
-  border-radius: 50%; /* 丸い枠 */
+  border-radius: 10px; /* 丸い枠 */
   background: #b3a9c8;
   transition: all 0.3s;
   z-index: 9999;
@@ -282,7 +265,7 @@ p,td,th {
   display: block;
   text-align: center;
   text-decoration: none;
-  padding: 20px;
+  padding: 10px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-size: 0.8rem;
