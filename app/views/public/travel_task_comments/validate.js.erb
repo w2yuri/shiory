@@ -1,4 +1,4 @@
-$('#travel_task_errors_<%= @travel_task.id %>').html("<%= j(render 'layouts/errors', obj: @travel_task_comment) %>").show();
+$('.errors').html("<%= j(render 'layouts/errors', obj: @travel_task) %>").show();
 
 setTimeout(function() {
   $('.errors').hide();
