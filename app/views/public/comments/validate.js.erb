@@ -1,4 +1,4 @@
-$('.errors').html("<%= j(render 'layouts/errors', obj: @comment) %>").show();
+$('#post_errors_<%= @post.id %>').html("<%= j(render 'layouts/errors', obj: @comment) %>").show();
 
 setTimeout(function() {
   $('.errors').hide();
