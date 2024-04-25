@@ -46,8 +46,8 @@
         %>
         </div>
         <input type="submit" name="commit" value="投稿" class="btn btn-success" data-disable-with="投稿中です">
-        <div class="form-group row">
-          <%=f.label:"公開範囲",class:"col-sm-4"%>
+        <div class="form-group row mt-3">
+          <%= f.label :status, "公開範囲", class: "col-sm-4", style: "color: #dbac9e;" %>
           <div style="padding-right:20px;">
           <%= f.radio_button :status, true %>
           <%= f.label :status, "投稿", {value: :true, style: "display: inline-block;"} %></div>
