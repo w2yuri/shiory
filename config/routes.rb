@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   patch '/customers/withdraw', to: 'public/customers#withdraw'
   # 検索機能
   get "search" => "searches#search"
-  # カレンダー機能
-  get 'events', to: 'events#index', defaults: { format: 'json' }
+
   # 通知機能
   resources :notifications, only: [:update]
 
@@ -37,6 +36,9 @@ Rails.application.routes.draw do
     end
     resources :chats, only: [:show, :create]
     resources :chat_groups, only: [:index, :destroy]
+
+    # カレンダー機能
+    get 'events', to: 'events#index' # , defaults: { format: 'json' }
   end
 
   # 管理者用

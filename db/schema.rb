@@ -95,14 +95,6 @@ ActiveRecord::Schema.define(version: 2024_04_24_141506) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
-  create_table "events", force: :cascade do |t|
-    t.string "title"
-    t.datetime "start"
-    t.datetime "end"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "favorites", force: :cascade do |t|
     t.integer "customer_id", null: false
     t.integer "post_id", null: false
@@ -125,6 +117,7 @@ ActiveRecord::Schema.define(version: 2024_04_24_141506) do
     t.integer "customer_id", null: false
     t.string "title", null: false
     t.text "contents", null: false
+    t.date "date"
     t.boolean "status", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

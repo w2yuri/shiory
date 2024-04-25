@@ -41,7 +41,7 @@
         <% end %>
       </div>
 
-      <div class='mt-5'>
+      <div class='mt-3'>
         <% if current_customer != @customer %>
           <% else %>
         <%= link_to '編集', edit_customer_path(@customer), class: "btn btn-outline-secondary btn-block edit_customer_#{@customer.id}" %>

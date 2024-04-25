@@ -21,6 +21,7 @@ end
 # 投稿・|p|=post
 post = Post.find_or_create_by!(title: "X県旅行") do |p|
   p.post_image = ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-post1.jpg"), filename:"sample-post1.jpg")
+  p.date = "2024-04-25".to_date
   p.contents = "2泊3日のX県旅行に行ってきました！1日目は〇〇市へ、2日目と3日目は◎◎町へ行きました。"
   p.customer_id = shiori.id
 end

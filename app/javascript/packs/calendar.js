@@ -8,15 +8,19 @@ document.addEventListener('DOMContentLoaded', function() {
     plugins: [dayGridPlugin, listPlugin],　//listPluginを追加
     initialView: 'dayGridMonth',
     locale: "jp",
-    events: '/events', 
+    events: '/events.json',
+    displayEventTime: false, // 時間非表示
     //レスポンシブ処理を追加
-    windowResize: function () { 
+    windowResize: function () {
         if (window.innerWidth < 991.98) {
             calendar.changeView('listMonth');
         } else {
             calendar.changeView('dayGridMonth');
         }
     },
+    eventClick: (e)=>{ // イベントのクリックイベント
+        window.location.href = `/posts/${e.event.id}`
+	}
   });
 
   calendar.render();

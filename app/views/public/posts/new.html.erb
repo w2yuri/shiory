@@ -26,6 +26,10 @@
           <%= f.label :contents, 'Shiory' %>
           <%= f.text_area :contents, class: 'form-control' %>
         </div>
+        <div class="form-group">
+          <%= f.label :date, 'Date' %>
+          <%= f.date_field :date, class: 'form-control' %>
+        </div>
         <div id="travel_tasks">
           <%= f.fields_for :travel_tasks do |task| %>
             <%= render 'travel_task_fields', f: task %>

@@ -1,6 +1,9 @@
-class EventsController < ApplicationController
+class Public::EventsController < ApplicationController
   def index
-    @events = Event.all
+    @posts = current_customer.posts
+
+    pp '-------------------'
+    pp @posts
     # 下記のリクエストに対するレスポンスを定義するための記述
     # ブラウザがHTMLのレスポンスをリクエストした時
     # ブラウザがJSONのレスポンスをリクエストした時

@@ -1,9 +1,9 @@
-# # app/models/notification.rb
-# class Notification < ApplicationRecord
-#   include Rails.application.routes.url_helpers
+# app/models/notification.rb
+class Notification < ApplicationRecord
+include Rails.application.routes.url_helpers
 
-#   belongs_to :customer
-#   belongs_to :notifiable, polymorphic: true
+  belongs_to :customer
+  belongs_to :notifiable, polymorphic: true
 
 #   def message
 #     if notifiable_type == "Post"
@@ -22,4 +22,4 @@
 #   end
 
 #   include Notifiable
-# end
+end
