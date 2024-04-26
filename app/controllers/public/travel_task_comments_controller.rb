@@ -32,6 +32,8 @@ class Public::TravelTaskCommentsController < ApplicationController
 #   end
 # end
 
+
+
   def create
     @travel_task = TravelTask.find(comment_params[:travel_task_id])
     @comment = TravelTaskComment.new(comment_params)
@@ -39,7 +41,6 @@ class Public::TravelTaskCommentsController < ApplicationController
     @comment.travel_task_id = @travel_task.id
     @comment.save
     render 'action'
-    
   end 
   
   def destroy

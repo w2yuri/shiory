@@ -16,6 +16,10 @@ class Customer < ApplicationRecord
   has_many :chats
   # 通知機能
   has_many :notifications, dependent: :destroy
+  # def notification_message
+  #   "#{customer.name}さんにフォローされました"
+  # end
+  
   # 多対多の関係を持つモデル間でのデータのやり取りできるようにする
   has_many :rooms, through: :customer_rooms
 
