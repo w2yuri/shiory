@@ -276,3 +276,35 @@ p,td,th {
 #page-top:hover {
   background: #ffe9a5;
 }
+
+
+// .relative {
+//   max-width: 300px;
+//   height: auto;
+//   position: relative;
+// }
+
+// .my-image {
+//   width: 100%;
+//   height: auto;
+//   object-fit: cover;
+// }
+
+// .my-image_2  {
+//   position: absolute;
+//   right: 30px;
+//   bottom: 30px;
+// }
+
+// 仮のトップ
+.grid{
+  display: grid;
+  gap: 26px;
+  grid-template-columns:repeat(3, minmax(240px,1fr));
+  margin-top: 6%;
+}
+
+.item_1 {
+  width: 100%;
+  height: auto;
+}
