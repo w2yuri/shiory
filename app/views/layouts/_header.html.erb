@@ -64,6 +64,22 @@
           <!-- 顧客がログインしている場合 -->
           <% if customer_signed_in? %>
               <%= render 'searches/search' %>
+             <li class="dropdown  mr-1 mb-1">
+              <button class="btn btn-primary dropdown-toggle" style="color: #fFe9a5;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-solid fa-bell"></i>
+                <span class="badge badge-danger"><%= current_customer.notifications.where(read: false).count %></span>
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <% if current_customer.notifications.where(read: false).any? %>
+                  <small class="dropdown-item disabled">直近5件の未読の通知を表示しています</small>
+                  <% current_customer.notifications.where(read: false).limit(5).order(created_at: :desc).each do |notification| %>
+                    <%= link_to notification.message, notification, method: :patch, class: "dropdown-item" %>
+                  <% end %>
+                <% else %>
+                  <span class="dropdown-item disabled">未読の通知はありません</span>
+                <% end %>
+              </div>
+            </li>
             <li class="nav-item mr-1 mb-1" style="list-style-type: none;">
               <%= link_to customer_path(current_customer), class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
                 My Page
@@ -79,22 +95,6 @@
                 Post
               <% end %>
             </li>
-            <li class="dropdown  mr-1 mb-1">
-            <button class="btn btn-primary dropdown-toggle" style="color: #fFe9a5;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Notification
-              <span class="badge badge-danger"><%= current_customer.notifications.where(read: false).count %></span>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <% if current_customer.notifications.where(read: false).any? %>
-                <small class="dropdown-item disabled">直近5件の未読の通知を表示しています</small>
-                <% current_customer.notifications.where(read: false).limit(5).order(created_at: :desc).each do |notification| %>
-                  <%= link_to notification.message, notification, method: :patch, class: "dropdown-item" %>
-                <% end %>
-              <% else %>
-                <span class="dropdown-item disabled">未読の通知はありません</span>
-              <% end %>
-            </div>
-          </li>
             <li class="nav-item" style="list-style-type: none;">
               <%= link_to destroy_customer_session_path, method: :delete, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
                 Log out
