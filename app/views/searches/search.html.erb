@@ -2,7 +2,6 @@
   <div class='row'>
     <% if customer_signed_in? %>
       <div class='col-md-3'>
-          <h2>customer info</h2>
           <%= render 'public/customers/info', customer: current_customer %>
       </div>
     <% end %>
