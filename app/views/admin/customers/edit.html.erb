@@ -1,7 +1,7 @@
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-5">
-      <h2>customer info</h2>
+      <h2 style="text-align: center;">プロフィール編集</h2>
       <%= form_with model: @customer, url: admin_customer_path(@customer), local: true do |f| %>
         <% if @customer.errors.any? %>
           <ul>
@@ -11,18 +11,18 @@
           </ul>
         <% end %>
         <div class="form-group">
-          <%= f.label :name %>
+          <%= f.label :Name %>
           <%= f.text_field :name, class: "form-control name" %>
         </div>
         <div class="form-group">
-          <%= f.label :image %>
+          <%= f.label :Image %>
           <%= f.file_field :profile_image, class: "form-control-file customer_image", accept: 'image/*' %>
           <% if @customer.profile_image.attached? %>
             <%= image_tag @customer.profile_image.variant(resize_to_limit: [100, 100]), class: "rounded-circle profile-image mt-2" %>
           <% end %>
         </div>
         <div class="form-group">
-          <%= f.label :introduction %>
+          <%= f.label :Introduction %>
           <%= f.text_area :introduction, class: "form-control introduction" %>
         </div>
         <div class="nowrap col-md-4">会員ステータス</div>
