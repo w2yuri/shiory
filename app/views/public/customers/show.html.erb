@@ -44,7 +44,7 @@
       <div class='my-3'>
         <% if current_customer != @customer %>
           <% else %>
-        <%= link_to '編集', edit_customer_path(@customer), class: "btn btn-outline-secondary btn-block edit_customer_#{@customer.id}" %>
+        <%= link_to 'プロフィール編集', edit_customer_path(@customer), class: "btn btn-outline-secondary btn-block edit_customer_#{@customer.id}" %>
         <%= link_to "投稿一覧", posts_path(filter: @customer.id), class: "btn btn-outline-secondary btn-block" %>
         <%= link_to "下書き一覧", customer_confirm_path(current_customer), class: "btn btn-outline-secondary btn-block" %>
         <%= link_to "いいね一覧", posts_path(filter: @customer.id, is_favorite: true), class: "btn btn-outline-secondary btn-block" %>

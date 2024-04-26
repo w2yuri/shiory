@@ -7,7 +7,7 @@
                 <% customer = customer_chat_room.customer %>
                   <% if customer.present? %>
                 <%= image_tag customer.get_profile_image(500, 500), class: "profile-image__index_2 img-fluid" %>
-                 <% end %>
+                  <% end %>
                 <div class="card-header">
                   <%= link_to customer_chat_room.customer.name, customer_path(customer_chat_room.customer) %>
                   <% if customer_chat_room.chat_room.chats.any? %>

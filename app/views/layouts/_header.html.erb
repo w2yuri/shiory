@@ -36,11 +36,6 @@
               Log in
             <% end %>
           </li>
-          <li class="nav-item mx-1 my-1" style="list-style-type: none;">
-            <%= link_to posts_path, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' do %>
-              Posts
-            <% end %>
-          </li>
           <% end %>
           <!-- 管理者がログインしている場合 -->
           <% if admin_signed_in? %>
