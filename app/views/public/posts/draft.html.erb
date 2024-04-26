@@ -1,7 +1,7 @@
 <div class='container'>
   <div class='row'>
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-5">
-      <h3 class="text-center mb-3">投稿編集</h3>
+      <h3 text-center>投稿編集</h3>
       <!--posts/newと同様の記述-->
       <%= form_with model: @post, local: true do |f| %>
       <% if @post.errors.any? %>
@@ -31,30 +31,28 @@
           <% end %>
         </div>
 
-        <div class="text-center mt-2 mb-5 mr-2">
-          <%= link_to_add_association 'しおりを追加',
-              f,
-              :travel_tasks,
-              class: "btn btn-outline-secondary",
-              data: {
-                # リンクがクリックされると新しいフィールドがtravel_tasksに挿入
-                association_insertion_node: '#travel_tasks',
-                # フィールドの挿入方法を指定
-                # appendは、新しいフィールドが既存のフィールドの後ろに挿入される
-                association_insertion_method: 'append'
-              }
-          %>
-          <input type="submit" name="commit" value="更新" class="btn btn-success" data-disable-with="更新中です">
-          <div class="form-group row mt-3">
-            <%= f.label :status, "公開範囲", class: "col-sm-4 ml-5", style: "color: #dbac9e;" %>
-            <div style="padding-right:20px;">
-            <%= f.radio_button :status, true %>
-            <%= f.label :status, "投稿", {value: :true, style: "display: inline-block;"} %></div>
-            <div style="padding-right:20px;">
-            <%= f.radio_button :status, false %>
-            <%= f.label :status, "下書き保存", {value: :true, style: "display: inline-block;"} %></div>
-          </div>
-         </div>
+        <%= link_to_add_association 'しおりを追加',
+            f,
+            :travel_tasks,
+            class: "btn btn-outline-secondary",
+            data: {
+              # リンクがクリックされると新しいフィールドがtravel_tasksに挿入
+              association_insertion_node: '#travel_tasks',
+              # フィールドの挿入方法を指定
+              # appendは、新しいフィールドが既存のフィールドの後ろに挿入される
+              association_insertion_method: 'append'
+            }
+        %>
+        <input type="submit" name="commit" value="投稿" class="btn btn-success" data-disable-with="投稿中です">
+        <div class="form-group row mt-3">
+          <%= f.label :status, "公開範囲", class: "col-sm-4", style: "color: #dbac9e;" %>
+          <div style="padding-right:20px;">
+          <%= f.radio_button :status, true %>
+          <%= f.label :status, "投稿", {value: :true, style: "display: inline-block;"} %></div>
+          <div style="padding-right:20px;">
+          <%= f.radio_button :status, false %>
+          <%= f.label :status, "下書き保存", {value: :true, style: "display: inline-block;"} %></div>
+        </div>
       <% end %>
     </div>
   </div>

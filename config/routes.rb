@@ -33,6 +33,7 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
       resources :travel_task_comments, only: [:create, :destroy]
+      
     end
     resources :chats, only: [:show, :create]
     resources :chat_groups, only: [:index, :destroy]
