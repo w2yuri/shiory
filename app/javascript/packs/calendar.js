@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initialView: 'dayGridMonth',
     locale: "jp",
     events: '/events.json',
+    businessHours: true,
     displayEventTime: false, // 時間非表示
     //レスポンシブ処理を追加
     windowResize: function () {
