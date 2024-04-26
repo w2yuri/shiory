@@ -5,11 +5,11 @@ class SearchesController < ApplicationController
     @model = params[:model]
     @contents = params[:contents]
     
-   if @model == "Customer"
-      @records = Customer.search_for(@contents)
-   else
-      @records = Post.search_for(@contents) 
-   end
+     if @model == "Customer"
+        @records = Customer.search_for(@contents)
+     else
+        @records = Post.search_for(@contents) 
+     end
   end
   
   private

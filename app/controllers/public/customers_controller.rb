@@ -8,8 +8,15 @@ class Public::CustomersController < ApplicationController
 
 
   def index
-    @customers = Customer.all
+    @customers_all = Customer.all
+    # 退会のカスタマーは表示させない
+    if params[:is_active] == "false"
+      @customers = Customer.where(is_active: false)
+    else
+      @customers = Customer.where(is_active: true)
+    end
   end
+
 
   def edit
     @customer = Customer.find(params[:id])
