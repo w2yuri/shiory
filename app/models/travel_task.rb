@@ -9,15 +9,13 @@ class TravelTask < ApplicationRecord
   validates :title, :contents,    length: { minimum: 1 }   
   
   
-    # 画像
-  # has_one_attached :post_image
-
-  # def get_task_image_image(width, height)
-  #   unless profile_image.attached?
-  #     file_path = Rails.root.join('app/assets/images/no_image.jpg')
-  #     profile_image.attach(io: File.open(file_path), filename: 'no_image.jpg', content_type: 'image/jpg')
-  #   end
-  # profile_image.variant(resize_to_limit: [width, height]).processed
-  # end
+  # 代替画像
+  def get_task_image(width, height)
+    unless task_image.attached?
+      file_path = Rails.root.join('app/assets/images/no_image.jpg')
+      task_image.attach(io: File.open(file_path), filename: 'no_image.jpg', content_type: 'image/jpg')
+    end
+   task_image.variant(resize_to_limit: [width, height]).processed
+  end
   
 end
