@@ -1,2 +1,2 @@
-$('#travel-task-comments-index-<%= @comment.id %>').html("<%= j(render 'public/travel_task_comments/index', travel_task: @comment) %>");
+$('#travel-task-comments-index-<%= @comment.travel_task.id %>').html("<%= j(render 'public/travel_task_comments/index', travel_task: @comment.travel_task) %>");
 $('.comment-textarea').val("");

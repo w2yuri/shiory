@@ -6,6 +6,7 @@ class Public::TravelTaskCommentsController < ApplicationController
     @comment = TravelTaskComment.new(comment_params)
     @comment.customer_id = current_customer.id
     @comment.travel_task_id = @travel_task.id
+    # @comment`を保存できない場合に、validate.js.erbを表示
     render :validate, formats: :js unless @comment.save
   end
 
