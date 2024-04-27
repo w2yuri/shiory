@@ -4,16 +4,16 @@ class SearchesController < ApplicationController
   def search
     @model = params[:model]
     @contents = params[:contents]
-    
+
      if @model == "Customer"
-        @records = Customer.search_for(@contents)
+        @records = Customer.search_for(@contents).where(is_active: true)
      else
-        @records = Post.search_for(@contents) 
+        @records = Post.search_for(@contents).where(status: true)
      end
   end
-  
+
   private
-  
+
   # 顧客もしくは管理者がログインしている時のみ検索ボックスを表示。それ以外はログイン認証。
   def login_check
     if customer_signed_in?

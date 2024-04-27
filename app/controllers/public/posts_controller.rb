@@ -17,8 +17,8 @@ class Public::PostsController < ApplicationController
          @posts = @posts.where(id: favorite_post_ids)
        else
           @posts = @posts.where(customer_id: params[:filter])
-       end  
-     end 
+       end
+     end
   end
 
   def create
@@ -64,7 +64,7 @@ class Public::PostsController < ApplicationController
 
   def post_params
     params.require(:post)
-    .permit(:title, :contents, :post_image, :status, travel_tasks_attributes: [:id, :title, :contents, :task_image, :_destroy])
+    .permit(:title, :contents, :post_image, :status, :date, travel_tasks_attributes: [:id, :title, :contents, :task_image, :_destroy])
     # .merge メソッド＝新しいハッシュを作成し、指定されたハッシュとマージ。
     # post レコードのcustomer_id属性に、現在のユーザーのIDを割り当てるためのもの。これにより、認証されたユーザーが投稿を作成できる。
     .merge(customer_id: current_customer.id)

@@ -31,15 +31,15 @@ class Post < ApplicationRecord
   validates_associated :travel_tasks
 
    # 画像
-  has_one_attached :post_image
+   has_one_attached :post_image
 
-  def get_task_image_image(width, height)
-    unless profile_image.attached?
-      file_path = Rails.root.join('app/assets/images/no_image.jpg')
-      profile_image.attach(io: File.open(file_path), filename: 'no_image.jpg', content_type: 'image/jpg')
-    end
-  profile_image.variant(resize_to_limit: [width, height]).processed
-  end
+  # def get_post_image_image(width, height)
+  #   unless post_image.attached?
+  #     file_path = Rails.root.join('app/assets/images/no_image.jpg')
+  #     post_image.attach(io: File.open(file_path), filename: 'no_image.jpg', content_type: 'image/jpg')
+  #   end
+  # post_image.variant(resize_to_limit: [width, height]).processed
+  # end
 
   # いいね機能
   # 一致するレコードが存在しない＝createアクションへ
