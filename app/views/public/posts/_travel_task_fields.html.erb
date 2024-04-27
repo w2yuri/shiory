@@ -11,11 +11,11 @@
         </div>
         <div class="form-group">
           <%= f.label :title, 'Title' %>
-          <%= f.text_field :title, class: 'form-control' %>
+          <%= f.text_field :title, class: 'form-control', placeholder:"サブタイトルを記入" %>
         </div>
         <div class="form-group">
           <%= f.label :contents, 'Contents' %>
-          <%= f.text_area :contents, class: 'form-control' %>
+          <%= f.text_area :contents, class: 'form-control', placeholder:"詳細を記入" %>
         </div>
         <div class="form-group">
           <%= link_to_remove_association '<i class="fa-solid fa-trash"></i>'.html_safe, f %>

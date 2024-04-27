@@ -20,14 +20,15 @@
         </div>
         <div class="form-group">
           <%= f.label :title, 'Title' %>
-          <%= f.text_field :title, class: 'form-control' %>
+          <%= f.text_field :title, class: 'form-control', placeholder:"メインタイトルを記入" %>
         </div>
         <div class="form-group">
           <%= f.label :contents, 'Contents' %>
-          <%= f.text_area :contents, class: 'form-control' %>
+          <%= f.text_area :contents, class: 'form-control', placeholder:'詳細を記入' %>
         </div>
         <div class="form-group">
           <%= f.label :date, 'Date' %>
+          <P> ( 行った日、行きたい日を選択するとカレンダーに反映されます )</P>
           <%= f.date_field :date, class: 'form-control' %>
         </div>
         <div id="travel_tasks">

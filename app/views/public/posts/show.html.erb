@@ -12,6 +12,14 @@
 
     <div class='col-md-8 offset-md-1'>
        <div class="text-center">
+          <% if @post.customer == current_customer %>
+              <div class="mx-2 d-inline-flex mb-3">
+                <%= link_to '編集', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %>
+              </div>
+              <div class="mx-2 d-inline-flex mb-3">
+                <%= link_to '削除', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" %>
+              </div>
+          <% end %>
         <div class="mb-3">
            <div style="position:relative;border:1px solid #efc4c0;border-radius:4px;padding:1.5em 1em;">
            <div style="position:absolute;top: -12px;left: 10px;padding: 5px 25px;background-color:#d7e6d5;border-radius:4px;color:#6d7d90;line-height: 1em;">
@@ -59,12 +67,6 @@
                   <%= render "public/travel_task_comments/form", travel_task: travel_task, comment: @travel_task_comment %>
               </div>
             </div>
-          <% end %>
-          <% if @post.customer == current_customer %>
-              <div class="mb-5">
-                <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-sm btn-success edit_post_#{@post.id}" %>
-                <%= link_to 'Destroy', @post, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger destroy_post_#{@post.id}" %>
-              </div>
           <% end %>
      </div>
     </div>

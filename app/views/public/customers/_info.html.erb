@@ -23,20 +23,20 @@
     <%= render "public/relationships/btn", customer: customer %>
   <% else %>
     <%= link_to edit_customer_path(customer), class: "btn btn-outline-secondary btn-block edit_customer_#{customer.id}" do %>
-      <i class="fas fa-user-cog"></i>
+      <i class="fas fa-user-cog"></i> Profile
     <% end %>
     <%= link_to new_post_path, class: "btn btn-outline-secondary btn-block" do %>
-      <i class="fa-solid fa-file-pen"></i>
+      <i class="fa-solid fa-file-pen"></i> New Post 
     <% end %>
     <% if current_customer != customer %>
       <% else %>
         <%= link_to chat_groups_path, class: "btn btn-outline-secondary btn-block" do %>
-          <i class="fa-solid fa-comments"></i>
+          <i class="fa-solid fa-comments"></i> Chat
         <% end %>
     <% end %>
     <!--ログインユーザーとチャットするユーザーが、相互フォロー関係にあること-->
     <% if current_customer != customer && current_customer.following?(customer) && customer.following?(current_customer) %>
-      <%= link_to 'チャットを始める', chat_path(customer.id), class: "btn btn-outline-secondary btn-block" %>
+      <%= link_to 'Chat', chat_path(customer.id), class: "btn btn-outline-secondary btn-block" %>
   <% end %>
   <% end %>
 </div>
