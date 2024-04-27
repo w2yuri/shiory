@@ -40,7 +40,7 @@ Rails.application.routes.draw do
     resources :chat_groups, only: [:index, :destroy]
 
     # カレンダー機能
-    get 'events', to: 'events#index' # , defaults: { format: 'json' }
+    get 'events', to: 'events#index'
   end
 
   # 管理者用
