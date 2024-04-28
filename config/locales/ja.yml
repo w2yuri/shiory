@@ -8,9 +8,8 @@ ja:
         content: コメント
       travel_task_comment:
         content: コメント
-      travel_task:
-        travel_task_comments: コメント
-        
+      travel_tasks:
+        travel_tasks: 確認
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'

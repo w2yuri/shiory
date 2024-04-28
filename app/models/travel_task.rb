@@ -5,7 +5,6 @@ class TravelTask < ApplicationRecord
 
   has_one_attached :task_image
   
-  validates :title, :contents, presence: { message: "を入力してください" }
   validates :title, :contents,    length: { minimum: 1 }   
   
   

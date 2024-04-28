@@ -5,6 +5,7 @@
         <% if @post.errors.any? %>
           <ul>
             <% @post.errors.full_messages.each do |message| %>
+            <!--<li class="error-message" id="error-<%#= travel_tasks.id %>"><%#= message %></li>-->
               <li class="error-message"><%= message %></li>
             <% end %>
           </ul>

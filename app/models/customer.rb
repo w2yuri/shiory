@@ -12,8 +12,8 @@ class Customer < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :travel_task_comments, dependent: :destroy
   # DM機能
-  has_many :customer_chat_rooms
-  has_many :chats
+  has_many :customer_chat_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
   # 通知機能
   has_many :notifications, dependent: :destroy
   # def notification_message
