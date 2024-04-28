@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   include Notifiable
   has_many :notifications, as: :notifiable, dependent: :destroy
   after_create do
-    if status 
+    if status
     records = customer.followers.map do |follower|
       notifications.new(customer_id: follower.id)
     end

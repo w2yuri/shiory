@@ -24,7 +24,11 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to post_path(@post), notice: "投稿されました。"
+      message = "投稿されました。"
+      if @post.status == false
+        message = "下書き保存しました。"
+      end
+      redirect_to post_path(@post), notice: message
     else
       render :new, alert: "投稿されませんでした。空欄がないか確認して下さい。"
     end
@@ -48,8 +52,22 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    status = @post.status
     if @post.update(post_params)
-       redirect_to posts_path, notice: "投稿が更新されました。"
+      if status == false && @post.status == false
+        # 下書き→下書きに保存
+        message = "下書きが更新されました。"
+      elsif status == true && @post.status == false
+        # 投稿→下書きに保存
+        message = "下書きに保存しました。"
+      elsif status == false && @post.status == true
+        # 下書き→投稿に保存
+        message = "下書きが投稿されました。"
+      else
+        # 投稿→投稿に保存
+        message = "投稿が更新されました。"
+      end
+       redirect_to posts_path, notice: message
     else
        render :edit
     end

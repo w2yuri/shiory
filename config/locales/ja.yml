@@ -1,6 +1,9 @@
 ja:
-  enums:
   activerecord:
+    models:
+      travel_task: "しおり"
+      post: 'ポスト'
+      post/travel_tasks: 'しおり'
     attributes:
       chat:
         message: メッセージ
@@ -9,8 +12,16 @@ ja:
       travel_task_comment:
         content: コメント
       travel_tasks:
-        travel_tasks: 確認
+        title: しおりのTitle
+        contents: しおりのContents
+      post:
+        travel_tasks: しおり
     errors:
+      models: 
+        post: 
+          attributes:
+            travel_tasks:
+              invalid: の作成に失敗しました。
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
