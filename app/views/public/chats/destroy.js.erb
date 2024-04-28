@@ -1,1 +1,1 @@
-$('#public-chat-show').html("<%= j(render partial: 'public/chats/show', locals: { messages: @chat }) %>");
+$('#chats-show').html("<%= j(render partial: 'public/chats/messages', locals: { chats: @chats }) %>");

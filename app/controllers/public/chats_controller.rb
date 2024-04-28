@@ -36,6 +36,7 @@ class Public::ChatsController < ApplicationController
   def destroy
     @chat = Chat.find(params[:id])
     @chat.destroy
+    @chats = Chat.where(chat_room_id: @chat.chat_room_id)
   end
 
   private

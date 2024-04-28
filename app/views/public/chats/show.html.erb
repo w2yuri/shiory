@@ -2,8 +2,8 @@
   <div class="chat-topbar">
     <h2><%= @target_customer.name %> さんとのチャット</h2>
   </div>
-  <div class="message">
-    <%= render "public/chats/messages", chats: @chats %>
+  <div id="chats-show"  class="chats-show message">
+     <%= render "public/chats/messages", chats: @chats %>
   </div>
 
   <div class="chat-form">

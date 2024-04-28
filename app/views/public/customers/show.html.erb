@@ -49,9 +49,9 @@
           <%= link_to "いいね一覧", posts_path(filter: @customer.id, is_favorite: true), class: "btn btn-outline-secondary btn-block" %>
           <%= link_to 'チャットを始める', chat_groups_path, class: "btn btn-outline-secondary btn-block" %>
           <%= link_to 'カレンダー', events_path, class: "btn btn-outline-secondary btn-block" %>
-          <%# unless @customer.guest_customer? %>
+          <% unless @customer.guest_customer? %>
             <%= link_to "退会する", public_customers_unsubscribe_path, class: "btn btn-danger btn-block" %>
-          <%# end %>
+          <% end %>
         <% end %>
       </div>
     </div>

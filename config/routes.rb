@@ -34,7 +34,7 @@ Rails.application.routes.draw do
       resources :comments, only: [:create, :destroy]
       resources :travel_task_comments, only: [:create, :destroy]
     end
-    resources :chats, only: [:show, :create, :destory]
+    resources :chats, only: [:show, :create, :destroy]
     resources :chat_groups, only: [:index, :destroy]
     # カレンダー機能
     get 'events', to: 'events#index'

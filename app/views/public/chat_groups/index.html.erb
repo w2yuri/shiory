@@ -12,7 +12,7 @@
                   <%= link_to customer_chat_room.customer.name, customer_path(customer_chat_room.customer) %>
                   <% if customer_chat_room.chat_room.chats.any? %>
                     <div class="col-md-5">
-                      <%= customer_chat_room.chat_room.chats.last.message %>
+                      <%= customer_chat_room.chat_room.chats.last.message.truncate(7) %>
                     </div>
                   <% end %>
 

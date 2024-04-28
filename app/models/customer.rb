@@ -59,6 +59,10 @@ class Customer < ApplicationRecord
       customer.name = "guestcustomer"
     end
   end
+  
+  def guest_customer?
+    email == GUEST_CUSTomer_EMAIL
+  end
 
   # is_activeがfalseならfalseを返す(退会処理)
   def active_for_authentication?
