@@ -33,11 +33,9 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
       resources :travel_task_comments, only: [:create, :destroy]
-      
     end
-    resources :chats, only: [:show, :create]
+    resources :chats, only: [:show, :create, :destory]
     resources :chat_groups, only: [:index, :destroy]
-
     # カレンダー機能
     get 'events', to: 'events#index'
   end

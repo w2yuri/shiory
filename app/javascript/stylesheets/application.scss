@@ -71,26 +71,6 @@ p,td,th {
 // top画面
 @charset "utf-8";
 
-/*========= レイアウトのためのCSS ===============*/
-.top {
-  text-align: center;
-  margin: auto; /* 上下左右のマージンを自動で調整 */
-  font-size: 3rem; /* 3倍のフォントサイズに変更 */
-  color: #ffe9a5;
-  text-shadow: 2px 2px #6d7d90;
-}
-
-.top__2 {
-  text-align: center;
-  margin: auto;
-  width: fit-content;
-  height: fit-content;
-  font-size: 2rem;
-  color: #d7e6d5;
-  text-shadow: 2px 2px #6d7d90; /* 文字の縁を指定された色に設定 */
-}
-
-
 // アプリ名をゆっくり表示させる
 .blur{
   animation-name:blurAnime;
@@ -114,18 +94,6 @@ p,td,th {
 
 .blurTrigger{
     opacity: 0;
-}
-
-
-// アバウトページ
-.about-img__cover {
-  width: 100%;
-  height: 700px;
-  object-fit: cover;
-}
-
-.marker-border-2{
-    background:linear-gradient(transparent 60%, #d7e6d5 0%);
 }
 
 // submitボタン
@@ -199,6 +167,13 @@ p,td,th {
 }
 
 .message-body {
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 70%;
+}
+
+.message-body_2 {
+  text-align: right;
   padding: 10px;
   border-radius: 10px;
   max-width: 70%;

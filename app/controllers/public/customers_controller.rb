@@ -51,11 +51,16 @@ class Public::CustomersController < ApplicationController
 
   def withdraw
     @customer = Customer.find(current_customer.id)
-    # 会員ステータスを退会に変更
-    @customer.update!(is_active: false)
-    reset_session
-    flash[:notice] = "退会処理を実行いたしました"
-    redirect_to root_path
+      # 会員ステータスを退会に変更
+    # if @customer.email == 'guest@example.com'
+    #   reset_session
+    #   redirect_to :root
+    # else
+      @customer.update!(is_active: false)
+      reset_session
+      flash[:notice] = "退会処理を実行いたしました"
+      redirect_to root_path
+    # end
   end
   
    def self.looks(search, word)
@@ -85,7 +90,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def guest_customer?
-    email == GUEST_CUSTomer_EMAIL
+    email == GUEST_CUSTOMER_EMAIL
   end
 
 end

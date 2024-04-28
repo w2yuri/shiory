@@ -32,6 +32,11 @@ class Public::ChatsController < ApplicationController
     # チャットの保存に失敗した場合、jsのエラーメッセージを表示し、チャットの保存にしたら続行
     render :validate, formats: :js unless @chat.save
   end
+  
+  def destroy
+    @chat = Chat.find(params[:id])
+    @chat.destroy
+  end
 
   private
 
