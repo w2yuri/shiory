@@ -4,7 +4,7 @@ class Public::CustomersController < ApplicationController
   # 他のユーザーのプロフィールを編集時、リダイレクトされるフィルター定義
   before_action :ensure_correct_customer, only: [:edit, :update]
   # ゲストログイン用
-  before_action :ensure_guest_customer, only: [:edit, :unsubscribe]
+  before_action :ensure_guest_customer, only: [:edit]
 
 
   def index
@@ -80,9 +80,6 @@ class Public::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     if @customer.email == "guest@example.com"
       redirect_to customer_path(current_customer), notice: "ゲストユーザーはプロフィール編集画面へ遷移できません。"
-    elsif @customer.email == "guest@example.com"
-      redirect_to customer_path(current_customer), notice: "ゲストユーザーは退会できません。"
     end
   end
-
 end
