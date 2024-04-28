@@ -41,9 +41,10 @@
 
 
 ## 設計書
-　　![image](https://github.com/w2yuri/shiory/assets/155799910/6ee76058-26b1-43aa-b294-08205310e37a)
+　　![image](https://github.com/w2yuri/shiory/assets/155799910/da0cd97d-37ce-4953-b1d5-57dcbfef42ee)
+ ![image](https://github.com/w2yuri/shiory/assets/155799910/e130f4ce-acc3-46a0-86f3-c79cdeaa8afa)
+ <img width="844" alt="image" src="https://github.com/w2yuri/shiory/assets/155799910/15cd7af3-3b11-4797-9adb-2249697bd354">
 
-​
 ## 開発環境
 - OS：macOS Sonoma(バージョン14.2.1)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
