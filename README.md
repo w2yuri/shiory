@@ -41,7 +41,8 @@
 
 
 ## 設計書
-　　
+　　![image](https://github.com/w2yuri/shiory/assets/155799910/6ee76058-26b1-43aa-b294-08205310e37a)
+
 ​
 ## 開発環境
 - OS：macOS Sonoma(バージョン14.2.1)
