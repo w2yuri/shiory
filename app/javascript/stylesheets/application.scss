@@ -249,7 +249,7 @@ p,td,th {
   background: #ffe9a5;
 }
 
-top
+// top
 /* container */
 .wrapper{
     width:100%;
@@ -336,4 +336,21 @@ top
 .wrapper .content .list-item .text{
     line-height:1.8rem;
     font-size:0.8rem;
+}
+
+
+// タグ
+.label {
+  background-color: #fFe9a5;
+  font-weight: 500;
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: #b3a9c8;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
 }
