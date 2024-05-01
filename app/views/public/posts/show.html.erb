@@ -33,6 +33,11 @@
               <% if @post.post_image.present? %>
                 <div class="mb-3">
                   <%= image_tag @post.post_image, class: 'img-fluid' %>
+                  <div class="tag-box">
+                    <% @post.tags.each do |tag| %>
+                      <span class="label"><%= tag.name %></span>
+                    <% end %>
+                    </div>
                   <div class ="time">投稿日時：<%= l @post.created_at %></div>
                 </div>
               <% else %>
@@ -58,6 +63,11 @@
                   <%= simple_format(travel_task.contents, sanitize: true, class: 'm-0') %>
                   <%= image_tag travel_task.task_image, class: 'img-fluid' if travel_task.task_image.present? %>
                   <%= image_tag 'no_image.jpg', class: 'img-fluid' unless travel_task.task_image.present? %>
+                  <div class="tag-box">
+                  <% @post.tags.each do |tag| %>
+                    <span class="label"><%= tag.name %></span>
+                  <% end %>
+                  </div>
                 </div>
                   <div class="errors" id="travel_task_errors_<%= travel_task.id %>"></div>
                 <!--該当の投稿にコメントできるように、travel_taskにidを割り当てる-->

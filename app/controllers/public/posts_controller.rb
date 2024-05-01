@@ -23,7 +23,11 @@ class Public::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    tags = Vision.get_image_data(post_params[:post_image])
     if @post.save
+      tags.each do |tag|
+        @post.tags.create(name: tag)
+      end
       message = "投稿されました。"
       if @post.status == false
         message = "下書き保存しました。"
