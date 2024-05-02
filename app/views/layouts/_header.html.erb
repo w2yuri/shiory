@@ -24,6 +24,9 @@
           <!-- ログインしていない場合 -->
           <% unless admin_signed_in? || customer_signed_in? %>
           <li class="nav-item mx-1 my-1" style="list-style-type: none;">
+            <%= button_to '管理者ログイン', admin_session_path, method: :post, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' %>
+          </li>
+          <li class="nav-item mx-1 my-1" style="list-style-type: none;">
             <%= button_to 'ゲストログイン（閲覧用）', guest_sign_in_path, method: :post, class: 'btn btn-primary btn-rounded', style: 'color: #fFe9a5;' %>
           </li>
           <li class="nav-item mx-1 my-1" style="list-style-type: none; mx-2">

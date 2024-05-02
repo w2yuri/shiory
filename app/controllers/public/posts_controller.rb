@@ -24,6 +24,7 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     tags = Vision.get_image_data(post_params[:post_image])
+    @post.score = Language.get_data(list_params[:contents])
     if @post.save
       tags.each do |tag|
         @post.tags.create(name: tag)
