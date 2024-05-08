@@ -21,6 +21,10 @@ ActiveStorage.start()
 // cocoon使用のため記載
 require("@nathanvda/cocoon")
 
+// Swiper
+import Swiper from 'swiper/swiper-bundle.js';
+import 'swiper/swiper-bundle.css';
+window.Swiper = Swiper
 
 // top画面
 // blurTriggerにblurというクラス名を付ける定義

@@ -33,11 +33,12 @@
               <% if @post.post_image.present? %>
                 <div class="mb-3">
                   <%= image_tag @post.post_image, class: 'img-fluid' %>
-                  <div class="tag-box">
-                    <% @post.tags.each do |tag| %>
-                      <span class="label"><%= tag.name %></span>
-                    <% end %>
-                    </div>
+                  <!--AI画像認識-->
+                  <!--<div class="tag-box">-->
+                  <!--  <#% @post.tags.each do |tag| %>-->
+                  <!--    <span class="label"><%#= tag.name %></span>-->
+                  <!--  <#% end %>-->
+                  <!--  </div>-->
                   <div class ="time">投稿日時：<%= l @post.created_at %></div>
                 </div>
               <% else %>
