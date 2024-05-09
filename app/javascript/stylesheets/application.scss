@@ -223,72 +223,6 @@ p,td,th {
   cursor: pointer;
 }
 
-// ページトップボタン
-#page-top {
-  position: fixed;
-  bottom: 50px;
-  right: 20px; /* 右側に配置 */
-  border-radius: 10px; /* 丸い枠 */
-  background: #b3a9c8;
-  transition: all 0.3s;
-  z-index: 9999;
-}
-
-#page-top a {
-  color: #fff;
-  display: block;
-  text-align: center;
-  text-decoration: none;
-  padding: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 0.8rem;
-}
-
-#page-top:hover {
-  background: #ffe9a5;
-}
-
-// top
-/* container */
-.wrapper{
-    width:100%;
-}
-.wrapper .container{
-    max-width:1000px;
-    margin:0px auto;
-    padding:80px 0px;
-}
-/* content */
-@media (min-width: 992px) {
-    .wrapper .container .content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-}
-.wrapper .content-item {
-    width:100%;
-}
-@media (min-width: 992px) {
-    .wrapper .content-item {
-        width:50%;
-    }
-}
-.wrapper .image{
-    display:block;
-    max-width:100%;
-    margin:0px auto;
-}
-.wrapper .text{
-    padding:20px;
-}
-.wrapper .text .heading{
-    margin:0px 0px 40px 0px;
-    font-size: 24px;
-    font-weight: normal;
-    text-align: center;
-}
 
 // about
 /* container */
@@ -373,7 +307,59 @@ p,td,th {
 }
 
 // about用
-.cozyspace-img,.cozyspace-message{
-  display: inline-block;
-  vertical-align:middle;
+.inner{
+  max-width: 1000px;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 50px 20px 50px;
+}
+.box{
+  display: flex;
+  flex-direction: row;
+}
+.box + .box{
+  margin-top: 80px;
+}
+.box__body{
+  width: 50%;
+  padding: 0 20px;
+}
+.box__ttl {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+.box__txt {
+  margin-top: 20px;
+}
+.box__image{
+  width: 50%;
+  border-radius: .50em;
+}
+.box__image img{
+  height: 100%;
+  object-fit: cover;
+  border-radius: .50em;
+}
+
+@media screen and (max-width:767px){
+  .box {
+    display: block;
+  }
+  .box + .box{
+    margin-top: 60px;
+  }
+  .box__body{
+    width: 100%;
+    padding: 0;
+  }
+  .box__image{
+    margin-top: 20px;
+    width: 100%;
+  }
+}
+
+.box.reverse{
+  flex-direction: row-reverse;
+  border-radius: .50em;
 }
