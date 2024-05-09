@@ -395,6 +395,7 @@ p,td,th {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   display: none;
+  z-index: 99999;
 }
 
 .modal-content {
@@ -406,6 +407,7 @@ p,td,th {
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
+  z-index: 99999;
 }
 
 .section {
