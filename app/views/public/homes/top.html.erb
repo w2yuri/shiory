@@ -89,6 +89,20 @@
         <div class="box__body">
           <h2 class="box__ttl">title1</h2>
           <p class="box__txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem magnam fugiat ea exercitationem placeat illo quia eos recusandae? Inventore quia eveniet nobis doloremque molestias quisquam velit praesentium officia quae id?</p>
+          <!--モーダル(仮)-->
+            <section class="section">
+              <a href="#" class="modal-btn js-modal-open">ここをクリック</a>
+              <a href="#" id="modal-link1" class="modal-btn js-modal-open">ここをクリック</a>
+            
+              <div id="modal" class="modal-overlay">
+                <div class="modal-content">
+                  <p class="modal-title">ここはモーダルのなかみです１</p>
+                  <p>１</p>
+                  <p>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。</p>
+                  <button class="modal-btn js-modal-close">閉じる</button>
+                </div>
+              </div>
+            </section>
         </div>
           <%= image_tag 'about_1.jpg', class: 'box__image' %>
       </div>
@@ -98,6 +112,20 @@
           <h2 class="box__ttl">title2</h2>
           <p class="box__txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem magnam fugiat ea exercitationem placeat illo quia eos recusandae? Inventore quia eveniet nobis doloremque molestias quisquam velit praesentium officia quae id?</p>
           <p class="box__txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem magnam fugiat ea exercitationem placeat illo quia eos recusandae? Inventore quia eveniet nobis doloremque molestias quisquam velit praesentium officia quae id?</p>
+          <!--モーダル(仮)-->
+            <section class="section">
+              <a href="#" class="modal-btn js-modal-open">ここをクリック</a>
+              <a href="#" id="modal-link1" class="modal-btn js-modal-open">ここをクリック</a>
+            
+              <div id="modal" class="modal-overlay">
+                <div class="modal-content">
+                  <p class="modal-title">ここはモーダルのなかみです２</p>
+                  <p>２この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。</p>
+                  <p>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。</p>
+                  <button class="modal-btn js-modal-close">閉じる</button>
+                </div>
+              </div>
+            </section>
         </div>
           <%= image_tag 'about_1.jpg', class: 'box__image' %>
       </div>
@@ -105,7 +133,23 @@
       <div class="box">
         <div class="box__body">
           <h2 class="box__ttl">title3</h2>
-          <p class="box__txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem magnam fugiat ea exercitationem placeat illo quia eos recusandae? Inventore quia eveniet nobis doloremque molestias quisquam velit praesentium officia quae id?</p>
+          <p class="box__txt">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem magnam fugiat ea exercitationem placeat illo quia eos recusandae? Inventore quia eveniet nobis doloremque molestias quisquam velit praesentium officia quae id?
+          </p>
+          <!--モーダル(仮)-->
+            <section class="section">
+              <a href="#" class="modal-btn js-modal-open">ここをクリック</a>
+              <a href="#" id="modal-link1" class="modal-btn js-modal-open">ここをクリック</a>
+            
+              <div id="modal" class="modal-overlay">
+                <div class="modal-content">
+                  <p class="modal-title">ここはモーダルのなかみです３</p>
+                  <p>３この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。</p>
+                  <p>この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。</p>
+                  <button class="modal-btn js-modal-close">閉じる</button>
+                </div>
+              </div>
+            </section>
         </div>
           <%= image_tag 'about_1.jpg', class: 'box__image' %>
       </div>
@@ -124,4 +168,39 @@ $(document).ready(function(){
       },
     });
 });
+
+// モーダル
+$(document).ready(function() {				
+const $body = $('body');				
+const $modal = $('#modal');				
+const $modalOpenButton = $('.js-modal-open');				
+const $modalCloseButton = $('.js-modal-close');				
+				
+				
+				const modalLink1 = document.getElementById("modal-link1");
+modalLink1.addEventListener("click", function(event) {
+  // リンク先を設定する処理
+  event.preventDefault(); // デフォルトのリンク動作を無効化
+  window.location.href = "リンク先のURL1";
+});
+
+// 同様に他のリンクにもイベントを追加します
+const openModal = () => {				
+$modal.fadeIn();				
+$body.css('overflow', 'hidden');				
+};				
+				
+const closeModal = () => {				
+$modal.fadeOut();				
+$body.css('overflow', 'auto');				
+};				
+				
+const onClickOutside = (event) => {				
+if ($modal.is(event.target)) closeModal();				
+}				
+				
+$modalOpenButton.on('click', openModal);				
+$modalCloseButton.on('click', closeModal);				
+$modal.on('click', onClickOutside);				
+});			
 </script>
