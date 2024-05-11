@@ -66,8 +66,9 @@
           <h2 class="box__ttl" style="text-align: center;">Shioryとは？</h2>
           <p class="box__txt">
            名前の由来は「旅のしおり」と「セオリー」を掛け合わせたものです。<br>
-           どちらも旅程やテーマをまとめて整理したり、振り返って次に活かすための改善点を見つけたりと似ている側面があります。<br>
-           
+           どちらも旅程やテーマをまとめて整理したり、振り返って次に活かすための改善点を見つけたりと似ている側面があります。
+          </P>
+          <p class="box__txt">
            いろんな場所を巡りたいと考えている人も、外出しないで旅行気分を味わいたい人にも。<br>
            行ってほしい！と感じたお気に入りの場所を紹介したり、<br>
            行ってみたい！とワクワクするような場所を見つけてみて下さい。
@@ -107,9 +108,35 @@
 
       <div class="box reverse">
         <div class="box__body">
-          <h2 class="box__ttl" style="text-align: center;">title2</h2>
-          <p class="box__txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem magnam fugiat ea exercitationem placeat illo quia eos recusandae? Inventore quia eveniet nobis doloremque molestias quisquam velit praesentium officia quae id?</p>
-          <p class="box__txt">Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem magnam fugiat ea exercitationem placeat illo quia eos recusandae? Inventore quia eveniet nobis doloremque molestias quisquam velit praesentium officia quae id?</p>
+          <h2 class="box__ttl" style="text-align: center;">投稿方法について</h2>
+           <p class="box__txt">
+             ①投稿一覧ページに表示されます。
+            　写真をアップロードしない場合は、NO IMAGEの代替写真が挿入されます。
+           </p>
+           <p class="box__txt">
+             ②カレンダーに登録する日を選択します。
+             　未選択の場合、投稿できますがカレンダーには登録されません。
+           </p>
+           <p class="box__txt">
+             ③①と同様に入力できます。
+
+           </p>
+           <p class="box__txt">
+             ④③の入力フォームを消去することができます。
+           </p>
+           <p class="box__txt">
+             ⑤「しおりを追加」で、③の入力フォームを追加できます。<br>
+               ⑥の公開範囲を選択した後、「投稿」ボタンを押下して投稿や下書き保存されます。
+           </p>
+           <p class="box__txt">
+             ⑥公開範囲を選択します。<br>
+             投稿した後に下書きに戻したり、下書きから投稿に切り替えることもできます。
+           </p>
+           <p class="box__txt">
+            <%= link_to new_post_path, class: "btn btn-outline-secondary btn-block" do %>
+              <i class="fa-solid fa-file-pen"></i> 投稿する
+            <% end %>
+           </p>
             <section class="section">
               <!--モーダル-->
               <button type="button" class="modal-btn" data-toggle="modal" data-target="#calendar-description_2">
@@ -128,7 +155,34 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-6">
-                                これは、サンプルテストです。
+                               <p class="box__txt">
+                                 ①投稿一覧ページに表示されます。<br>
+                                　写真をアップロードしない場合は、NO IMAGEの代替写真が挿入されます。
+                               </p>
+                               <p class="box__txt">
+                                 ②カレンダーに登録する日を選択します。<br>
+                                 　未選択の場合、投稿できますがカレンダーには登録されません。
+                               </p>
+                               <p class="box__txt">
+                                 ③①と同様に入力できます。
+
+                               </p>
+                               <p class="box__txt">
+                                 ④③の入力フォームを消去することができます。
+                               </p>
+                               <p class="box__txt">
+                                 ⑤「しおりを追加」で、③の入力フォームを追加できます。<br>
+                                   ⑥の公開範囲を選択した後、「投稿」ボタンを押下して投稿や下書き保存されます。
+                               </p>
+                               <p class="box__txt">
+                                 ⑥公開範囲を選択します。<br>
+                                 投稿した後に下書きに戻したり、下書きから投稿に切り替えることもできます。
+                               </p>
+                               <p class="box__txt">
+                                <%= link_to new_post_path, class: "btn btn-outline-secondary btn-block" do %>
+                                  <i class="fa-solid fa-file-pen"></i> 投稿する
+                                <% end %>
+                               </p>
                             </div>
                             <div class="col-md-6">
                                 <%= image_tag 'post_explanation.png', class: 'img-fluid' %>
@@ -138,16 +192,18 @@
                   </div>
                 </div>
               </div>
-            
+            </section>
+
         </div>
-          <%= image_tag 'about_1.jpg', class: 'box__image' %>
+          <%= image_tag 'post_explanation.png', class: 'box__image' %>
       </div>
 
       <div class="box">
         <div class="box__body">
-          <h2 class="box__ttl" style="text-align: center;">title3</h2>
+          <h2 class="box__ttl" style="text-align: center;">カレンダー機能について</h2>
           <p class="box__txt">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem magnam fugiat ea exercitationem placeat illo quia eos recusandae? Inventore quia eveniet nobis doloremque molestias quisquam velit praesentium officia quae id?
+            カレンダー機能を使って、「行った日」「行きたい日」を記録することができます。<br>
+            カレンダーは全体公開されないので、気になる投稿を見つけたら予定を立てたり、好きな時に旅の思い出を振り返ってみましょう!
           </p>
             <section class="section">
               <!--モーダル-->
