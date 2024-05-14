@@ -68,33 +68,6 @@ p,td,th {
   object-fit: cover;
 }
 
-// top画面
-@charset "utf-8";
-
-// アプリ名をゆっくり表示させる
-.blur{
-  animation-name:blurAnime;
-  animation-duration:3s;
-  animation-fill-mode:forwards;
-}
-
-@keyframes blurAnime{
-  from {
-  filter: blur(10px);
-  transform: scale(1.02);
-  opacity: 0;
-  }
-
-  to {
-  filter: blur(0);
-  transform: scale(1);
-  opacity: 1;
-  }
-}
-
-.blurTrigger{
-    opacity: 0;
-}
 
 // submitボタン
 .button {
@@ -224,55 +197,6 @@ p,td,th {
 }
 
 
-// about
-/* container */
-.wrapper{
-    width:100%;
-}
-.wrapper .container{
-    max-width:1000px;
-    margin:0px auto;
-    padding:80px 0px;
-}
-/* content */
-.wrapper .content .heading{
-    margin:0px 0px 40px 0px;
-    font-size: 24px;
-    font-weight: normal;
-    text-align: center;
-}
-@media (min-width: 992px) {
-    .wrapper .content .list {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-}
-.wrapper .content .list-item {
-    margin:50px 0px;
-    padding:0px 50px;
-    text-align:center;
-}
-@media (min-width: 992px) {
-    .wrapper .content .list-item {
-        margin:0px;
-        width:calc(100% / 3);
-    }
-}
-.wrapper .content .list-item .image{
-    display:block;
-    width:100%;
-    max-width:300px;
-    margin:0px auto 20px auto;
-    border-radius:20%;
-    object-fit: cover;
-}
-.wrapper .content .list-item .text{
-    line-height:1.8rem;
-    font-size:0.8rem;
-}
-
-
 // タグ
 .label {
   background-color: #fFe9a5;
@@ -364,7 +288,7 @@ p,td,th {
   border-radius: .50em;
 }
 
-// モーダル(仮)
+// モーダル
 .modal-btn {
   display: block;
   margin: 0 auto;
@@ -422,43 +346,5 @@ p,td,th {
   font-size: 20px;
   font-weight: bold;
   text-align: center;
-}
-
-/* 退会ボタン */
-.btn-5 {
-  border: none;
-  color: #ff84c1;
-  background-color: #ffc1e0;
-}
-.btn-5:hover {
-  color: #f0094a;
-  background: transparent;
-   box-shadow:none;
-}
-.btn-5:before,
-.btn-5:after{
-  content:'';
-  position:absolute;
-  top:0;
-  right:0;
-  height:2px;
-  width:0;
-  background: #f0094a;
-  box-shadow:
-   -1px -1px 5px 0px #fff,
-   7px 7px 20px 0px #0003,
-   4px 4px 5px 0px #0002;
-  transition:400ms ease all;
-}
-.btn-5:after{
-  right:inherit;
-  top:inherit;
-  left:0;
-  bottom:0;
-}
-.btn-5:hover:before,
-.btn-5:hover:after{
-  width:100%;
-  transition:800ms ease all;
 }
 
