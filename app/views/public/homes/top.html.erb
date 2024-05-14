@@ -21,7 +21,7 @@
     <div class="inner">
 
       <div class="box">
-        <div class="box__body">
+        <div class="box__body py-4">
           <h2 class="box__ttl" style="text-align: center; color: #b3a9c8;">Shioryとは？</h2>
           <p class="box__txt">
            名前の由来は「旅のしおり」と「セオリー」を掛け合わせたものです。<br>
@@ -33,52 +33,30 @@
            行ってみたい！とワクワクするような場所を見つけてみて下さい。
           </P>
             <section class="section">
-              <!--モーダル-->
-              <button type="button" class="modal-btn" data-toggle="modal" data-target="#calendar-description">
-                About Calendar
-              </button>
-              <!-- モーダル内 -->
-              <div class="modal fade" id="calendar-description" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                これは、サンプルテストです。
-                            </div>
-                            <div class="col-md-6">
-                                <%= image_tag 'about_1.jpg', class: 'img-fluid' %>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                <%= link_to "投稿一覧へ", posts_path, class: "modal-btn" %>
             </section>
         </div>
           <%= image_tag 'about_1.jpg', class: 'box__image' %>
       </div>
 
       <div class="box reverse">
-        <div class="box__body">
+        <div class="box__body py-3">
           <div class="d-flex flex-column align-items-center">
-            <h2 class="box__ttl" style="text-align: center; color: #b3a9c8;">投稿方法について</h2>
+            <h2 class="box__ttl" style="text-align: center; color: #b3a9c8;">Shioryの楽しみ方</h2>
             <p class="box__txt">
-              ①投稿一覧ページに表示されます。
-              　写真をアップロードしない場合は、NO IMAGEの代替写真が挿入されます。
+             投稿をしなくても、気に入った投稿にいいねをつけたり、
+             コメントをして交流を楽しむことができます。
             </p>
             <p class="box__txt">
-              ②カレンダーに登録する日を選択します。
-              　未選択の場合、投稿できますがカレンダーには登録されません。
+             コメントは誰にでもできますが、<br>
+             チャット機能はお互いがフォローしていないとやり取りができないため、ご注意ください。<br>
+             <div style="text-align: center; color: #dbac9e;">
+              <i class="fa-solid fa-triangle-exclamation"></i>不適切な投稿やコメント、チャットでのメッセージは削除されますので、思いやりを忘れないようにしましょう!
+             </div>
             </p>
             <p class="box__txt">
-              ③①と同様に入力できます。
+             写真を撮り忘れてしまったけど魅力を伝えたい、1箇所だけど紹介したいお店がある…そんなときも大歓迎です！<br>
+             まずは気軽に投稿してみてください。
             </p>
           </div>
           <section class="section">
@@ -107,7 +85,7 @@
                                 　写真をアップロードしない場合は、NO IMAGEの代替写真が挿入されます。
                                </p>
                                <p class="box__txt">
-                                 ②カレンダーに登録する日を選択します。<br>
+                                 ②<i class="fa-regular fa-calendar"></i>マークをタップして、カレンダーに登録する日を選択します。<br>
                                  　未選択の場合、投稿はできますがカレンダーには登録されません。<br>
                                  　投稿編集で、登録日の削除や変更ができます。
                                </p>
@@ -137,26 +115,27 @@
                 </div>
               </div>
             </section>
-
         </div>
-          <%= image_tag 'about_1.jpg', class: 'box__image' %>
+          <%= image_tag 'about_2.jpg', class: 'box__image' %>
       </div>
 
       <div class="box">
-        <div class="box__body">
+        <div class="box__body  py-4">
           <h2 class="box__ttl" style="text-align: center;  color: #b3a9c8;">カレンダー機能について</h2>
           <p class="box__txt">
-            カレンダー機能を使って、「行った日」「行きたい日」を記録することができます。<br>
-            カレンダーは全体公開されないので、気になる投稿を見つけたら予定を立てたり、好きな時に旅の思い出を振り返ってみましょう!
+            カレンダー機能を使って、「行った日」や「行きたい日」を記録することができます。<br>
+            カレンダーは全体公開されないので、気になる投稿を見つけたら参考にして予定を立てたり、<br>
+            好きな時に投稿した旅の思い出を振り返ってみましょう!
           </p>
           <p class="box__txt">
             また、投稿作成時に公開範囲を「下書き」に指定すると、<br>
-            投稿されずカレンダー内で自分だけが確認できるスケジュール帳として使用することもできます。
+            投稿されずにカレンダー内で自分だけが確認できるスケジュール帳として使用することができます。<br>
+            投稿の編集ページでは、日にちの修正や、下書きから投稿への変更も可能です。
           </p>
             <section class="section">
               <!--モーダル-->
               <button type="button" class="modal-btn" data-toggle="modal" data-target="#calendar-description_3">
-                カレンダーの使い方について
+                カレンダーについて
               </button>
               <!-- モーダル内 -->
               <div class="modal fade" id="calendar-description_3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -171,6 +150,15 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-6">
+                              <p class="box__txt">
+                                 「My Page」→「カレンダー」
+                               </p>
+                               <p class="box__txt  text-center">
+                                <%= link_to new_post_path, class: "btn btn-outline-secondary" do %>
+                                  <i class="fa-solid fa-file-pen"></i> 投稿する
+                                <% end %>
+                               </p>
+                              
                                 これは、サンプルテストです。
                             </div>
                             <div class="col-md-6">
@@ -183,7 +171,7 @@
               </div>
             </section>
         </div>
-          <%= image_tag 'about_1.jpg', class: 'box__image' %>
+          <%= image_tag 'about_3.jpg', class: 'box__image' %>
       </div>
     </div>
 </div>

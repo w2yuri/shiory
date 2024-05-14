@@ -68,7 +68,6 @@ p,td,th {
   object-fit: cover;
 }
 
-
 // submitボタン
 .button {
   display       : inline-block;
@@ -292,10 +291,9 @@ p,td,th {
 .modal-btn {
   display: block;
   margin: 0 auto;
-  color: #fff;
+  color: #6d7d90;
   font-weight: bold;
-  background-color: #00a5a0;
-  box-shadow: 0 5px 0 #008480;
+  background-color: #d7e6d5;
   text-align: center;
   text-decoration: none;
   width: 200px;
@@ -348,3 +346,28 @@ p,td,th {
   text-align: center;
 }
 
+// ページトップボタン
+
+#page-top {
+  position: fixed;
+  bottom: 40px;
+  right: 20px; /* 右側に配置 */
+  border-radius: 50%; /* 丸い枠 */
+  background: #b3a9c8;
+  transition: all 0.3s;
+}
+
+#page-top a {
+  color: #fff;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  padding: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+}
+
+#page-top:hover {
+  background: #ffe9a5;
+}

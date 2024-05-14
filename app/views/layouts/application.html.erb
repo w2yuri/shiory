@@ -15,9 +15,7 @@
 
   <!--ページ全体が縦方向に伸び、スクロールバーが表示されないようになり、コンテンツが画面いっぱいに表示されるようになる-->
   <body class="d-flex flex-column min-vh-100">
-    <%# unless current_page?(root_path) %>
      <%= render 'layouts/header' %>
-    <%# end %>
     <% if notice %>
       <div class="alert alert-warning" role="alert">
         <div class="container">
@@ -40,9 +38,8 @@
     <main class="flex-grow-1">
     <%= yield %>
     </main>
-    <%# unless current_page?(root_path) %>
+    <p id="page-top"><a href="#">Page Top</a></p> 
      <%= render 'layouts/footer' %>
-    <%# end %>
     <script>
       // <!-- #page-topをクリックした際の設定-->
       $('#page-top').click(function () {
