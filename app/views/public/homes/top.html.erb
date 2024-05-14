@@ -135,35 +135,34 @@
             <section class="section">
               <!--モーダル-->
               <button type="button" class="modal-btn" data-toggle="modal" data-target="#calendar-description_3">
-                カレンダーについて
+                さらに詳しく
               </button>
               <!-- モーダル内 -->
               <div class="modal fade" id="calendar-description_3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+                      <h5 class="modal-title" id="exampleModalCenterTitle">カレンダーについて</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col-md-6">
-                              <p class="box__txt">
-                                 「My Page」→「カレンダー」
-                               </p>
-                               <p class="box__txt  text-center">
-                                <%= link_to new_post_path, class: "btn btn-outline-secondary" do %>
-                                  <i class="fa-solid fa-file-pen"></i> 投稿する
-                                <% end %>
-                               </p>
-                              
-                                これは、サンプルテストです。
+                            <p class="box__txt" style="text-align: center;">
+                              カレンダー入力後のイメージ     
+                            </p>
+                            <div>
+                              <%= image_tag 'calender.png', class: 'img-fluid', style: 'max-width: 100%; display: block; margin: 0 auto;' %>
                             </div>
-                            <div class="col-md-6">
-                                <%= image_tag 'about_1.jpg', class: 'img-fluid' %>
-                            </div>
+                            <p class="box__txt">
+                              「My Page」→「カレンダー」からカレンダーの内容を確認できます。<br>
+                              各日付に記載されているメインタイトルをクリックすると、投稿内容の詳細を確認することができます。
+                            </p>
+                            <p class="box__txt">
+                              日付は投稿入力時に日付を入力すると反映されます。<br>
+                              投稿の編集ページから日付の修正をしたり、日付のみ削除することでカレンダー上からは削除されますが、投稿は削除されません。
+                            </p>
                         </div>
                     </div>
                   </div>
