@@ -1,57 +1,57 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto mt-5">
-      <section class="section">
-        <!--モーダル-->
-        <button type="button" class="modal-btn" data-toggle="modal" data-target="#calendar-description_2">
-          入力方法について
-        </button>
-        <!-- モーダル内 -->
-        <div class="modal fade" id="calendar-description_2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                  <div class="row">
-                      <div class="col-md-6">
-                         <p class="box__txt">
-                           ①投稿一覧ページに表示されます。<br>
-                          　写真をアップロードしない場合は、NO IMAGEの代替写真が挿入されます。
-                         </p>
-                         <p class="box__txt">
-                           ②カレンダーに登録する日を選択します。<br>
-                           　未選択の場合、投稿できますがカレンダーには登録されません。
-                         </p>
-                         <p class="box__txt">
-                           ③①と同様に入力できます。
-
-                         </p>
-                         <p class="box__txt">
-                           ④③の入力フォームを消去することができます。
-                         </p>
-                         <p class="box__txt">
-                           ⑤「しおりを追加」で、③の入力フォームを追加できます。<br>
-                             ⑥の公開範囲を選択した後、「投稿」ボタンを押下して投稿や下書き保存されます。
-                         </p>
-                         <p class="box__txt">
-                           ⑥公開範囲を選択します。<br>
-                           投稿した後に下書きに戻したり、下書きから投稿に切り替えることもできます。
-                         </p>
-                      </div>
-                      <div class="col-md-6">
-                          <%= image_tag 'post_explanation.png', class: 'img-fluid' %>
-                      </div>
+       <section class="section">
+              <!--モーダル-->
+              <button type="button" class="modal-btn" data-toggle="modal" data-target="#calendar-description_2">
+                投稿フォームについて
+              </button>
+              <!-- モーダル内 -->
+              <div class="modal fade" id="calendar-description_2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalCenterTitle">投稿フォームについて</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                           <div>
+                                <%= image_tag 'post_explanation.png', class: 'img-fluid', style: 'max-width: 60%; display: block; margin: 0 auto;' %>
+                            </div>
+                            <div>
+                               <p class="box__txt">
+                                 ①ここで入力した内容が、投稿一覧ページに表示されます。<br>
+                                　写真をアップロードしない場合は、NO IMAGEの代替写真が挿入されます。
+                               </p>
+                               <p class="box__txt">
+                                 ②カレンダーに登録する日を選択します。<br>
+                                 　未選択の場合、投稿はできますがカレンダーには登録されません。<br>
+                                 　投稿編集で、登録日の削除や変更ができます。
+                               </p>
+                               <p class="box__txt">
+                                 ③①と同様に入力します。
+                               </p>
+                               <p class="box__txt">
+                                 ④③の入力フォームを消去することができます。
+                               </p>
+                               <p class="box__txt">
+                                 ⑤「しおりを追加」で、③の入力フォームを追加できます。<br>
+                                　 ⑥の公開範囲を選択した後、「投稿」ボタンを押下して投稿や下書き保存されます。
+                               </p>
+                               <p class="box__txt">
+                                 ⑥公開範囲を選択します。<br>
+                                 　投稿した後に下書きに戻したり、下書きから投稿に切り替えることもできます。
+                               </p>
+                            </div>
+                        </div>
+                    </div>
                   </div>
+                </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            </section>
             
       <%= form_with model: @post, url: posts_path, local: true do |f| %>
         <% if @post.errors.any? %>
