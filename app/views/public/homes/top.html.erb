@@ -2,7 +2,7 @@
 <div class="container">
     <div class="swiper">
         <div class="swiper-wrapper">
-            <% Post.all.sample(5).each do |post| %>
+            <% Post.where(status: true).sample(5).each do |post| %>
                 <div class="swiper-slide position-relative d-flex">
                     <div class="position-absolute swiper__title w-100 py-4 align-self-center text-center"><%= post.title %></div>
                     <div class="position-absolute w-100">
