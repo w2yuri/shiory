@@ -26,7 +26,7 @@
         </tr>
       </table>
 
-      <div class="mt-3 text-center">
+      <div class="mt-3">
         <% if current_customer != @customer %>
           <div>
             <%= render "public/relationships/btn", customer: @customer %>
@@ -43,51 +43,15 @@
       <div class='my-3'>
         <% if current_customer != @customer %>
         <% else %>
-         <div class="row">
-          <div class="col-md-6">
-            <%= link_to "投稿一覧", posts_path(filter: @customer.id), class: "btn btn-outline-secondary btn-block" %>
-            <%= link_to "下書き一覧", customer_confirm_path(current_customer), class: "btn btn-outline-secondary btn-block" %>
-            <%= link_to "いいね一覧", posts_path(filter: @customer.id, is_favorite: true), class: "btn btn-outline-secondary btn-block" %>
-            <% unless @customer.guest_customer? %>
-              <%= link_to "退会する", public_customers_unsubscribe_path, class: "btn btn-danger btn-block" %>
-            <% end %>
-          </div>
-          <div class="col-md-6">
-            <%= link_to 'プロフィール編集', edit_customer_path(@customer), class: "btn btn-outline-secondary btn-block edit_customer_#{@customer.id}" %>
-            <%= link_to 'カレンダー', events_path, class: "btn btn-outline-secondary btn-block" %>
-             <!--モーダル-->
-             <a href="#calendar-description" data-toggle="modal" style="text-align: center; display: block;">
-               <i class="fa-solid fa-calendar-days"></i>
-               カレンダー機能について
-             </a>
-              <!-- モーダル内 -->
-              <div class="modal fade" id="calendar-description" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                これは、サンプルテストです。
-                            </div>
-                            <div class="col-md-6">
-                                <%= image_tag 'about_1.jpg', class: 'img-fluid' %>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-            <% unless @customer.guest_customer? %>
-              <%= link_to 'チャットを始める', chat_groups_path, class: "btn btn-outline-secondary btn-block" %>
-            <% end %>
-          </div>
+          <%= link_to 'プロフィール編集', edit_customer_path(@customer), class: "btn btn-outline-secondary btn-block edit_customer_#{@customer.id}" %>
+          <%= link_to "投稿一覧", posts_path(filter: @customer.id), class: "btn btn-outline-secondary btn-block" %>
+          <%= link_to "下書き一覧", customer_confirm_path(current_customer), class: "btn btn-outline-secondary btn-block" %>
+          <%= link_to "いいね一覧", posts_path(filter: @customer.id, is_favorite: true), class: "btn btn-outline-secondary btn-block" %>
+          <%= link_to 'カレンダー', events_path, class: "btn btn-outline-secondary btn-block" %>
+          <% unless @customer.guest_customer? %>
+            <%= link_to 'チャットを始める', chat_groups_path, class: "btn btn-outline-secondary btn-block" %>
+            <%= link_to "退会する", public_customers_unsubscribe_path, class: "btn btn-danger btn-block" %>
+          <% end %>
         <% end %>
       </div>
     </div>
