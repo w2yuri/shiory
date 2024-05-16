@@ -347,12 +347,11 @@ p,td,th {
 }
 
 // ページトップボタン
-
 #page-top {
   position: fixed;
   bottom: 40px;
   right: 20px; /* 右側に配置 */
-  border-radius: 50%; /* 丸い枠 */
+  border-radius: 50%; 
   background: #b3a9c8;
   transition: all 0.3s;
 }
