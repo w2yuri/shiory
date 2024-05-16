@@ -1,30 +1,26 @@
 <div class="container my-5" style="display: flex; justify-content: center; align-items: center;">
-    <div class="inner">
-
-      <div class="box d-flex">
-        <div class="box__body py-4">
-          <h2 class="box__ttl" style="text-align: center; color: #b3a9c8;">
-            本当に<br>
-            退会しますか？
-          </h2>
-          <p class="box__txt" style="text-align: center;">
-              退会すると、これまでの投稿やいいね等が<br>
-              閲覧できなくなります。<br>
-              また、同じメールアドレスでの新規登録は行えません。<br>
-              登録時にはご注意ください。
-          </p>
-          <p class="box__txt" style="text-align: center;">
-              退会する場合は、「退会する」をクリックしてください。　
-          </p>
-            <p></p>
-            <div class="d-flex justify-content-center my-5">
-              <%= link_to "退会しない", customer_path(@customer), class: "btn btn-success mr-4" %>
-              <%= link_to "退会する", customers_withdraw_path, method: :patch, class: "btn btn-danger", data: { confirm: "本当に退会しますか？"} %>
-            </div>
-            </p>
-            </div>
-                <%= image_tag 'sea.jpg', class: 'box__image' %>
-            </div>
-        </div>
-    </div>
+  <div class="box d-flex">
+    <div class="box__body py-4">
+      <h2 class="box__ttl" style="text-align: center; color: #b3a9c8;">
+        本当に<br>
+        退会しますか？
+      </h2>
+      <p class="box__txt" style="text-align: center;">
+          退会すると、これまでの投稿やいいね等が<br>
+          閲覧できなくなります。<br>
+          また、同じメールアドレスでの新規登録は行えません。<br>
+          登録時にはご注意ください。
+      </p>
+      <p class="box__txt" style="text-align: center;">
+          退会する場合は、「退会する」をクリックしてください。　
+      </p>
+      <p></p>
+      <div class="d-flex justify-content-center my-5">
+        <%= link_to "退会しない", customer_path(@customer), class: "btn btn-success mr-4" %>
+        <%= link_to "退会する", customers_withdraw_path, method: :patch, class: "btn btn-danger", data: { confirm: "本当に退会しますか？"} %>
+      </div>
+      </p>
+      </div>
+        <%= image_tag 'sea.jpg', class: 'box__image' %>
+  </div>
 </div>
