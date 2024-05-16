@@ -4,7 +4,7 @@
         <div class="swiper-wrapper">
             <% Post.where(status: true).sample(5).each do |post| %>
                 <div class="swiper-slide position-relative d-flex">
-                    <div class="position-absolute swiper__title w-100 py-4 align-self-center text-center"><%= post.title %></div>
+                    <div class="position-absolute swiper__title w-100 py-4 align-self-center text-center" style="color: white;"><%= post.title %></div>
                     <div class="position-absolute w-100">
                         <!--投稿に添付された画像を表示-->
                         <%= image_tag post.post_image, class: 'swiper__img' if post.post_image.present? %>

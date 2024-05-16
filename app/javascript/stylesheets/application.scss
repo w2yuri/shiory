@@ -227,6 +227,11 @@ p,td,th {
     z-index: 9999;
     backdrop-filter: blur(15px) brightness(1.2);
     font-size: calc(10px + .8vw);
+    text-shadow:
+        1px 1px #6d7d90,
+        1px -1px #6d7d90,
+        -1px 1px #6d7d90,
+        -1px -1px #6d7d90,;
 }
 
 // about用
