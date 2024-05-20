@@ -1,28 +1,35 @@
 <div class='container my-5'>
   <h1 style="text-align: center;" >Chats</h1>
     <div class="row mt-5 mt-md-0">
-           <% @my_customer_chat_rooms.each do |customer_chat_room| %>
-            <div class="col-lg-4 col-md-6 mb-2">
-              <div class="card">
-                <% customer = customer_chat_room.customer %>
-                  <% if customer.present? %>
+      <% if @my_customer_chat_rooms.present? %>
+        <% @my_customer_chat_rooms.each do |customer_chat_room| %>
+          <div class="col-lg-4 col-md-6 mb-2">
+            <div class="card">
+              <% customer = customer_chat_room.customer %>
+              <% if customer.present? %>
                 <%= image_tag customer.get_profile_image(500, 500), class: "profile-image__index_2 img-fluid" %>
-                  <% end %>
-                <div class="card-header">
-                  <%= link_to customer_chat_room.customer.name, customer_path(customer_chat_room.customer) %>
-                  <% if customer_chat_room.chat_room.chats.any? %>
-                    <div class="col-md-5">
-                      <%= customer_chat_room.chat_room.chats.last.message.truncate(7) %>
-                    </div>
-                  <% end %>
-
-                </div>
-                <div class="card-body d-flex justify-content-between text-center">
-                    <%= link_to "チャットする", chat_path(customer_chat_room.customer.id) %>
-                </div>
+              <% end %>
+              <div class="card-header">
+                <%= link_to customer_chat_room.customer.name, customer_path(customer_chat_room.customer) %>
+                <% if customer_chat_room.chat_room.chats.any? %>
+                  <div class="col-md-5">
+                    <%= customer_chat_room.chat_room.chats.last.message.truncate(7) %>
+                  </div>
+                <% end %>
+              </div>
+              <div class="card-body d-flex justify-content-between text-center">
+                <%= link_to "チャットする", chat_path(customer_chat_room.customer.id) %>
               </div>
             </div>
-          <% end %>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="mt-4" style="text-align: center;">
+          <h3>
+            チャットメンバーはいません。
+            <%#= link_to “フォロワーの一覧を確認する” followings_path(customer), class: "btn btn-outline-secondary" %>
+          </h3>
         </div>
+      <% end %>
     </div>
 </div>
