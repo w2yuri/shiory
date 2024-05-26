@@ -23,17 +23,17 @@
   <% if current_customer != customer %>
     <%= render "public/relationships/btn", customer: customer %>
   <% else %>
-    <%= link_to edit_customer_path(customer), class: "btn btn-outline-secondary btn-block edit_customer_#{customer.id}" do %>
+    <%= link_to edit_customer_path(customer), class: "edit_customer_#{customer.id} btn_mypage" do %>
       <i class="fas fa-user-cog"></i> Profile
     <% end %>
-    <%= link_to new_post_path, class: "btn btn-outline-secondary btn-block" do %>
+    <%= link_to new_post_path, class: "btn_mypage" do %>
       <i class="fa-solid fa-file-pen"></i> New Post 
     <% end %>
       
     <% if current_customer != customer %>
       <% else %>
         <% unless customer.guest_customer? %>
-          <%= link_to chat_groups_path, class: "btn btn-outline-secondary btn-block" do %>
+          <%= link_to chat_groups_path, class: "btn_mypage" do %>
             <i class="fa-solid fa-comments"></i> Chat
         　<% end %>
         <% end %>
