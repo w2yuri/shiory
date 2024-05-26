@@ -256,6 +256,19 @@ p,td,th {
 .box__ttl {
   font-size: 20px;
   font-weight: bold;
+	display: block;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	margin: auto;
+	padding: 1rem 4rem;
+	background-image: linear-gradient(to right, #d9afd9 0%, #97d9e1 100%);
+	border-radius: 100vh;
+	color: #fff;
+	border: 2px solid #fff;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+	-webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+	transition: 0.5s;  
 }
 .box__txt {
   margin-top: 20px;
