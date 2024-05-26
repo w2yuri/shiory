@@ -25,10 +25,13 @@
         <% end %>
       <% else %>
         <div class="mt-4" style="text-align: center;">
-          <h3>
-            チャットメンバーはいません。
-            <%#= link_to “フォロワーの一覧を確認する” followings_path(customer), class: "btn btn-outline-secondary" %>
-          </h3>
+          <h4>
+            チャットメンバーはいません。<br>
+            チャットしたいメンバーのマイページから、チャットのボタンを押して話しかけてみましょう！
+          </h4>
+          <h4 style="color: #dbac9e;">
+            ※チャットするにはお互いにフォローし合う必要があります。
+          </h4>
         </div>
       <% end %>
     </div>

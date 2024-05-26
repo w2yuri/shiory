@@ -9,7 +9,7 @@ include Rails.application.routes.url_helpers
      if notifiable_type == "Post"
        "フォローしている#{notifiable.customer.name}さんが#{notifiable.title}を投稿しました"
      elsif notifiable_type == "Chat"
-        "チャット"
+        "#{notifiable.customer.name}さんからチャットが届きました"
      else
        "投稿した#{notifiable.post.title}が#{notifiable.customer.name}さんにいいねされました"
      end
@@ -19,7 +19,7 @@ include Rails.application.routes.url_helpers
     if notifiable_type == "Post"
         post_path(notifiable.id)
     elsif notifiable_type == "Chat"
-        root_path
+        chat_path(notifiable.id)
     else
         customer_path(notifiable.customer.id)
     end
