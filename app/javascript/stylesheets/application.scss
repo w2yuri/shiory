@@ -432,3 +432,26 @@ p,td,th {
 	color: #fff;
 	background-image: linear-gradient(to left, #fccb90 0%, #d57eeb 100%);
 }
+
+// ヘッダーボタン
+.btn_top {
+	display: block;
+	text-align: center;
+	vertical-align: middle;
+	text-decoration: none;
+	margin: auto;
+	padding: 1rem 4rem;
+	font-weight: bold;
+	background-image: linear-gradient(to right, #9890e3 0%, #b1f4cf 100%);
+	border-radius: 100vh;
+	color: #fff;
+	border: 2px solid #fff;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+	-webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+	transition: 0.5s;
+}
+.btn_top:hover {
+	color: #fff;
+	background-image: linear-gradient(to left, #9890e3 0%, #b1f4cf 100%);
+}
+
