@@ -66,5 +66,5 @@ class Post < ApplicationRecord
   # ソート機能
   scope :latest, -> {order(created_at: :desc)}
   scope :old, -> {order(created_at: :asc)}
-  scope :favorite_count, -> {order(star: :desc)}
+  scope :favorite_count, -> {order(favorite_count: :desc)}
 end
