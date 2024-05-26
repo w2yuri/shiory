@@ -7,18 +7,28 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-     @post = Post.new
-     @posts = Post.where(status: true).order(params[:sort])
-    # リクエストパラメータにfilterが含まれているかどうかを確認
-     if params[:filter]
-       if params[:is_favorite]
-         customer = Customer.find(params[:filter])
-         favorite_post_ids = customer.favorites.pluck(:post_id)
-         @posts = @posts.where(id: favorite_post_ids)
-       else
-          @posts = @posts.where(customer_id: params[:filter])
-       end
-     end
+    @post = Post.new
+    @posts = Post.where(status: true).order(params[:sort])
+  
+    if params[:filter]
+      if params[:is_favorite]
+        customer = Customer.find(params[:filter])
+        favorite_post_ids = customer.favorites.pluck(:post_id)
+        @posts = @posts.where(id: favorite_post_ids)
+      else
+        @posts = @posts.where(customer_id: params[:filter])
+      end
+    end
+  
+    if params[:latest]
+      @posts = @posts.latest
+    elsif params[:old]
+      @posts = @posts.old
+    elsif params[:favorite_count]
+      @posts = @posts.favorite_count
+    else
+      @posts = @posts.all
+    end
   end
 
   def create
