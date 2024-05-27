@@ -48,8 +48,8 @@ class Public::ChatsController < ApplicationController
   
   # def correct_customer
   #   @customer = Customer.find(params[:id])
-  #   unless current_customer == @customer
-  #     flash[:danger] = '他のユーザーのDMにアクセスすることはできません。'
+  #   unless current_customer == @customer || current_customer.chatting_with?(@customer)
+  #     flash[:danger] = '他のユーザーのチャットにアクセスすることはできません。'
   #     redirect_to root_path
   #   end
   # end
