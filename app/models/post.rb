@@ -62,9 +62,9 @@ class Post < ApplicationRecord
     ids = [posts.ids + post_ids].uniq
     Post.where(id: ids)
   end
-  
+
   # ソート機能
   scope :latest, -> {order(created_at: :desc)}
   scope :old, -> {order(created_at: :asc)}
-  scope :favorite_count, -> {order(favorite_count: :desc)}
+  scope :favorite_count, -> {includes(:favorites).sort_by { |f| f.favorites.includes(:favorites).size }.reverse }
 end

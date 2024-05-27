@@ -5,6 +5,12 @@ class Public::ChatsController < ApplicationController
   def show
     # データベースから対象のカスタマーを検索
     @target_customer = Customer.find(params[:id])
+
+    # 相互フォローでなければチャットできないようにする
+    unless current_customer.following?(@target_customer) && @target_customer.following?(current_customer)
+      redirect_to root_path, notice: '他のユーザーのチャットにアクセスすることはできません。'
+    end
+
     # ログインしているカスタマーのチャットルームのIDを取得
     my_rooms = current_customer.customer_chat_rooms.pluck(:chat_room_id)
     # 対象のカスタマーとログインしているカスタマーのチャットルームを検索
@@ -22,7 +28,7 @@ class Public::ChatsController < ApplicationController
     end
       @chats = @room.chats
       @chat = Chat.new(chat_room_id: @room.id)
-  end 
+  end
 
   def create
     @chat = current_customer.chats.new(chat_params)
@@ -33,7 +39,7 @@ class Public::ChatsController < ApplicationController
     # チャットの保存に失敗した場合、jsのエラーメッセージを表示し、チャットの保存にしたら続行
     render :validate, formats: :js unless @chat.save
   end
-  
+
   def destroy
     @chat = Chat.find(params[:id])
     @chat.destroy
@@ -45,7 +51,7 @@ class Public::ChatsController < ApplicationController
   def chat_params
     params.require(:chat).permit(:message, :chat_room_id)
   end
-  
+
   # def correct_customer
   #   @customer = Customer.find(params[:id])
   #   unless current_customer == @customer || current_customer.chatting_with?(@customer)

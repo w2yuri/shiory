@@ -9,6 +9,9 @@ class Chat < ApplicationRecord
   include Notifiable
   has_one :notification, as: :notifiable, dependent: :destroy
   after_create do
-    create_notification(customer_id: customer_id)
+    targets = chat_room.customer_chat_rooms.where(chat_room_id: chat_room.id).where.not(customer_id: customer_id)
+    targets.each do |target|
+      create_notification(customer_id: target.customer_id)
+    end
   end
 end
