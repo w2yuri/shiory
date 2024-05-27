@@ -23,12 +23,15 @@
                 <tr>
                   <td><%= image_tag customer.get_profile_image(100, 100), class: "rounded-circle profile-image__index" %></td>
                   <td><%= customer.name %></td>
-                  <td>
                     <% if customer_signed_in? %>
-                      <%= render "public/relationships/btn", customer: customer %>
+                      <td>
+                       <%= render "public/relationships/btn", customer: customer %>
+                      </td>
+                      <td><%= link_to 'My Page', customer_path(customer), class: "btn_mypage small" %></td>
                     <% end %>
-                  </td>
-                  <td><%= link_to 'Show', customer_path(customer) %></td>
+                    <% if admin_signed_in? %>
+                      <td><%= link_to 'Show', admin_customer_path(customer) %></td>
+                    <% end %>
                 </tr>
               <% end %>
             </tbody>
@@ -73,3 +76,4 @@
     </div>
   </div>
 </div>
+
