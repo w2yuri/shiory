@@ -5,7 +5,36 @@
   <% end %>
 <% else %>
   <%= link_to post_favorites_path(post), method: :post, remote: true do %>
-    <i class="fa-solid fa-heart fa-3x" aria-hidden="true"></i>
+    <i class="fa-solid fa-heart fa-3x heart-animation" aria-hidden="true"></i>
     <%= post.favorites.count %>
   <% end %>
 <% end %>
+
+
+<script>
+document.querySelectorAll('.heart-animation').forEach(heartIcon => {
+  heartIcon.addEventListener('click', () => {
+    heartIcon.classList.add('animated');
+    setTimeout(() => {
+      heartIcon.classList.remove('animated');
+    }, 2000); 
+  });
+});
+</script>
+
+<style>
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.heart-animation.animated {
+  animation: heartbeat 1s linear;
+}
+</style>
