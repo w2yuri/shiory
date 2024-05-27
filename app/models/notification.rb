@@ -19,7 +19,7 @@ include Rails.application.routes.url_helpers
     if notifiable_type == "Post"
         post_path(notifiable.id)
     elsif notifiable_type == "Chat"
-        chat_path(notifiable.id)
+        chat_path(notifiable.customer_id)
     else
         customer_path(notifiable.customer.id)
     end
