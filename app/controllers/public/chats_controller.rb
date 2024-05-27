@@ -1,5 +1,6 @@
 class Public::ChatsController < ApplicationController
   before_action :authenticate_customer!
+  # before_action :correct_customer, only: [:show]
 
   def show
     # データベースから対象のカスタマーを検索
@@ -44,5 +45,13 @@ class Public::ChatsController < ApplicationController
   def chat_params
     params.require(:chat).permit(:message, :chat_room_id)
   end
+  
+  # def correct_customer
+  #   @customer = Customer.find(params[:id])
+  #   unless current_customer == @customer
+  #     flash[:danger] = '他のユーザーのDMにアクセスすることはできません。'
+  #     redirect_to root_path
+  #   end
+  # end
 
 end

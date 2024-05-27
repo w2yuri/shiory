@@ -1,7 +1,7 @@
 <div class="chat-container">
-  <div class="chat-topbar">
-    <h2><%= @target_customer.name %> さんとのチャット</h2>
-  </div>
+  <center>
+   <h2><%= @target_customer.name %> さんとのチャット</h2>
+  </center>
   <div id="chats-show"  class="chats-show message">
      <%= render "public/chats/messages", chats: @chats %>
   </div>
