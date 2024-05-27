@@ -71,15 +71,15 @@
           </div>
         </div>
         <div class="form-group">
-          <%= f.label :title, 'Title' %>
+          <%= f.label :title, 'Title', class: 'post-style' %>
           <%= f.text_field :title, class: 'form-control', placeholder:"メインタイトルを記入" %>
         </div>
         <div class="form-group">
-          <%= f.label :contents, 'Contents' %>
+          <%= f.label :contents, 'Contents', class: 'post-style' %>
           <%= f.text_area :contents, class: 'form-control', placeholder:'詳細を記入' %>
         </div>
         <div class="form-group">
-          <%= f.label :date, 'Date' %>
+          <%= f.label :date, 'Date', class: 'post-style' %>
           <P> ( 行った日、行きたい日を選択するとカレンダーに反映されます )</P>
           <%= f.date_field :date, class: 'form-control' %>
         </div>
@@ -132,3 +132,17 @@
       $(element).next('.custom-file-label').html(fileName.pop());
   };
 </script>
+
+   <style>
+     .post-style {
+       position: relative;
+       padding: 0.25em 0;
+     }
+     .post-style:after {
+       content: "";
+       display: block;
+       height: 4px;
+       background: -webkit-linear-gradient(to right, rgb(255, 186, 115), #ffb2b2);
+       background: linear-gradient(to right, rgb(255, 186, 115), #ffb2b2);
+     }
+   </style>
