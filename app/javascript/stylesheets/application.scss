@@ -432,3 +432,13 @@ p,td,th {
 	color: #fff;
 	background-image: linear-gradient(to left, #fccb90 0%, #d57eeb 100%);
 }
+
+// タイトルグラデーション
+h1,h2,h3,h4,h6 {
+  padding: 1rem 2rem;
+  color: #fff;
+  border-radius: 10px;
+  background-image: -webkit-gradient(linear, left top, right top, from(#ddd6f3), to(#faaca8));
+  background-image: -webkit-linear-gradient(left, #ddd6f3 0%, #faaca8 100%);
+  background-image: linear-gradient(to right, #ddd6f3 0%, #faaca8 100%);
+}
